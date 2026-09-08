@@ -173,24 +173,45 @@ export default function Home() {
       <section className="py-24 sm:py-32 bg-[#0c0d12] border-t border-white/5 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Column: Visual Atmosphere */}
+            {/* Left Column: Visual Architectural & Sensory Experience */}
             <div className="lg:col-span-6 relative">
-              <div className="relative aspect-[16/11] rounded-xl overflow-hidden border border-white/15 bg-[#12141c] shadow-2xl">
-                <Image
-                  src="/images/venue-interior.jpg"
-                  alt="XO Lounge Atmosphere"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#08090b]/80 via-transparent to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5">
-                  <span className="text-[10px] font-mono tracking-widest text-[#c5a880] uppercase block mb-1">
-                    CORKTOWN TORONTO
+              <div className="rounded-xl border border-white/15 bg-[#12141c] p-8 sm:p-10 shadow-2xl space-y-6 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-[#c5a880]/5 rounded-full blur-2xl pointer-events-none" />
+
+                <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                  <span className="text-[10px] font-mono tracking-widest text-[#c5a880] uppercase">
+                    CORKTOWN SANCTUARY • 43.6558° N, 79.3621° W
                   </span>
-                  <span className="font-serif text-lg font-bold text-white block">
-                    The Main Salon & Geometric Canopy
+                  <span className="text-[10px] font-mono text-[#71717a]">EST. 2025</span>
+                </div>
+
+                <div className="space-y-3">
+                  <span className="text-xs font-serif italic text-[#c5a880]">
+                    "An intimate crossroads of global sound and East African warmth."
                   </span>
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-wide">
+                    The Sensory Blueprint
+                  </h3>
+                  <p className="text-xs text-[#a1a1aa] leading-relaxed">
+                    Designed as a sanctuary for Toronto tastemakers. Experience acoustic sound
+                    calibration tuned for low-end Amapiano log drums, custom geometric lighting
+                    canopies, and an expansive 25-stool marble cocktail island.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 pt-2 border-t border-white/5 text-xs font-mono">
+                  <div className="p-3 rounded-lg bg-[#0f1117] border border-white/5">
+                    <span className="text-[10px] text-[#71717a] block uppercase">
+                      Cocktail Craft
+                    </span>
+                    <span className="text-white font-semibold">Tej & Korerima Infusions</span>
+                  </div>
+                  <div className="p-3 rounded-lg bg-[#0f1117] border border-white/5">
+                    <span className="text-[10px] text-[#71717a] block uppercase">
+                      Sound Profile
+                    </span>
+                    <span className="text-white font-semibold">Amapiano & Global Club</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -220,7 +241,7 @@ export default function Home() {
               <div className="pt-2 flex items-center gap-6">
                 <Link
                   href="/info"
-                  className="inline-flex items-center gap-2 text-xs font-mono text-[#c5a880] hover:text-[#e6d5b8] uppercase tracking-[0.15em] transition-colors"
+                  className="inline-flex items-center gap-2 text-xs font-mono text-[#c5a880] hover:text-[#e6d5b8] uppercase tracking-[0.15em] transition-colors min-h-[44px]"
                 >
                   <span>Location, Hours & Dress Code</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -245,12 +266,15 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Pillar 1: VIP Tables */}
-            <div className="rounded-xl border border-white/10 bg-[#0f1117] p-8 flex flex-col justify-between space-y-6 hover:border-[#c5a880]/40 transition-all duration-300 shadow-xl group">
+            <Link
+              href="/tables"
+              className="rounded-xl border border-white/10 bg-[#0f1117] p-8 flex flex-col justify-between space-y-6 hover:border-[#c5a880]/50 transition-all duration-300 shadow-xl group cursor-pointer"
+            >
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-lg bg-[#141620] border border-white/10 flex items-center justify-center text-[#c5a880]">
+                <div className="w-12 h-12 rounded-lg bg-[#141620] border border-white/10 flex items-center justify-center text-[#c5a880] group-hover:scale-105 transition-transform">
                   <Sparkles className="w-6 h-6" />
                 </div>
-                <h3 className="font-serif text-2xl font-bold text-white tracking-wide">
+                <h3 className="font-serif text-2xl font-bold text-white tracking-wide group-hover:text-[#e6d5b8] transition-colors">
                   VIP Tables & Seating
                 </h3>
                 <p className="text-xs text-[#a1a1aa] leading-relaxed">
@@ -258,22 +282,22 @@ export default function Home() {
                   ($400–$750 CAD), sparkler presentations, and dedicated VIP host service.
                 </p>
               </div>
-              <Link
-                href="/tables"
-                className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#c5a880] group-hover:text-white transition-colors"
-              >
+              <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#c5a880] group-hover:text-white transition-colors min-h-[44px]">
                 <span>Explore Tables & Floorplan</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
+              </div>
+            </Link>
 
             {/* Pillar 2: Weekend Residencies */}
-            <div className="rounded-xl border border-white/10 bg-[#0f1117] p-8 flex flex-col justify-between space-y-6 hover:border-[#c5a880]/40 transition-all duration-300 shadow-xl group">
+            <Link
+              href="/events"
+              className="rounded-xl border border-white/10 bg-[#0f1117] p-8 flex flex-col justify-between space-y-6 hover:border-[#c5a880]/50 transition-all duration-300 shadow-xl group cursor-pointer"
+            >
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-lg bg-[#141620] border border-white/10 flex items-center justify-center text-[#c5a880]">
+                <div className="w-12 h-12 rounded-lg bg-[#141620] border border-white/10 flex items-center justify-center text-[#c5a880] group-hover:scale-105 transition-transform">
                   <Music className="w-6 h-6" />
                 </div>
-                <h3 className="font-serif text-2xl font-bold text-white tracking-wide">
+                <h3 className="font-serif text-2xl font-bold text-white tracking-wide group-hover:text-[#e6d5b8] transition-colors">
                   Sound & DJ Residencies
                 </h3>
                 <p className="text-xs text-[#a1a1aa] leading-relaxed">
@@ -281,22 +305,22 @@ export default function Home() {
                   anthems. Complimentary guestlist entry passes available before 11:00 PM.
                 </p>
               </div>
-              <Link
-                href="/events"
-                className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#c5a880] group-hover:text-white transition-colors"
-              >
+              <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#c5a880] group-hover:text-white transition-colors min-h-[44px]">
                 <span>View Program & Guestlist</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
+              </div>
+            </Link>
 
             {/* Pillar 3: Diaspora Dining & Mixology */}
-            <div className="rounded-xl border border-white/10 bg-[#0f1117] p-8 flex flex-col justify-between space-y-6 hover:border-[#c5a880]/40 transition-all duration-300 shadow-xl group">
+            <Link
+              href="/menus"
+              className="rounded-xl border border-white/10 bg-[#0f1117] p-8 flex flex-col justify-between space-y-6 hover:border-[#c5a880]/50 transition-all duration-300 shadow-xl group cursor-pointer"
+            >
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-lg bg-[#141620] border border-white/10 flex items-center justify-center text-[#c5a880]">
+                <div className="w-12 h-12 rounded-lg bg-[#141620] border border-white/10 flex items-center justify-center text-[#c5a880] group-hover:scale-105 transition-transform">
                   <GlassWater className="w-6 h-6" />
                 </div>
-                <h3 className="font-serif text-2xl font-bold text-white tracking-wide">
+                <h3 className="font-serif text-2xl font-bold text-white tracking-wide group-hover:text-[#e6d5b8] transition-colors">
                   Cocktails & Diaspora Tapas
                 </h3>
                 <p className="text-xs text-[#a1a1aa] leading-relaxed">
@@ -305,14 +329,11 @@ export default function Home() {
                   bottles.
                 </p>
               </div>
-              <Link
-                href="/menus"
-                className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#c5a880] group-hover:text-white transition-colors"
-              >
+              <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#c5a880] group-hover:text-white transition-colors min-h-[44px]">
                 <span>Explore Curated Menus</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
+              </div>
+            </Link>
           </div>
         </div>
       </section>

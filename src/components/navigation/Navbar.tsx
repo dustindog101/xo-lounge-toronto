@@ -83,7 +83,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Multi-Page Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7 text-[12px] font-medium tracking-[0.12em] uppercase text-[#a1a1aa]">
+          <nav className="hidden lg:flex items-center gap-5 text-[12px] font-medium tracking-[0.12em] uppercase text-[#a1a1aa]">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -128,16 +128,16 @@ export default function Navbar() {
             {/* Direct Call RSVP Button */}
             <a
               href="tel:+14374730042"
-              className="hidden md:flex items-center gap-2 px-3.5 py-2 min-h-[44px] rounded-md border border-white/10 bg-[#151821] hover:bg-[#1a1d28] hover:border-white/20 text-[#f4f4f5] text-xs font-medium tracking-wider transition-colors"
+              className="hidden xl:flex items-center gap-2 px-3.5 py-2 min-h-[44px] rounded-md border border-white/10 bg-[#151821] hover:bg-[#1a1d28] hover:border-white/20 text-[#f4f4f5] text-xs font-medium tracking-wider transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-[#c5a880]" />
               <span className="font-mono">(437) 473-0042</span>
             </a>
 
-            {/* Reserve VIP Table CTA */}
+            {/* Reserve VIP Table CTA - Hidden on mobile, accessible via sticky bottom dock */}
             <Link
               href="/tables"
-              className="flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-md bg-[#c5a880] hover:bg-[#d4af37] text-[#08090b] text-xs sm:text-sm font-semibold tracking-wider transition-all cursor-pointer shadow-sm"
+              className="hidden sm:flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-md bg-[#c5a880] hover:bg-[#d4af37] text-[#08090b] text-xs sm:text-sm font-semibold tracking-wider transition-all cursor-pointer shadow-sm"
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>{language === "en" ? "RESERVE TABLE" : "ቦታ ይያዙ"}</span>
@@ -147,7 +147,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-md border border-white/10 bg-[#12141c] text-[#a1a1aa] hover:text-white"
+              className="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-md border border-white/10 bg-[#12141c] text-[#a1a1aa] hover:text-white cursor-pointer"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

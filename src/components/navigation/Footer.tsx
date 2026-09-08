@@ -156,7 +156,7 @@ export default function Footer() {
                 href="https://www.instagram.com/xo_lounge_toronto/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-md bg-[#12141c] hover:bg-[#181a24] text-white flex items-center justify-center border border-white/10 transition-colors"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-md bg-[#12141c] hover:bg-[#181a24] text-white flex items-center justify-center border border-white/10 transition-colors"
                 aria-label="Instagram"
               >
                 <InstagramIcon className="w-4 h-4 text-[#c5a880]" />
@@ -165,7 +165,7 @@ export default function Footer() {
                 href="https://www.facebook.com/xoloungetoronto/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-md bg-[#12141c] hover:bg-[#181a24] text-white flex items-center justify-center border border-white/10 transition-colors"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-md bg-[#12141c] hover:bg-[#181a24] text-white flex items-center justify-center border border-white/10 transition-colors"
                 aria-label="Facebook"
               >
                 <FacebookIcon className="w-4 h-4 text-[#c5a880]" />
