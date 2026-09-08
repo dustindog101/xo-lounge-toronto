@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Compass, GlassWater, Music, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronRight, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
@@ -9,157 +9,135 @@ export default function Home() {
   const { language } = useLanguage();
 
   return (
-    <main className="relative selection:bg-[#c5a880] selection:text-[#08090b]">
-      {/* 1. Cinematic Hero Section */}
-      <section className="relative min-h-[92dvh] flex items-center justify-center pt-28 pb-20 overflow-hidden bg-[#08090b]">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#08090b]/60 to-[#08090b] pointer-events-none" />
+    <main className="relative selection:bg-[#c5a880] selection:text-[#07080a]">
+      {/* 1. Cinematic Editorial Hero Section */}
+      <section className="relative min-h-[94dvh] flex items-center justify-center pt-28 pb-20 overflow-hidden bg-[#07080a]">
+        {/* Subtle Ambient Radial Lighting */}
+        <div className="absolute inset-0 ambient-luxury-bg pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#07080a]/40 to-[#07080a] pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Narrative */}
-            <div className="lg:col-span-7 text-center lg:text-left space-y-7">
-              {/* Location Tag */}
-              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#c5a880]/30 bg-[#12141c]">
-                <span className="w-2 h-2 rounded-full bg-[#c5a880]" />
-                <span className="font-mono text-[11px] tracking-[0.2em] text-[#e6d5b8] uppercase">
+            {/* Left Column: High-Fashion Typography & Tone */}
+            <div className="lg:col-span-7 text-center lg:text-left space-y-8">
+              {/* Refined Coordinates Tag */}
+              <div className="flex items-center justify-center lg:justify-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]" />
+                <span className="font-mono text-[11px] tracking-[0.25em] text-[#a1a1aa] uppercase">
                   {language === "en"
-                    ? "364 Queen St East • Corktown Toronto"
-                    : "364 ንግሥት ጎዳና ምስራቅ • ቶሮንቶ"}
+                    ? "CORKTOWN TORONTO • 364 QUEEN ST E"
+                    : "ኮርክታውን ቶሮንቶ • 364 ንግሥት ጎዳና ምስራቅ"}
                 </span>
               </div>
 
-              {/* Headline */}
-              <div className="space-y-2">
-                <h1 className="font-serif text-4xl sm:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.08]">
+              {/* Title with Uncompromised Editorial Serifs */}
+              <div className="space-y-3">
+                <h1 className="font-serif text-4xl sm:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.06]">
                   {language === "en" ? (
                     <>
                       WHERE SOUND <br />
-                      <span className="text-[#c5a880]">MEETS SANCTUARY.</span>
+                      BECOMES SANCTUARY.
                     </>
                   ) : (
                     <>
                       የምሽት ህይወት <br />
-                      <span className="text-[#c5a880]">ከከፍተኛ ድባብ ጋር</span>
+                      ከከፍተኛ ድባብ ጋር
                     </>
                   )}
                 </h1>
-                {language === "en" && (
-                  <p className="font-serif italic text-base sm:text-lg text-[#a1a1aa] tracking-wide">
-                    An elevated East African & global nightlife experience in Corktown.
-                  </p>
-                )}
+                <p className="font-serif italic text-base sm:text-xl text-[#c5a880] tracking-wide">
+                  {language === "en"
+                    ? "Afro-Diaspora rhythm, architectural illumination, and bottle service."
+                    : "ዘመናዊ የምሽት ክበብ እና የቪአይፒ ላውንጅ በቶሮንቶ።"}
+                </p>
               </div>
 
-              {/* Editorial Subtitle */}
+              {/* Editorial Copy */}
               <p className="text-sm sm:text-base text-[#a1a1aa] max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                 {language === "en"
-                  ? "XO Lounge redefines Toronto nightlife. Custom architectural illumination, curated Afrobeats, Amapiano and R&B weekend DJ lineups, private VIP bottle service booths, and signature diaspora-infused craft cocktails."
+                  ? "Nestled in historic Corktown, XO Lounge brings together Toronto's late-night culture with the warmth, sound, and hospitality of the East African diaspora. Low-end Amapiano resonance, custom canopy lighting, artisanal botanicals, and bespoke VIP booth service."
                   : "በቶሮንቶ ምርጥ የምሽት ክበብ እና ላውንጅ ይደሰቱ። ዘመናዊ መብራቶች፣ አስደሳች የአፍሮቢትስ እና R&B ሙዚቃዎች፣ የቪአይፒ ቦቲል ሰርቪስ እና ልዩ ኮክቴሎች።"}
               </p>
 
-              {/* Primary Action Buttons */}
+              {/* Action Buttons with Strict Minimum Touch Targets */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
                 <Link
                   href="/tables"
-                  className="w-full sm:w-auto px-8 py-4 rounded-md bg-[#c5a880] hover:bg-[#d4af37] text-[#08090b] font-semibold text-xs sm:text-sm tracking-[0.15em] uppercase transition-all flex items-center justify-center gap-3 cursor-pointer min-h-[48px] shadow-lg shadow-black/40"
+                  className="w-full sm:w-auto px-8 py-4 rounded-sm bg-[#c5a880] hover:bg-[#d4af37] text-[#07080a] font-semibold text-xs sm:text-sm tracking-[0.18em] uppercase transition-all flex items-center justify-center gap-3 cursor-pointer min-h-[48px] shadow-lg shadow-black/60"
                 >
-                  <Sparkles className="w-4 h-4 text-[#08090b]" />
+                  <Sparkles className="w-4 h-4 text-[#07080a]" />
                   <span>{language === "en" ? "RESERVE VIP TABLE" : "ቪአይፒ ቦታ ይያዙ"}</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
                 <Link
                   href="/events"
-                  className="w-full sm:w-auto px-7 py-4 rounded-md border border-white/20 hover:border-[#c5a880] hover:text-[#e6d5b8] text-white font-medium text-xs sm:text-sm tracking-[0.15em] uppercase transition-colors flex items-center justify-center gap-2.5 min-h-[48px]"
+                  className="w-full sm:w-auto px-8 py-4 rounded-sm border border-white/20 hover:border-[#c5a880] hover:text-[#e6d5b8] text-white font-medium text-xs sm:text-sm tracking-[0.18em] uppercase transition-colors flex items-center justify-center gap-2.5 min-h-[48px]"
                 >
-                  <Music className="w-4 h-4 text-[#c5a880]" />
-                  <span>{language === "en" ? "DJ RESIDENCIES" : "የሳምንቱ ዲጄዎች"}</span>
+                  <span>{language === "en" ? "SOUND RESIDENCIES" : "የሳምንቱ ዲጄዎች"}</span>
+                  <ChevronRight className="w-4 h-4 text-[#c5a880]" />
                 </Link>
               </div>
 
-              {/* Highlights Micro-Bar */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-white/10">
-                <div className="p-3.5 rounded-md bg-[#11131a] border border-white/5 text-left">
-                  <div className="flex items-center gap-1.5 text-[#c5a880] mb-1">
-                    <Music className="w-3.5 h-3.5" />
-                    <span className="text-[11px] font-mono tracking-wider font-semibold uppercase">
-                      DJs FRI–SUN
-                    </span>
-                  </div>
-                  <div className="text-[11px] text-[#71717a]">Afrobeats, Amapiano & R&B</div>
-                </div>
-
-                <div className="p-3.5 rounded-md bg-[#11131a] border border-white/5 text-left">
-                  <div className="flex items-center gap-1.5 text-[#c5a880] mb-1">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span className="text-[11px] font-mono tracking-wider font-semibold uppercase">
-                      VIP BOOTHS
-                    </span>
-                  </div>
-                  <div className="text-[11px] text-[#71717a]">Dedicated Concierge Host</div>
-                </div>
-
-                <div className="p-3.5 rounded-md bg-[#11131a] border border-white/5 text-left">
-                  <div className="flex items-center gap-1.5 text-[#c5a880] mb-1">
-                    <GlassWater className="w-3.5 h-3.5" />
-                    <span className="text-[11px] font-mono tracking-wider font-semibold uppercase">
-                      CRAFT BAR
-                    </span>
-                  </div>
-                  <div className="text-[11px] text-[#71717a]">Diaspora Botanicals & Bites</div>
-                </div>
-
-                <div className="p-3.5 rounded-md bg-[#11131a] border border-white/5 text-left">
-                  <div className="flex items-center gap-1.5 text-[#c5a880] mb-1">
-                    <Compass className="w-3.5 h-3.5" />
-                    <span className="text-[11px] font-mono tracking-wider font-semibold uppercase">
-                      CORKTOWN
-                    </span>
-                  </div>
-                  <div className="text-[11px] text-[#71717a]">Queen East & Parliament</div>
-                </div>
+              {/* Architectural Datum Line */}
+              <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-2 text-[11px] font-mono tracking-widest text-[#71717a] uppercase">
+                <span className="flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[#c5a880]" />
+                  DJs FRI–SUN
+                </span>
+                <span className="flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[#c5a880]" />
+                  AFROBEATS & AMAPIANO
+                </span>
+                <span className="flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[#c5a880]" />
+                  MARBLE ISLAND BAR
+                </span>
+                <span className="flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[#c5a880]" />
+                  VIP CONCIERGE
+                </span>
               </div>
             </div>
 
-            {/* Right Monograph Card */}
+            {/* Right Column: Architectural Monograph Plate */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-xl overflow-hidden border border-white/15 bg-[#10121a] shadow-2xl shadow-black/80">
-                <div className="relative aspect-[4/3] w-full">
+              <div className="relative border border-white/15 bg-[#0e1017] p-3 sm:p-4 shadow-2xl shadow-black">
+                <div className="relative aspect-[4/3] w-full overflow-hidden border border-white/10">
                   <Image
                     src="/images/venue-interior.jpg"
-                    alt="XO Lounge Toronto Interior with custom geometric lighting and marble bar"
+                    alt="XO Lounge Toronto Interior with custom geometric canopy lighting and marble bar"
                     fill
                     priority
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c0d12] via-transparent to-black/20" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e1017] via-transparent to-black/20" />
                 </div>
 
-                <div className="p-6 space-y-4">
-                  <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                    <span className="text-[10px] font-mono tracking-[0.2em] text-[#c5a880] uppercase">
-                      MAIN ROOM ARCHITECTURE
-                    </span>
-                    <span className="text-[10px] font-mono text-[#71717a]">364 QUEEN ST E</span>
+                <div className="pt-5 pb-2 px-2 space-y-3">
+                  <div className="flex items-center justify-between text-[10px] font-mono tracking-[0.2em] text-[#a1a1aa] uppercase border-b border-white/10 pb-2">
+                    <span className="text-[#c5a880]">PLATE 01 • MAIN ROOM</span>
+                    <span>43.6558° N, 79.3621° W</span>
                   </div>
 
-                  <h3 className="font-serif text-xl font-bold text-white tracking-wide">
-                    Geometric Illumination & Marble Bar
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-white tracking-wide">
+                    Geometric Illumination & Acoustic Tuning
                   </h3>
 
                   <p className="text-xs text-[#a1a1aa] leading-relaxed">
-                    Designed for milestone celebrations, weekend table service, and private buyouts.
-                    Featuring state-of-the-art acoustic tuning and elevated booth sightlines.
+                    Designed for milestone celebrations, weekend bottle service, and private
+                    gatherings. Featuring bespoke sound calibration tuned for deep basslines and
+                    intimate booth sightlines.
                   </p>
 
-                  <div className="pt-2 flex items-center justify-between text-xs">
-                    <span className="text-[#71717a]">Table RSVP Direct:</span>
+                  <div className="pt-2 flex items-center justify-between text-xs font-mono">
+                    <span className="text-[#71717a]">VIP Inquiries:</span>
                     <a
                       href="tel:+14374730042"
-                      className="text-[#e6d5b8] font-mono font-medium hover:text-white transition-colors"
+                      className="text-[#e6d5b8] hover:text-white transition-colors underline decoration-[#c5a880]/40 underline-offset-4"
                     >
-                      +1 437-473-0042
+                      +1 (437) 473-0042
                     </a>
                   </div>
                 </div>
@@ -169,81 +147,214 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. The Atmosphere & Cultural Narrative (Spacious Editorial Section) */}
-      <section className="py-24 sm:py-32 bg-[#0c0d12] border-t border-white/5 relative">
+      {/* 2. The Cultural Narrative & Ethos (Magazine Spread) */}
+      <section className="py-24 sm:py-32 bg-[#0b0c10] border-t border-white/5 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Column: Visual Architectural & Sensory Experience */}
-            <div className="lg:col-span-6 relative">
-              <div className="rounded-xl border border-white/15 bg-[#12141c] p-8 sm:p-10 shadow-2xl space-y-6 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-48 h-48 bg-[#c5a880]/5 rounded-full blur-2xl pointer-events-none" />
+            {/* Left Column: Spatial Narrative */}
+            <div className="lg:col-span-5 space-y-6">
+              <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase block">
+                THE XO ETHOS
+              </span>
 
-                <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                  <span className="text-[10px] font-mono tracking-widest text-[#c5a880] uppercase">
-                    CORKTOWN SANCTUARY • 43.6558° N, 79.3621° W
-                  </span>
-                  <span className="text-[10px] font-mono text-[#71717a]">EST. 2025</span>
-                </div>
-
-                <div className="space-y-3">
-                  <span className="text-xs font-serif italic text-[#c5a880]">
-                    "An intimate crossroads of global sound and East African warmth."
-                  </span>
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-wide">
-                    The Sensory Blueprint
-                  </h3>
-                  <p className="text-xs text-[#a1a1aa] leading-relaxed">
-                    Designed as a sanctuary for Toronto tastemakers. Experience acoustic sound
-                    calibration tuned for low-end Amapiano log drums, custom geometric lighting
-                    canopies, and an expansive 25-stool marble cocktail island.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3 pt-2 border-t border-white/5 text-xs font-mono">
-                  <div className="p-3 rounded-lg bg-[#0f1117] border border-white/5">
-                    <span className="text-[10px] text-[#71717a] block uppercase">
-                      Cocktail Craft
-                    </span>
-                    <span className="text-white font-semibold">Tej & Korerima Infusions</span>
-                  </div>
-                  <div className="p-3 rounded-lg bg-[#0f1117] border border-white/5">
-                    <span className="text-[10px] text-[#71717a] block uppercase">
-                      Sound Profile
-                    </span>
-                    <span className="text-white font-semibold">Amapiano & Global Club</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column: Editorial Text */}
-            <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#c5a880]/30 bg-[#12141c] text-xs font-mono text-[#e6d5b8]">
-                <span className="tracking-widest uppercase">THE XO PHILOSOPHY</span>
-              </div>
-
-              <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight leading-tight">
+              <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight leading-[1.12]">
                 Where Toronto Meets East Africa After Dark.
               </h2>
 
               <p className="text-sm sm:text-base text-[#a1a1aa] leading-relaxed">
-                Nestled on Queen Street East near Parliament, XO Lounge brings together Toronto's
-                diverse nightlife culture with the soul, rhythm, and hospitality of the East African
-                diaspora.
+                XO Lounge redefines Queen Street East with a sanctuary of sound, diaspora
+                hospitality, and modern luxury. Here, Toronto’s vibrant creative community gathers
+                around an expansive marble cocktail island, plush velvet banquettes, and deep
+                Amapiano and Afrobeats rhythms.
               </p>
 
-              <p className="text-sm sm:text-base text-[#a1a1aa] leading-relaxed">
-                Whether you arrive for our Friday & Saturday DJ residencies, celebrate a birthday
-                with bespoke sparkler service, or sip artisanal cocktails crafted with Ethiopian
-                honey and wild korerima, every evening is crafted with effortless sophistication.
-              </p>
-
-              <div className="pt-2 flex items-center gap-6">
+              <div className="pt-2">
                 <Link
                   href="/info"
-                  className="inline-flex items-center gap-2 text-xs font-mono text-[#c5a880] hover:text-[#e6d5b8] uppercase tracking-[0.15em] transition-colors min-h-[44px]"
+                  className="inline-flex items-center gap-2 text-xs font-mono text-[#c5a880] hover:text-white uppercase tracking-[0.2em] transition-colors"
                 >
-                  <span>Location, Hours & Dress Code</span>
+                  <span>Location, Hours & Etiquette</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column: Architectural Materiality Dossier */}
+            <div className="lg:col-span-7">
+              <div className="border border-white/10 bg-[#0e1017] p-8 sm:p-12 space-y-8 relative">
+                <div className="flex items-center justify-between border-b border-white/10 pb-4 text-xs font-mono text-[#71717a] uppercase tracking-widest">
+                  <span>CORKTOWN DESIGN DOSSIER</span>
+                  <span>EST. 2025</span>
+                </div>
+
+                <div className="space-y-4">
+                  <p className="font-serif italic text-lg sm:text-2xl text-[#e6d5b8] leading-snug">
+                    "An intimate crossroads of low-end log drums, smoked spirits, and Habesha
+                    hospitality."
+                  </p>
+                  <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed">
+                    Every element was designed for sensory immersion: from acoustic sound dampening
+                    that keeps conversations crisp at the booth, to Ethiopian wild honey (*mar*) and
+                    *korerima* cardamom reductions infused into our top-shelf cocktail repertoire.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-white/10">
+                  <div className="space-y-1">
+                    <span className="text-[10px] font-mono tracking-widest text-[#c5a880] uppercase block">
+                      SOUND ARCHITECTURE
+                    </span>
+                    <span className="font-serif text-base font-bold text-white block">
+                      Amapiano, Afrobeats & R&B
+                    </span>
+                    <span className="text-xs text-[#71717a] leading-relaxed block">
+                      Custom low-end acoustic staging for resident weekend selectors.
+                    </span>
+                  </div>
+
+                  <div className="space-y-1">
+                    <span className="text-[10px] font-mono tracking-widest text-[#c5a880] uppercase block">
+                      BOTANICAL REPERTOIRE
+                    </span>
+                    <span className="font-serif text-base font-bold text-white block">
+                      Diaspora Craft Cocktails
+                    </span>
+                    <span className="text-xs text-[#71717a] leading-relaxed block">
+                      Tej infusions, smoked bourbon, and late-night savory tapas.
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. The Three Hospitality Chapters (Editorial Layout, No Generic Cards) */}
+      <section className="py-24 sm:py-32 bg-[#07080a] border-t border-white/5 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="max-w-3xl mb-16 space-y-3">
+            <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase block">
+              THE EXPERIENCE
+            </span>
+            <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
+              Hospitality, Sound & Libations
+            </h2>
+            <p className="text-sm sm:text-base text-[#a1a1aa]">
+              Curated dimensions of the XO experience. Explore our room architecture, weekend
+              lineups, or craft repertoire.
+            </p>
+          </div>
+
+          {/* 3 Editorial Chapters */}
+          <div className="divide-y divide-white/10 border-y border-white/10">
+            {/* Chapter I: VIP Tables */}
+            <div className="py-10 sm:py-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center group">
+              <div className="lg:col-span-3">
+                <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase block mb-1">
+                  CHAPTER I
+                </span>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white group-hover:text-[#e6d5b8] transition-colors">
+                  VIP Tables & Seating
+                </h3>
+              </div>
+
+              <div className="lg:col-span-6 text-sm text-[#a1a1aa] leading-relaxed space-y-2">
+                <p>
+                  Interactive architectural floorplan, dedicated concierge hosts, sparkler bottle
+                  parades, and transparent spend parameters ($400–$1,400 CAD). Stage VIP booths,
+                  intimate salon banquettes, and elevated corner seating.
+                </p>
+                <div className="flex items-center gap-4 text-xs font-mono text-[#71717a]">
+                  <span>4 TO 15 GUESTS</span>
+                  <span>•</span>
+                  <span>LINE-BYPASS ADMISSION</span>
+                  <span>•</span>
+                  <span>UNLIMITED MIXERS</span>
+                </div>
+              </div>
+
+              <div className="lg:col-span-3 flex justify-start lg:justify-end">
+                <Link
+                  href="/tables"
+                  className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-[0.18em] text-[#c5a880] hover:text-white transition-colors border-b border-[#c5a880]/30 hover:border-white pb-1 min-h-[44px]"
+                >
+                  <span>Explore Tables & Floorplan</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Chapter II: Sound Residencies */}
+            <div className="py-10 sm:py-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center group">
+              <div className="lg:col-span-3">
+                <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase block mb-1">
+                  CHAPTER II
+                </span>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white group-hover:text-[#e6d5b8] transition-colors">
+                  Weekend Residencies
+                </h3>
+              </div>
+
+              <div className="lg:col-span-6 text-sm text-[#a1a1aa] leading-relaxed space-y-2">
+                <p>
+                  Toronto’s premier selectors spinning Afrobeats, Amapiano, R&B, and global club
+                  anthems every Friday and Saturday until 3:00 AM. Complimentary guestlist passes
+                  available before 11:00 PM.
+                </p>
+                <div className="flex items-center gap-4 text-xs font-mono text-[#71717a]">
+                  <span>FRIDAY & SATURDAY</span>
+                  <span>•</span>
+                  <span>GUESTLIST PASSES</span>
+                  <span>•</span>
+                  <span>LIVE MC & SELECTORS</span>
+                </div>
+              </div>
+
+              <div className="lg:col-span-3 flex justify-start lg:justify-end">
+                <Link
+                  href="/events"
+                  className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-[0.18em] text-[#c5a880] hover:text-white transition-colors border-b border-[#c5a880]/30 hover:border-white pb-1 min-h-[44px]"
+                >
+                  <span>View DJ Program & Guestlist</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Chapter III: Repertoire & Dining */}
+            <div className="py-10 sm:py-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center group">
+              <div className="lg:col-span-3">
+                <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase block mb-1">
+                  CHAPTER III
+                </span>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white group-hover:text-[#e6d5b8] transition-colors">
+                  Cocktails & Diaspora Tapas
+                </h3>
+              </div>
+
+              <div className="lg:col-span-6 text-sm text-[#a1a1aa] leading-relaxed space-y-2">
+                <p>
+                  From smoked bourbon reductions and Ethiopian honey infusions to crispy prime beef
+                  sambusas and slow-roasted korerima lamb riblets. Top-shelf agave, cognac, and
+                  vintage champagne.
+                </p>
+                <div className="flex items-center gap-4 text-xs font-mono text-[#71717a]">
+                  <span>CRAFT MIXOLOGY</span>
+                  <span>•</span>
+                  <span>TOP-SHELF SPIRITS</span>
+                  <span>•</span>
+                  <span>LATE-NIGHT KITCHEN</span>
+                </div>
+              </div>
+
+              <div className="lg:col-span-3 flex justify-start lg:justify-end">
+                <Link
+                  href="/menus"
+                  className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-[0.18em] text-[#c5a880] hover:text-white transition-colors border-b border-[#c5a880]/30 hover:border-white pb-1 min-h-[44px]"
+                >
+                  <span>Explore Printed Repertoire</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -252,112 +363,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Three Pillars: Seating, Sound, Menus (Spacious 3-Column Editorial Grid) */}
-      <section className="py-24 sm:py-32 bg-[#08090b] border-t border-white/5 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <span className="text-[10px] font-mono tracking-widest text-[#c5a880] uppercase block">
-              EXPERIENCE THE ROOM
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight">
-              Hospitality, Music & Mixology
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Pillar 1: VIP Tables */}
-            <Link
-              href="/tables"
-              className="rounded-xl border border-white/10 bg-[#0f1117] p-8 flex flex-col justify-between space-y-6 hover:border-[#c5a880]/50 transition-all duration-300 shadow-xl group cursor-pointer"
-            >
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-lg bg-[#141620] border border-white/10 flex items-center justify-center text-[#c5a880] group-hover:scale-105 transition-transform">
-                  <Sparkles className="w-6 h-6" />
-                </div>
-                <h3 className="font-serif text-2xl font-bold text-white tracking-wide group-hover:text-[#e6d5b8] transition-colors">
-                  VIP Tables & Seating
-                </h3>
-                <p className="text-xs text-[#a1a1aa] leading-relaxed">
-                  Interactive architectural floorplan, transparent bottle minimum spend parameters
-                  ($400–$750 CAD), sparkler presentations, and dedicated VIP host service.
-                </p>
-              </div>
-              <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#c5a880] group-hover:text-white transition-colors min-h-[44px]">
-                <span>Explore Tables & Floorplan</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
-            </Link>
-
-            {/* Pillar 2: Weekend Residencies */}
-            <Link
-              href="/events"
-              className="rounded-xl border border-white/10 bg-[#0f1117] p-8 flex flex-col justify-between space-y-6 hover:border-[#c5a880]/50 transition-all duration-300 shadow-xl group cursor-pointer"
-            >
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-lg bg-[#141620] border border-white/10 flex items-center justify-center text-[#c5a880] group-hover:scale-105 transition-transform">
-                  <Music className="w-6 h-6" />
-                </div>
-                <h3 className="font-serif text-2xl font-bold text-white tracking-wide group-hover:text-[#e6d5b8] transition-colors">
-                  Sound & DJ Residencies
-                </h3>
-                <p className="text-xs text-[#a1a1aa] leading-relaxed">
-                  Friday and Saturday headliners spinning Afrobeats, Amapiano, R&B, and global club
-                  anthems. Complimentary guestlist entry passes available before 11:00 PM.
-                </p>
-              </div>
-              <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#c5a880] group-hover:text-white transition-colors min-h-[44px]">
-                <span>View Program & Guestlist</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
-            </Link>
-
-            {/* Pillar 3: Diaspora Dining & Mixology */}
-            <Link
-              href="/menus"
-              className="rounded-xl border border-white/10 bg-[#0f1117] p-8 flex flex-col justify-between space-y-6 hover:border-[#c5a880]/50 transition-all duration-300 shadow-xl group cursor-pointer"
-            >
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-lg bg-[#141620] border border-white/10 flex items-center justify-center text-[#c5a880] group-hover:scale-105 transition-transform">
-                  <GlassWater className="w-6 h-6" />
-                </div>
-                <h3 className="font-serif text-2xl font-bold text-white tracking-wide group-hover:text-[#e6d5b8] transition-colors">
-                  Cocktails & Diaspora Tapas
-                </h3>
-                <p className="text-xs text-[#a1a1aa] leading-relaxed">
-                  Craft cocktail repertoire highlighting botanical infusions (Amharic Gold, Queen
-                  East Old Fashioned) alongside crisp beef sambusas, lamb riblets, and prestige
-                  bottles.
-                </p>
-              </div>
-              <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#c5a880] group-hover:text-white transition-colors min-h-[44px]">
-                <span>Explore Curated Menus</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* 4. Private Buyouts & Celebrations Invitation Strip */}
-      <section className="py-20 bg-[#0c0d12] border-t border-white/5 relative">
+      <section className="py-20 bg-[#0b0c10] border-t border-white/5 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl border border-white/10 bg-[#12141c] p-8 sm:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div className="border border-white/10 bg-[#0e1017] p-8 sm:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="space-y-2 text-center lg:text-left">
-              <span className="text-[10px] font-mono tracking-widest text-[#c5a880] uppercase block">
-                SPECIAL OCCASIONS
+              <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase block">
+                SPECIAL CELEBRATIONS
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
-                Celebrating a Birthday or Planning a Private Buyout?
+                Milestone Birthdays & Exclusive Venue Buyouts
               </h3>
-              <p className="text-xs sm:text-sm text-[#a1a1aa] max-w-xl">
-                We host private corporate receptions, holiday celebrations, and milestone birthdays
-                with bespoke catering, mixology, and full A/V screen takeover for up to 150 guests.
+              <p className="text-xs sm:text-sm text-[#a1a1aa] max-w-2xl leading-relaxed">
+                We host private corporate receptions, milestone celebrations, and private parties
+                with custom mixology, passed diaspora tapas, and full screen takeover for up to 150
+                guests.
               </p>
             </div>
 
             <Link
               href="/private-events"
-              className="px-8 py-4 min-h-[48px] rounded-md bg-[#c5a880] hover:bg-[#d4af37] text-[#08090b] text-xs uppercase tracking-[0.15em] font-semibold whitespace-nowrap transition-all shadow-md flex items-center gap-2"
+              className="px-8 py-4 min-h-[48px] rounded-sm bg-[#c5a880] hover:bg-[#d4af37] text-[#07080a] text-xs uppercase tracking-[0.18em] font-semibold whitespace-nowrap transition-all shadow-md flex items-center gap-2"
             >
               <span>Plan Private Event</span>
               <ArrowRight className="w-4 h-4" />

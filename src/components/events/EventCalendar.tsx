@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Check, Clock, Music, UserPlus } from "lucide-react";
+import { ArrowRight, Check, Clock, UserPlus } from "lucide-react";
 import { useState } from "react";
 
 interface EventCalendarProps {
@@ -91,29 +91,28 @@ export default function EventCalendar({ onOpenGuestlist, language }: EventCalend
           );
 
   return (
-    <section id="djs" className="py-24 bg-[#08090b] border-t border-white/5 relative scroll-mt-28">
+    <section id="djs" className="py-24 bg-[#07080a] border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#c5a880]/30 bg-[#12141c] text-xs font-mono text-[#e6d5b8]">
-            <Music className="w-3.5 h-3.5 text-[#c5a880]" />
-            <span className="tracking-widest uppercase">CURATED MUSIC & RESIDENCIES</span>
-          </div>
+        {/* Section Header */}
+        <div className="max-w-3xl mb-14 space-y-4">
+          <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase block">
+            WEEKLY PROGRAMMING & SOUND SESSIONS
+          </span>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
-            {language === "en" ? "WEEKEND PROGRAMMING & DJS" : "የሳምንቱ ዲጄዎች እና ፕሮግራሞች"}
+            {language === "en" ? "Resident Selectors & Lineups" : "የሳምንቱ ዲጄዎች እና ፕሮግራሞች"}
           </h2>
 
-          <p className="text-sm sm:text-base text-[#a1a1aa]">
+          <p className="text-sm sm:text-base text-[#a1a1aa] leading-relaxed">
             {language === "en"
-              ? "Toronto’s premier Afro-Diaspora sound architecture. Reserve your guestlist placement before 11:00 PM or secure your private VIP table."
+              ? "Toronto’s premier Afro-Diaspora sound architecture. Reserve your guestlist entry pass before 11:00 PM or secure your private VIP table."
               : "ከአርብ እስከ እሁድ የቶሮንቶ ምርጥ ዲጄዎች። ከምሽቱ 5፡00 ሰዓት በፊት ነፃ ለመግባት የእንግዳ ዝርዝር ውስጥ ይመዝገቡ።"}
           </p>
 
-          {/* Filter Pill Buttons (>= 44px touch targets) */}
-          <div className="flex flex-wrap justify-center gap-2.5 pt-4">
+          {/* Clean Category Filters */}
+          <div className="flex flex-wrap gap-2 pt-2 border-b border-white/10 pb-4">
             {[
-              { id: "all", label: "All Evenings" },
+              { id: "all", label: "Full Schedule" },
               { id: "weekends", label: "Weekend Headliners" },
               { id: "afrobeats", label: "Afrobeats & Amapiano" },
               { id: "r&b", label: "R&B & Soul" },
@@ -122,10 +121,10 @@ export default function EventCalendar({ onOpenGuestlist, language }: EventCalend
                 key={btn.id}
                 type="button"
                 onClick={() => setFilter(btn.id)}
-                className={`min-h-[44px] px-5 py-2.5 rounded-md text-xs font-mono tracking-wider uppercase transition-all cursor-pointer flex items-center justify-center ${
+                className={`min-h-[44px] px-5 py-2 text-xs font-mono tracking-[0.15em] uppercase transition-colors cursor-pointer ${
                   filter === btn.id
-                    ? "bg-[#c5a880] text-[#08090b] font-bold shadow-md"
-                    : "bg-[#12141c] text-[#a1a1aa] hover:text-white border border-white/10"
+                    ? "bg-[#c5a880] text-[#07080a] font-bold"
+                    : "bg-[#0e1017] text-[#a1a1aa] hover:text-white border border-white/10"
                 }`}
               >
                 {btn.label}
@@ -134,76 +133,63 @@ export default function EventCalendar({ onOpenGuestlist, language }: EventCalend
           </div>
         </div>
 
-        {/* Event Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Editorial Residency Schedule (Clean Grid without AI Card Bloat) */}
+        <div className="space-y-6">
           {filteredEvents.map((evt) => (
             <div
               key={evt.id}
-              className="rounded-xl border border-white/10 bg-[#0f1117] overflow-hidden hover:border-white/20 transition-all duration-300 shadow-xl flex flex-col justify-between group"
+              className="border border-white/10 bg-[#0e1017] p-6 sm:p-8 hover:border-white/20 transition-all duration-300 shadow-xl group"
             >
-              <div className="p-6 sm:p-8 space-y-4">
-                <div className="flex items-center justify-between border-b border-white/5 pb-3">
-                  <span className="px-2.5 py-0.5 rounded-sm bg-[#181a24] border border-[#c5a880]/30 text-[10px] font-mono font-bold text-[#e6d5b8] tracking-widest uppercase">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+                {/* Date Marker (3 cols) */}
+                <div className="lg:col-span-3 space-y-1.5 border-b lg:border-b-0 lg:border-r border-white/10 pb-4 lg:pb-0 lg:pr-6">
+                  <span className="font-mono text-xs text-[#c5a880] font-bold tracking-[0.2em] block uppercase">
                     {evt.day}
                   </span>
-                  <span className="text-xs font-mono text-[#a1a1aa] flex items-center gap-1.5">
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-[#a1a1aa]">
                     <Clock className="w-3.5 h-3.5 text-[#c5a880]" />
-                    {evt.time}
+                    <span>{evt.time}</span>
+                  </div>
+                  <span className="text-[11px] font-mono text-[#71717a] block mt-1">
+                    {evt.djLineup}
                   </span>
                 </div>
 
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white tracking-wide">
-                  {evt.title}
-                </h3>
+                {/* Event Narrative (6 cols) */}
+                <div className="lg:col-span-6 space-y-3">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-white tracking-wide group-hover:text-[#e6d5b8] transition-colors">
+                    {evt.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed">
+                    {evt.description}
+                  </p>
 
-                <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed">
-                  {evt.description}
-                </p>
-
-                {/* Genres */}
-                <div className="flex flex-wrap gap-1.5 pt-2">
-                  {evt.genres.map((g) => (
-                    <span
-                      key={g}
-                      className="px-2.5 py-1 rounded-sm bg-[#151821] text-[10px] font-mono tracking-wider uppercase text-[#d4d4d8] border border-white/5"
-                    >
-                      {g}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Perks & Action Bar */}
-              <div className="p-6 sm:p-8 bg-[#12141c] border-t border-white/10 space-y-5">
-                <div className="space-y-2">
-                  <span className="text-[10px] font-mono text-[#71717a] uppercase tracking-widest block">
-                    EVENING HIGHLIGHTS:
-                  </span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#d4d4d8]">
+                  <div className="flex flex-wrap gap-x-4 gap-y-1 pt-1 text-xs text-[#d4d4d8]">
                     {evt.perks.map((p) => (
-                      <div key={p} className="flex items-center gap-2">
-                        <Check className="w-3.5 h-3.5 text-[#c5a880] flex-shrink-0" />
-                        <span className="truncate">{p}</span>
-                      </div>
+                      <span key={p} className="flex items-center gap-1.5 font-mono text-[11px]">
+                        <Check className="w-3 h-3 text-[#c5a880]" />
+                        {p}
+                      </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                {/* Direct Action CTAs (3 cols) */}
+                <div className="lg:col-span-3 flex flex-col sm:flex-row lg:flex-col gap-2.5 pt-2 lg:pt-0">
                   <button
                     type="button"
                     onClick={() => onOpenGuestlist(evt.title)}
-                    className="flex-1 min-h-[44px] py-3 px-4 rounded-md bg-[#c5a880] hover:bg-[#d4af37] text-[#08090b] text-xs font-semibold uppercase tracking-[0.15em] flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
+                    className="w-full min-h-[44px] py-2.5 px-4 rounded-sm bg-[#c5a880] hover:bg-[#d4af37] text-[#07080a] text-xs font-semibold uppercase tracking-[0.15em] flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
                   >
                     <UserPlus className="w-3.5 h-3.5" />
                     <span>Join Guestlist</span>
                   </button>
 
                   <a
-                    href="#bottle-service"
-                    className="min-h-[44px] py-3 px-4 rounded-md bg-[#181a24] hover:bg-[#202330] border border-white/15 text-white text-xs font-medium uppercase tracking-[0.15em] flex items-center justify-center gap-2 transition-colors"
+                    href="/tables"
+                    className="w-full min-h-[44px] py-2.5 px-4 rounded-sm bg-[#141722] hover:bg-[#1a1e2c] border border-white/10 text-white text-xs font-medium uppercase tracking-[0.15em] flex items-center justify-center gap-2 transition-colors"
                   >
-                    <span>Reserve Table</span>
+                    <span>Reserve VIP Table</span>
                     <ArrowRight className="w-3.5 h-3.5 text-[#c5a880]" />
                   </a>
                 </div>

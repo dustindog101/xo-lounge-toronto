@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, ChevronRight, Compass, Sparkles, Users } from "lucide-react";
+import { CheckCircle2, ChevronRight, Sparkles, Users } from "lucide-react";
 import { useState } from "react";
 
 interface VenueFloorplanProps {
@@ -120,11 +120,10 @@ export default function VenueFloorplan({ onSelectBooth, language }: VenueFloorpl
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#c5a880]/30 bg-[#12141c] text-xs font-mono text-[#e6d5b8]">
-            <Compass className="w-3.5 h-3.5 text-[#c5a880]" />
-            <span className="tracking-widest uppercase">ARCHITECTURAL SEATING SCHEMATIC</span>
-          </div>
+        <div className="max-w-3xl mb-14 space-y-4">
+          <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase block">
+            ARCHITECTURAL SEATING SCHEMATIC
+          </span>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
             {language === "en" ? "VIP BOOTHS & SEATING PLAN" : "የቦታ ካርታ እና የቪአይፒ መቀመጫዎች"}

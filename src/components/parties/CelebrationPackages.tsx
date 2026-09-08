@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Building2, Crown, Gift, Phone, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 
 interface PartiesProps {
   onOpenBooking: () => void;
@@ -15,13 +15,10 @@ export default function CelebrationPackages({ onOpenBooking, language }: Parties
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#c5a880]/30 bg-[#12141c] text-xs font-mono text-[#e6d5b8]">
-            <Gift className="w-3.5 h-3.5 text-[#c5a880]" />
-            <span className="tracking-widest uppercase">
-              SPECIAL OCCASIONS & PRIVATE HOSPITALITY
-            </span>
-          </div>
+        <div className="max-w-3xl mb-16 space-y-4">
+          <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase block">
+            SPECIAL OCCASIONS & PRIVATE HOSPITALITY
+          </span>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
             {language === "en" ? "CELEBRATE AT XO LOUNGE" : "ልዩ በዓላትዎን በኤክስኦ ያክብሩ"}
@@ -34,17 +31,17 @@ export default function CelebrationPackages({ onOpenBooking, language }: Parties
           </p>
         </div>
 
-        {/* 2 Feature Cards */}
+        {/* 2 Feature Panels */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Card 1: Birthday Packages */}
-          <div className="bg-[#0f1117] border border-white/10 rounded-xl p-8 sm:p-10 shadow-xl relative flex flex-col justify-between">
+          {/* Panel 1: Birthday Packages */}
+          <div className="border border-white/10 bg-[#0e1017] p-8 sm:p-10 shadow-xl relative flex flex-col justify-between">
             <div className="space-y-6">
-              <div className="flex items-center justify-between border-b border-white/5 pb-3">
-                <span className="text-[10px] font-mono tracking-widest text-[#c5a880] uppercase font-bold">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                <span className="font-mono text-xs text-[#c5a880] tracking-widest uppercase font-bold">
                   BIRTHDAY MILESTONES
                 </span>
-                <span className="text-[10px] font-mono text-[#a1a1aa] uppercase tracking-wider">
-                  COMPLIMENTARY CONCIERGE PERKS
+                <span className="font-mono text-[11px] text-[#71717a] uppercase tracking-wider">
+                  COMPLIMENTARY PRIVILEGES
                 </span>
               </div>
 
@@ -58,43 +55,35 @@ export default function CelebrationPackages({ onOpenBooking, language }: Parties
                 amenities at no supplemental charge.
               </p>
 
-              <div className="space-y-3 pt-2">
-                <div className="flex items-start gap-3.5 p-3.5 rounded-lg bg-[#12141c] border border-white/5">
-                  <Sparkles className="w-4 h-4 text-[#c5a880] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-white text-xs block font-medium">
-                      Curated Bottle Presentation
-                    </strong>
-                    <span className="text-[11px] text-[#71717a]">
-                      VIP servers present your selection directly to your booth with personalized
-                      service.
-                    </span>
-                  </div>
+              <div className="space-y-4 pt-2 border-t border-white/5">
+                <div className="space-y-1">
+                  <strong className="text-white text-xs block font-serif tracking-wide">
+                    Curated Bottle Presentation Ceremony
+                  </strong>
+                  <p className="text-xs text-[#71717a] leading-relaxed">
+                    VIP servers present your bottle selection directly to your booth with custom
+                    sparklers and fanfare.
+                  </p>
                 </div>
 
-                <div className="flex items-start gap-3.5 p-3.5 rounded-lg bg-[#12141c] border border-white/5">
-                  <Crown className="w-4 h-4 text-[#c5a880] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-white text-xs block font-medium">
-                      Personalized Celebration Display
-                    </strong>
-                    <span className="text-[11px] text-[#71717a]">
-                      Custom illuminated marquee sign presenting the guest of honor's name or custom
-                      phrase.
-                    </span>
-                  </div>
+                <div className="space-y-1">
+                  <strong className="text-white text-xs block font-serif tracking-wide">
+                    Personalized Celebration Display
+                  </strong>
+                  <p className="text-xs text-[#71717a] leading-relaxed">
+                    Custom illuminated marquee sign presenting the guest of honor's name or custom
+                    phrase upon arrival.
+                  </p>
                 </div>
 
-                <div className="flex items-start gap-3.5 p-3.5 rounded-lg bg-[#12141c] border border-white/5">
-                  <ShieldCheck className="w-4 h-4 text-[#c5a880] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-white text-xs block font-medium">
-                      Expedited Bypass Admissions
-                    </strong>
-                    <span className="text-[11px] text-[#71717a]">
-                      Direct entry for your entire reserved party with immediate table placement.
-                    </span>
-                  </div>
+                <div className="space-y-1">
+                  <strong className="text-white text-xs block font-serif tracking-wide">
+                    Expedited Bypass Admissions
+                  </strong>
+                  <p className="text-xs text-[#71717a] leading-relaxed">
+                    Direct expedited line bypass for your entire reserved party with immediate table
+                    placement.
+                  </p>
                 </div>
               </div>
             </div>
@@ -103,7 +92,7 @@ export default function CelebrationPackages({ onOpenBooking, language }: Parties
               <button
                 type="button"
                 onClick={onOpenBooking}
-                className="w-full min-h-[48px] py-3.5 px-6 rounded-md bg-[#c5a880] hover:bg-[#d4af37] text-[#08090b] text-xs font-semibold uppercase tracking-[0.15em] shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full min-h-[48px] py-3.5 px-6 rounded-sm bg-[#c5a880] hover:bg-[#d4af37] text-[#07080a] text-xs font-semibold uppercase tracking-[0.18em] shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Reserve Birthday Table</span>
                 <ArrowRight className="w-4 h-4" />
@@ -111,14 +100,14 @@ export default function CelebrationPackages({ onOpenBooking, language }: Parties
             </div>
           </div>
 
-          {/* Card 2: Christmas Parties & Private Buyouts */}
-          <div className="bg-[#0f1117] border border-white/10 rounded-xl p-8 sm:p-10 shadow-xl relative flex flex-col justify-between">
+          {/* Panel 2: Venue Buyouts */}
+          <div className="border border-white/10 bg-[#0e1017] p-8 sm:p-10 shadow-xl relative flex flex-col justify-between">
             <div className="space-y-6">
-              <div className="flex items-center justify-between border-b border-white/5 pb-3">
-                <span className="text-[10px] font-mono tracking-widest text-[#c5a880] uppercase font-bold">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                <span className="font-mono text-xs text-[#c5a880] tracking-widest uppercase font-bold">
                   EXCLUSIVE VENUE BUYOUTS
                 </span>
-                <span className="text-[10px] font-mono text-[#a1a1aa] uppercase tracking-wider">
+                <span className="font-mono text-[11px] text-[#71717a] uppercase tracking-wider">
                   CAPACITY: UP TO 150 GUESTS
                 </span>
               </div>
@@ -128,49 +117,40 @@ export default function CelebrationPackages({ onOpenBooking, language }: Parties
               </h3>
 
               <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed">
-                Planning a seasonal corporate reception, creative launch, or private diaspora gala?
-                XO Lounge accommodates complete venue buyouts with bespoke mixology, tapas catering,
-                and full audio/visual takeover.
+                Planning a corporate reception, brand launch, or private diaspora celebration? XO
+                Lounge accommodates complete venue buyouts with bespoke mixology, passed tapas
+                stations, and full audio/visual takeover.
               </p>
 
-              <div className="space-y-3 pt-2">
-                <div className="flex items-start gap-3.5 p-3.5 rounded-lg bg-[#12141c] border border-white/5">
-                  <Building2 className="w-4 h-4 text-[#c5a880] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-white text-xs block font-medium">
-                      Full Audio/Visual Screen Takeover
-                    </strong>
-                    <span className="text-[11px] text-[#71717a]">
-                      Showcase brand assets, custom motion graphics, or video loops across the main
-                      stage screen.
-                    </span>
-                  </div>
+              <div className="space-y-4 pt-2 border-t border-white/5">
+                <div className="space-y-1">
+                  <strong className="text-white text-xs block font-serif tracking-wide">
+                    Full Audio/Visual Screen Takeover
+                  </strong>
+                  <p className="text-xs text-[#71717a] leading-relaxed">
+                    Showcase brand assets, custom motion graphics, or video loops across our main
+                    stage acoustic wall and screens.
+                  </p>
                 </div>
 
-                <div className="flex items-start gap-3.5 p-3.5 rounded-lg bg-[#12141c] border border-white/5">
-                  <Sparkles className="w-4 h-4 text-[#c5a880] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-white text-xs block font-medium">
-                      Bespoke Mixology & Diaspora Catering
-                    </strong>
-                    <span className="text-[11px] text-[#71717a]">
-                      Custom cocktail menus and passed tapas stations tailored to dietary
-                      specifications.
-                    </span>
-                  </div>
+                <div className="space-y-1">
+                  <strong className="text-white text-xs block font-serif tracking-wide">
+                    Bespoke Mixology & Passed Tapas Catering
+                  </strong>
+                  <p className="text-xs text-[#71717a] leading-relaxed">
+                    Tailored cocktail menus featuring Ethiopian honey infusions and passed savory
+                    tapas stations.
+                  </p>
                 </div>
 
-                <div className="flex items-start gap-3.5 p-3.5 rounded-lg bg-[#12141c] border border-white/5">
-                  <ShieldCheck className="w-4 h-4 text-[#c5a880] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-white text-xs block font-medium">
-                      Dedicated Security & Private Host Team
-                    </strong>
-                    <span className="text-[11px] text-[#71717a]">
-                      Discreet guest check-in, coat check, and attentive service throughout the
-                      evening.
-                    </span>
-                  </div>
+                <div className="space-y-1">
+                  <strong className="text-white text-xs block font-serif tracking-wide">
+                    Dedicated Security & Private Concierge
+                  </strong>
+                  <p className="text-xs text-[#71717a] leading-relaxed">
+                    Discreet guest check-in, coat check, and dedicated service team throughout your
+                    private event.
+                  </p>
                 </div>
               </div>
             </div>
@@ -178,10 +158,10 @@ export default function CelebrationPackages({ onOpenBooking, language }: Parties
             <div className="pt-8">
               <a
                 href="tel:+14374730042"
-                className="w-full min-h-[48px] py-3.5 px-6 rounded-md border border-white/15 bg-[#12141c] hover:bg-[#181a24] text-white text-xs font-semibold uppercase tracking-[0.15em] flex items-center justify-center gap-2 transition-colors"
+                className="w-full min-h-[48px] py-3.5 px-6 rounded-sm border border-white/20 hover:border-[#c5a880] bg-[#141722] hover:bg-[#1a1e2c] text-white text-xs font-semibold uppercase tracking-[0.18em] flex items-center justify-center gap-2 transition-colors"
               >
                 <Phone className="w-4 h-4 text-[#c5a880]" />
-                <span>Inquire About Private Buyout: +1 437-473-0042</span>
+                <span>Inquire About Private Buyout: +1 (437) 473-0042</span>
               </a>
             </div>
           </div>

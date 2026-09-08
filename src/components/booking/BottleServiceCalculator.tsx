@@ -3,12 +3,11 @@
 import {
   ArrowRight,
   Check,
-  Crown,
+  ChevronRight,
   MessageCircle,
   Phone,
   Sparkles,
   Users,
-  Wine,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -135,11 +134,10 @@ export default function BottleServiceCalculator({
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#c5a880]/30 bg-[#12141c] text-xs font-mono text-[#e6d5b8]">
-            <Wine className="w-3.5 h-3.5 text-[#c5a880]" />
-            <span className="tracking-widest uppercase">CONCIERGE TABLE SERVICE & CURATION</span>
-          </div>
+        <div className="max-w-3xl mb-14 space-y-4">
+          <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase block">
+            CONCIERGE TABLE SERVICE & CURATION
+          </span>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
             {language === "en" ? "VIP TABLE SERVICE & PACKAGES" : "የጠረጴዛ እና የቦቲል ሰርቪስ"}
@@ -152,83 +150,81 @@ export default function BottleServiceCalculator({
           </p>
         </div>
 
-        {/* 3 Package Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {PACKAGES.map((pkg) => (
-            <div
-              key={pkg.id}
-              className={`rounded-xl p-7 sm:p-8 flex flex-col justify-between relative transition-all duration-300 ${
-                pkg.popular
-                  ? "bg-[#11131a] border-2 border-[#c5a880] shadow-xl md:-translate-y-1.5"
-                  : "bg-[#0f1117] border border-white/10 hover:border-white/20"
-              }`}
-            >
-              {pkg.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full bg-[#c5a880] text-[#08090b] text-[10px] font-mono font-bold tracking-[0.2em] uppercase shadow-md flex items-center gap-1.5">
-                  <Crown className="w-3 h-3 text-[#08090b]" />
-                  <span>SIGNATURE SELECTION</span>
-                </div>
-              )}
+        {/* Hospitality Ledger Selector (Editorial, No SaaS Cards) */}
+        <div className="border border-white/10 bg-[#0e1017] p-6 sm:p-8 mb-16 space-y-6">
+          <div className="flex items-center justify-between border-b border-white/10 pb-4">
+            <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase">
+              SELECT HOSPITALITY TIER
+            </span>
+            <span className="font-mono text-xs text-[#71717a] uppercase">
+              ALL PACKAGES INCLUDE LINE-BYPASS & DEDICATED HOST
+            </span>
+          </div>
 
-              <div className="space-y-5">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono tracking-widest text-[#71717a] uppercase">
-                    {pkg.tag}
-                  </span>
-                  <span className="text-xs font-mono text-[#c5a880] flex items-center gap-1.5">
-                    <Users className="w-3.5 h-3.5" />
-                    Up to {pkg.maxGuests} Guests
-                  </span>
-                </div>
-
-                <h3 className="font-serif text-2xl font-bold text-white tracking-wide">
-                  {pkg.name}
-                </h3>
-
-                <div className="pt-1">
-                  <span className="text-3xl sm:text-4xl font-mono font-bold text-[#e6d5b8]">
-                    ${pkg.price}
-                  </span>
-                  <span className="text-xs text-[#71717a] ml-2 font-mono">CAD + tax/grat</span>
-                </div>
-
-                <div className="p-3.5 rounded-lg bg-[#141620] border border-white/5 text-xs text-[#d4d4d8] leading-relaxed">
-                  <strong className="text-[#c5a880] block mb-1 uppercase tracking-wider text-[10px] font-mono">
-                    Bottle Provision:
-                  </strong>
-                  {pkg.bottlesIncluded}
-                </div>
-
-                <div className="space-y-2 pt-1">
-                  <span className="text-[10px] font-mono text-[#71717a] uppercase tracking-widest block">
-                    HOSPITALITY PRIVILEGES:
-                  </span>
-                  <ul className="space-y-2">
-                    {pkg.features.map((feat) => (
-                      <li key={feat} className="flex items-start gap-2.5 text-xs text-[#a1a1aa]">
-                        <Check className="w-3.5 h-3.5 text-[#c5a880] flex-shrink-0 mt-0.5" />
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="pt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {PACKAGES.map((pkg) => {
+              const isSelected = selectedPackage.id === pkg.id;
+              return (
                 <button
+                  key={pkg.id}
                   type="button"
                   onClick={() => setSelectedPackage(pkg)}
-                  className={`w-full min-h-[44px] py-3 px-4 rounded-md text-xs uppercase tracking-[0.15em] font-semibold transition-all cursor-pointer ${
-                    selectedPackage.id === pkg.id
-                      ? "bg-[#c5a880] text-[#08090b] shadow-md"
-                      : "bg-[#181a24] border border-white/10 text-white hover:bg-[#202330]"
+                  className={`p-5 sm:p-6 text-left border transition-all cursor-pointer flex flex-col justify-between space-y-4 ${
+                    isSelected
+                      ? "bg-[#141722] border-[#c5a880] shadow-lg shadow-black/40"
+                      : "bg-[#0b0c10] border-white/10 hover:border-white/20 hover:bg-[#10121a]"
                   }`}
                 >
-                  {selectedPackage.id === pkg.id ? "✓ PACKAGE SELECTED" : `SELECT ${pkg.name}`}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-[10px] tracking-widest text-[#71717a] uppercase">
+                        {pkg.tag}
+                      </span>
+                      <span className="font-mono text-xs text-[#c5a880] flex items-center gap-1">
+                        <Users className="w-3 h-3" />
+                        Up to {pkg.maxGuests}
+                      </span>
+                    </div>
+
+                    <h3 className="font-serif text-xl font-bold text-white tracking-wide">
+                      {pkg.name}
+                    </h3>
+
+                    <div className="font-mono text-2xl font-bold text-[#e6d5b8] pt-1">
+                      ${pkg.price}{" "}
+                      <span className="text-xs text-[#71717a] font-normal">CAD + grat</span>
+                    </div>
+
+                    <p className="text-xs text-[#a1a1aa] leading-relaxed pt-1">
+                      {pkg.bottlesIncluded}
+                    </p>
+                  </div>
+
+                  <div className="pt-2 border-t border-white/5 flex items-center justify-between text-xs font-mono">
+                    <span className={isSelected ? "text-[#c5a880] font-bold" : "text-[#71717a]"}>
+                      {isSelected ? "● ACTIVE SELECTION" : "SELECT TIER"}
+                    </span>
+                    <ChevronRight
+                      className={`w-3.5 h-3.5 ${isSelected ? "text-[#c5a880]" : "text-[#71717a]"}`}
+                    />
+                  </div>
                 </button>
-              </div>
-            </div>
-          ))}
+              );
+            })}
+          </div>
+
+          {/* Selected Tier Privileges Inclusions Strip */}
+          <div className="p-4 rounded-sm bg-[#12141c] border border-white/5 text-xs text-[#a1a1aa] flex flex-wrap items-center gap-x-6 gap-y-2">
+            <span className="font-mono text-[11px] text-[#c5a880] uppercase tracking-wider font-semibold">
+              {selectedPackage.name} Privileges:
+            </span>
+            {selectedPackage.features.map((feat) => (
+              <span key={feat} className="flex items-center gap-1.5 text-[#d4d4d8]">
+                <Check className="w-3 h-3 text-[#c5a880]" />
+                {feat}
+              </span>
+            ))}
+          </div>
         </div>
 
         {/* Live Interactive Booking Concierge Box */}

@@ -24,11 +24,10 @@ export default function VenueInfo({ language }: InfoProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#c5a880]/30 bg-[#12141c] text-xs font-mono text-[#e6d5b8]">
-            <MapPin className="w-3.5 h-3.5 text-[#c5a880]" />
-            <span className="tracking-widest uppercase">LOCATION & GUEST CONCIERGE</span>
-          </div>
+        <div className="max-w-3xl mb-14 space-y-4">
+          <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase block">
+            LOCATION & GUEST CONCIERGE
+          </span>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
             {language === "en" ? "LOCATION & OPERATING HOURS" : "አድራሻ እና የስራ ሰዓት"}
@@ -44,15 +43,15 @@ export default function VenueInfo({ language }: InfoProps) {
         {/* 3 Column Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Col 1: Contact & Location */}
-          <div className="bg-[#0f1117] border border-white/10 rounded-xl p-7 space-y-6 flex flex-col justify-between shadow-xl">
+          <div className="bg-[#0e1017] border border-white/10 p-8 space-y-6 flex flex-col justify-between shadow-xl">
             <div className="space-y-6">
-              <span className="text-[10px] font-mono text-[#c5a880] font-bold uppercase tracking-widest block">
+              <span className="font-mono text-xs text-[#c5a880] font-bold uppercase tracking-[0.2em] block">
                 VENUE ADDRESS & ACCESS
               </span>
 
               <div className="space-y-4">
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 rounded-md bg-[#12141c] text-[#c5a880] border border-white/5 mt-0.5">
+                  <div className="p-2.5 bg-[#141722] text-[#c5a880] border border-white/5 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
@@ -66,7 +65,7 @@ export default function VenueInfo({ language }: InfoProps) {
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 rounded-md bg-[#12141c] text-[#c5a880] border border-white/5 mt-0.5">
+                  <div className="p-2.5 bg-[#141722] text-[#c5a880] border border-white/5 mt-0.5">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
@@ -83,7 +82,7 @@ export default function VenueInfo({ language }: InfoProps) {
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 rounded-md bg-[#12141c] text-[#c5a880] border border-white/5 mt-0.5">
+                  <div className="p-2.5 bg-[#141722] text-[#c5a880] border border-white/5 mt-0.5">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
@@ -101,7 +100,7 @@ export default function VenueInfo({ language }: InfoProps) {
               </div>
 
               {/* Transit & Parking Details */}
-              <div className="p-4 rounded-lg bg-[#12141c] border border-white/5 space-y-2.5 text-xs text-[#a1a1aa]">
+              <div className="p-4 bg-[#12141c] border border-white/5 space-y-2.5 text-xs text-[#a1a1aa]">
                 <div className="flex items-center gap-2 text-white font-medium">
                   <Bus className="w-3.5 h-3.5 text-[#c5a880]" />
                   <span>TTC 501 Queen Streetcar</span>
@@ -119,7 +118,7 @@ export default function VenueInfo({ language }: InfoProps) {
               href="https://maps.google.com/?q=364+Queen+St+E,+Toronto,+ON+M5A+1T1"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full min-h-[44px] py-3 px-4 rounded-md bg-[#c5a880] hover:bg-[#d4af37] text-[#08090b] text-xs font-semibold uppercase tracking-[0.15em] flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
+              className="w-full min-h-[44px] py-3 px-4 rounded-sm bg-[#c5a880] hover:bg-[#d4af37] text-[#07080a] text-xs font-semibold uppercase tracking-[0.18em] flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
             >
               <Navigation className="w-3.5 h-3.5" />
               <span>Get Directions in Google Maps</span>
@@ -127,7 +126,7 @@ export default function VenueInfo({ language }: InfoProps) {
           </div>
 
           {/* Col 2: Operating Hours Schedule */}
-          <div className="bg-[#0f1117] border border-white/10 rounded-xl p-7 space-y-6 shadow-xl">
+          <div className="bg-[#0e1017] border border-white/10 p-8 space-y-6 shadow-xl">
             <span className="text-[10px] font-mono text-[#c5a880] font-bold uppercase tracking-widest block">
               WEEKLY OPERATING HOURS
             </span>
@@ -165,9 +164,9 @@ export default function VenueInfo({ language }: InfoProps) {
           </div>
 
           {/* Col 3: Dress Code & Policies */}
-          <div className="bg-[#0f1117] border border-white/10 rounded-xl p-7 space-y-6 shadow-xl flex flex-col justify-between">
+          <div className="bg-[#0e1017] border border-white/10 p-8 space-y-6 shadow-xl flex flex-col justify-between">
             <div className="space-y-6">
-              <span className="text-[10px] font-mono text-[#c5a880] font-bold uppercase tracking-widest block">
+              <span className="font-mono text-xs text-[#c5a880] font-bold uppercase tracking-[0.2em] block">
                 ADMISSION & ETIQUETTE
               </span>
 

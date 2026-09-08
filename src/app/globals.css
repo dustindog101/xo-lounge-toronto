@@ -1,12 +1,18 @@
 @import "tailwindcss";
 
+@theme {
+  --font-serif: var(--font-cinzel), "Times New Roman", Georgia, serif;
+  --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-mono), monospace;
+}
+
 :root {
-  --bg: #08090b;
-  --surface: #0f1117;
-  --surface-elevated: #151821;
-  --surface-card: #191c27;
+  --bg: #07080a;
+  --surface: #0e1017;
+  --surface-elevated: #141722;
+  --surface-card: #181c28;
   --border: rgba(255, 255, 255, 0.08);
-  --border-gold: rgba(197, 168, 128, 0.25);
+  --border-gold: rgba(197, 168, 128, 0.22);
 
   --gold: #c5a880;
   --gold-light: #e6d5b8;
@@ -40,6 +46,14 @@ body {
   border-color: var(--border-gold);
 }
 
+/* Printed Menu Dot Leader */
+.menu-dots {
+  flex-grow: 1;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+  height: 1em;
+  margin: 0 0.5rem;
+}
+
 /* Subtle Warm Vignette */
 .ambient-luxury-bg {
   background-image:
@@ -50,15 +64,15 @@ body {
 
 /* Custom Scrollbars */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #08090b;
+  background: #07080a;
 }
 ::-webkit-scrollbar-thumb {
-  background: #232736;
-  border-radius: 3px;
+  background: #202432;
+  border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #373e54;
+  background: #31374d;
 }
