@@ -1,21 +1,14 @@
 "use client";
 
 import { Calendar, Globe, Menu, Phone, Sparkles, X } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
-interface NavbarProps {
-  onOpenBooking: (boothName?: string) => void;
-  onOpenGuestlist: () => void;
-  language: "en" | "am";
-  setLanguage: (lang: "en" | "am") => void;
-}
-
-export default function Navbar({
-  onOpenBooking,
-  onOpenGuestlist,
-  language,
-  setLanguage,
-}: NavbarProps) {
+export default function Navbar() {
+  const { language, toggleLanguage } = useLanguage();
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isOpenNow, setIsOpenNow] = useState(false);
@@ -56,13 +49,12 @@ export default function Navbar({
   }, []);
 
   const navLinks = [
-    { label: language === "en" ? "Atmosphere" : "ድባብ", href: "#experience" },
-    { label: language === "en" ? "Floorplan" : "የቦታ ካርታ", href: "#floorplan" },
-    { label: language === "en" ? "Bottle Service" : "የጠረጴዛ ሰርቪስ", href: "#bottle-service" },
-    { label: language === "en" ? "Music & DJs" : "ዲጄዎች", href: "#djs" },
-    { label: language === "en" ? "Menus" : "ሜኑ", href: "#menus" },
-    { label: language === "en" ? "Private Events" : "የግል ፕሮግራሞች", href: "#parties" },
-    { label: language === "en" ? "Location" : "አድራሻ", href: "#location" },
+    { label: language === "en" ? "Atmosphere" : "ድባብ", href: "/" },
+    { label: language === "en" ? "VIP Tables" : "የጠረጴዛ ሰርቪስ", href: "/tables" },
+    { label: language === "en" ? "Music & DJs" : "ዲጄዎች", href: "/events" },
+    { label: language === "en" ? "Menus" : "ሜኑ", href: "/menus" },
+    { label: language === "en" ? "Private Events" : "የግል ፕሮግራሞች", href: "/private-events" },
+    { label: language === "en" ? "Visit & Info" : "አድራሻ", href: "/info" },
   ];
 
   return (
@@ -76,7 +68,7 @@ export default function Navbar({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo & Brand */}
-          <a href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-md border border-[#c5a880]/40 bg-[#12141c] flex items-center justify-center font-serif font-bold text-lg text-[#e6d5b8] group-hover:border-[#c5a880] transition-colors">
               <span>XO</span>
             </div>
@@ -88,19 +80,26 @@ export default function Navbar({
                 TORONTO • 364 QUEEN ST E
               </span>
             </div>
-          </a>
+          </Link>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Multi-Page Navigation Links */}
           <nav className="hidden lg:flex items-center gap-7 text-[12px] font-medium tracking-[0.12em] uppercase text-[#a1a1aa]">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="hover:text-white transition-colors py-1 relative hover:after:w-full after:w-0 after:h-[1px] after:bg-[#c5a880] after:absolute after:bottom-0 after:left-0 after:transition-all"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`py-1 relative transition-colors ${
+                    isActive
+                      ? "text-white font-semibold after:w-full after:bg-[#c5a880]"
+                      : "hover:text-white after:w-0 hover:after:w-full after:bg-[#c5a880]"
+                  } after:h-[1px] after:absolute after:bottom-0 after:left-0 after:transition-all`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Right Status & Action CTAs */}
@@ -108,7 +107,7 @@ export default function Navbar({
             {/* Language Switcher */}
             <button
               type="button"
-              onClick={() => setLanguage(language === "en" ? "am" : "en")}
+              onClick={toggleLanguage}
               className="hidden sm:flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-full border border-white/10 bg-[#12141c] text-xs text-[#a1a1aa] hover:text-white hover:border-[#c5a880]/50 transition-all cursor-pointer"
               title="Toggle English / Amharic"
             >
@@ -135,15 +134,14 @@ export default function Navbar({
               <span className="font-mono">(437) 473-0042</span>
             </a>
 
-            {/* Reserve VIP Table CTA - Refined Champagne Brass */}
-            <button
-              type="button"
-              onClick={() => onOpenBooking()}
+            {/* Reserve VIP Table CTA */}
+            <Link
+              href="/tables"
               className="flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-md bg-[#c5a880] hover:bg-[#d4af37] text-[#08090b] text-xs sm:text-sm font-semibold tracking-wider transition-all cursor-pointer shadow-sm"
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>{language === "en" ? "RESERVE TABLE" : "ቦታ ይያዙ"}</span>
-            </button>
+            </Link>
 
             {/* Mobile Hamburger Toggle */}
             <button
@@ -172,7 +170,7 @@ export default function Navbar({
             </div>
             <button
               type="button"
-              onClick={() => setLanguage(language === "en" ? "am" : "en")}
+              onClick={toggleLanguage}
               className="text-xs text-[#c5a880] font-medium flex items-center gap-1.5"
             >
               <Globe className="w-3.5 h-3.5" />
@@ -181,16 +179,23 @@ export default function Navbar({
           </div>
 
           <div className="grid grid-cols-2 gap-2 pt-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3.5 py-3 rounded-md bg-[#141620] text-xs uppercase tracking-wider text-[#d4d4d8] hover:text-white hover:bg-[#1b1e2b] font-medium"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`px-3.5 py-3 rounded-md text-xs uppercase tracking-wider font-medium transition-colors ${
+                    isActive
+                      ? "bg-[#c5a880] text-[#08090b] font-semibold"
+                      : "bg-[#141620] text-[#d4d4d8] hover:text-white hover:bg-[#1b1e2b]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
           <div className="pt-2 flex flex-col gap-2">
@@ -201,17 +206,14 @@ export default function Navbar({
               <Phone className="w-3.5 h-3.5 text-[#c5a880]" />
               <span>Call Concierge: +1 437-473-0042</span>
             </a>
-            <button
-              type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenGuestlist();
-              }}
+            <Link
+              href="/events"
+              onClick={() => setMobileMenuOpen(false)}
               className="w-full min-h-[44px] flex items-center justify-center gap-2 py-3 rounded-md border border-[#c5a880]/30 bg-[#c5a880]/10 text-[#e6d5b8] text-xs uppercase tracking-wider font-semibold"
             >
               <Calendar className="w-3.5 h-3.5 text-[#c5a880]" />
-              <span>Join Weekend Guestlist</span>
-            </button>
+              <span>Weekend DJ Program & Guestlist</span>
+            </Link>
           </div>
         </div>
       )}

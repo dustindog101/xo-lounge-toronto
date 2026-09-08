@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { Cinzel, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import Footer from "@/components/navigation/Footer";
+import MobileDock from "@/components/navigation/MobileDock";
+import Navbar from "@/components/navigation/Navbar";
+import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
 
 const cinzel = Cinzel({
@@ -110,8 +114,13 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-[100dvh] bg-[#08090b] text-[#f4f4f5] selection:bg-[#c5a880] selection:text-[#08090b]">
-        {children}
+      <body className="min-h-[100dvh] bg-[#08090b] text-[#f4f4f5] selection:bg-[#c5a880] selection:text-[#08090b] flex flex-col justify-between">
+        <LanguageProvider>
+          <Navbar />
+          <div className="flex-1">{children}</div>
+          <Footer />
+          <MobileDock />
+        </LanguageProvider>
       </body>
     </html>
   );

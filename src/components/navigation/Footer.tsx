@@ -1,6 +1,8 @@
 "use client";
 
 import { Mail, MapPin, Phone } from "lucide-react";
+import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -38,25 +40,23 @@ function FacebookIcon({ className }: { className?: string }) {
   );
 }
 
-interface FooterProps {
-  language: "en" | "am";
-}
+export default function Footer() {
+  const { language } = useLanguage();
 
-export default function Footer({ language }: FooterProps) {
   return (
     <footer className="bg-[#050608] border-t border-white/10 pt-16 pb-24 md:pb-12 text-[#a1a1aa]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/5">
           {/* Brand Col */}
           <div className="space-y-4 md:col-span-1">
-            <div className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-md border border-[#c5a880]/40 bg-[#12141c] flex items-center justify-center font-serif font-bold text-lg text-[#e6d5b8]">
                 <span>XO</span>
               </div>
               <span className="font-serif font-bold text-lg text-white tracking-[0.2em]">
                 XO LOUNGE
               </span>
-            </div>
+            </Link>
 
             <p className="text-xs text-[#a1a1aa] leading-relaxed">
               Toronto’s premier Queen East nightlife sanctuary. Custom architectural illumination,
@@ -68,70 +68,60 @@ export default function Footer({ language }: FooterProps) {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Experience Multi-Page Links */}
           <div className="space-y-3">
             <span className="text-[10px] font-mono text-[#c5a880] font-bold uppercase tracking-widest block">
               EXPERIENCE
             </span>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#experience" className="hover:text-white transition-colors">
-                  Atmosphere & Sound
-                </a>
+                <Link href="/" className="hover:text-white transition-colors">
+                  Atmosphere & Sanctuary
+                </Link>
               </li>
               <li>
-                <a href="#floorplan" className="hover:text-white transition-colors">
-                  Seating Floorplan
-                </a>
+                <Link href="/tables" className="hover:text-white transition-colors">
+                  VIP Tables & Seating Schematic
+                </Link>
               </li>
               <li>
-                <a href="#bottle-service" className="hover:text-white transition-colors">
-                  Table Packages & Concierge
-                </a>
+                <Link href="/events" className="hover:text-white transition-colors">
+                  Weekend DJ Residencies & Guestlist
+                </Link>
               </li>
               <li>
-                <a href="#djs" className="hover:text-white transition-colors">
-                  Weekend DJ Residencies
-                </a>
-              </li>
-              <li>
-                <a href="#menus" className="hover:text-white transition-colors">
-                  Cocktails & Tapas Repertoire
-                </a>
+                <Link href="/menus" className="hover:text-white transition-colors">
+                  Cocktails & Diaspora Tapas Repertoire
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Private Events */}
+          {/* Celebrations & Buyouts Links */}
           <div className="space-y-3">
             <span className="text-[10px] font-mono text-[#c5a880] font-bold uppercase tracking-widest block">
               SPECIAL OCCASIONS
             </span>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#parties" className="hover:text-white transition-colors">
-                  Birthday Milestone Hospitality
-                </a>
+                <Link href="/private-events" className="hover:text-white transition-colors">
+                  Birthday Milestone Packages
+                </Link>
               </li>
               <li>
-                <a href="#parties" className="hover:text-white transition-colors">
-                  Holiday & Corporate Receptions
-                </a>
-              </li>
-              <li>
-                <a href="#parties" className="hover:text-white transition-colors">
-                  Milestone Gatherings & Toasts
-                </a>
-              </li>
-              <li>
-                <a href="#parties" className="hover:text-white transition-colors">
+                <Link href="/private-events" className="hover:text-white transition-colors">
                   Exclusive Venue Buyouts (Up to 150)
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#location" className="hover:text-white transition-colors">
+                <Link href="/info" className="hover:text-white transition-colors">
                   Guest Etiquette & 19+ ID Policy
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/info" className="hover:text-white transition-colors">
+                  Location & Operating Hours
+                </Link>
               </li>
             </ul>
           </div>
