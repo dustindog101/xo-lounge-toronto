@@ -26,10 +26,8 @@ export default function Navbar({
     };
     window.addEventListener("scroll", handleScroll);
 
-    // Calculate if XO Lounge is open right now in Toronto (ET timezone)
     try {
       const now = new Date();
-      // Format to Toronto time
       const torontoTimeStr = now.toLocaleTimeString("en-US", {
         timeZone: "America/Toronto",
         hour12: false,
@@ -42,9 +40,7 @@ export default function Navbar({
       const hour = parseInt(torontoTimeStr.split(":")[0], 10);
       const isTuesday = torontoDayStr === "Tue";
 
-      // Open Mon, Wed, Thu, Sun: 7pm (19) to 2am (2)
-      // Open Fri, Sat: 8pm (20) to 3am (3)
-      // Closed Tue
+      // Mon, Wed, Thu, Sun: 7pm to 2am. Fri, Sat: 8pm to 3am. Tue: Closed
       if (isTuesday) {
         setIsOpenNow(false);
       } else if (torontoDayStr === "Fri" || torontoDayStr === "Sat") {
@@ -60,47 +56,47 @@ export default function Navbar({
   }, []);
 
   const navLinks = [
-    { label: language === "en" ? "Experience" : "ልምድ", href: "#experience" },
+    { label: language === "en" ? "Atmosphere" : "ድባብ", href: "#experience" },
     { label: language === "en" ? "Floorplan" : "የቦታ ካርታ", href: "#floorplan" },
-    { label: language === "en" ? "Bottle Service" : "የቦቲል ሰርቪስ", href: "#bottle-service" },
-    { label: language === "en" ? "Weekend DJs" : "ዲጄዎች", href: "#djs" },
+    { label: language === "en" ? "Bottle Service" : "የጠረጴዛ ሰርቪስ", href: "#bottle-service" },
+    { label: language === "en" ? "Music & DJs" : "ዲጄዎች", href: "#djs" },
     { label: language === "en" ? "Menus" : "ሜኑ", href: "#menus" },
     { label: language === "en" ? "Private Events" : "የግል ፕሮግራሞች", href: "#parties" },
-    { label: language === "en" ? "Contact" : "አድራሻ", href: "#location" },
+    { label: language === "en" ? "Location" : "አድራሻ", href: "#location" },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#07080b]/90 backdrop-blur-md border-b border-white/10 py-3 shadow-2xl shadow-black/50"
-          : "bg-gradient-to-b from-[#07080b]/80 to-transparent py-5"
+          ? "bg-[#08090b]/95 backdrop-blur-md border-b border-white/10 py-3 shadow-xl"
+          : "bg-gradient-to-b from-[#08090b]/90 to-transparent py-4 sm:py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo & Brand */}
           <a href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-lg border border-[#a855f7]/50 bg-gradient-to-br from-[#1c2030] to-[#0f1118] flex items-center justify-center font-serif font-extrabold text-xl text-white shadow-lg shadow-[#a855f7]/20 group-hover:border-[#f43f5e] transition-colors">
-              <span className="text-gradient-gold">XO</span>
+            <div className="w-10 h-10 rounded-md border border-[#c5a880]/40 bg-[#12141c] flex items-center justify-center font-serif font-bold text-lg text-[#e6d5b8] group-hover:border-[#c5a880] transition-colors">
+              <span>XO</span>
             </div>
             <div>
-              <span className="font-serif font-bold text-lg sm:text-xl tracking-wider text-white block leading-none">
+              <span className="font-serif font-bold text-base sm:text-lg tracking-[0.2em] text-white block leading-none">
                 XO LOUNGE
               </span>
-              <span className="font-mono text-[10px] tracking-widest text-[#9ca3af] block mt-1">
+              <span className="font-mono text-[9px] tracking-[0.22em] text-[#a1a1aa] block mt-1 whitespace-nowrap">
                 TORONTO • 364 QUEEN ST E
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-[#9ca3af]">
+          <nav className="hidden lg:flex items-center gap-7 text-[12px] font-medium tracking-[0.12em] uppercase text-[#a1a1aa]">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="hover:text-white transition-colors py-1 relative hover:after:w-full after:w-0 after:h-[2px] after:bg-[#a855f7] after:absolute after:bottom-0 after:left-0 after:transition-all"
+                className="hover:text-white transition-colors py-1 relative hover:after:w-full after:w-0 after:h-[1px] after:bg-[#c5a880] after:absolute after:bottom-0 after:left-0 after:transition-all"
               >
                 {link.label}
               </a>
@@ -113,21 +109,19 @@ export default function Navbar({
             <button
               type="button"
               onClick={() => setLanguage(language === "en" ? "am" : "en")}
-              className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-white/10 bg-[#0f1118] text-xs text-[#9ca3af] hover:text-white hover:border-[#a855f7]/50 transition-all cursor-pointer"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-full border border-white/10 bg-[#12141c] text-xs text-[#a1a1aa] hover:text-white hover:border-[#c5a880]/50 transition-all cursor-pointer"
               title="Toggle English / Amharic"
             >
-              <Globe className="w-3.5 h-3.5 text-[#a855f7]" />
-              <span className="font-mono">{language === "en" ? "AM (አማ)" : "EN"}</span>
+              <Globe className="w-3.5 h-3.5 text-[#c5a880]" />
+              <span className="font-mono text-[11px]">{language === "en" ? "AM (አማ)" : "EN"}</span>
             </button>
 
             {/* Dynamic Open Indicator */}
-            <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-[#0f1118] text-xs font-mono">
+            <div className="hidden sm:flex items-center gap-2 px-3 py-2 min-h-[44px] rounded-full border border-white/10 bg-[#12141c] text-xs font-mono">
               <span
-                className={`w-2 h-2 rounded-full ${
-                  isOpenNow ? "bg-emerald-400 animate-pulse" : "bg-amber-400"
-                }`}
+                className={`w-2 h-2 rounded-full ${isOpenNow ? "bg-emerald-400" : "bg-amber-400"}`}
               />
-              <span className={isOpenNow ? "text-emerald-400" : "text-[#9ca3af]"}>
+              <span className={isOpenNow ? "text-emerald-400" : "text-[#a1a1aa]"}>
                 {isOpenNow ? "OPEN TONIGHT" : "OPENS 7 PM"}
               </span>
             </div>
@@ -135,30 +129,30 @@ export default function Navbar({
             {/* Direct Call RSVP Button */}
             <a
               href="tel:+14374730042"
-              className="hidden md:flex items-center gap-2 px-3.5 py-2 rounded-lg border border-white/10 bg-[#151824] hover:bg-[#1c2030] text-white text-xs font-semibold tracking-wide transition-colors"
+              className="hidden md:flex items-center gap-2 px-3.5 py-2 min-h-[44px] rounded-md border border-white/10 bg-[#151821] hover:bg-[#1a1d28] hover:border-white/20 text-[#f4f4f5] text-xs font-medium tracking-wider transition-colors"
             >
-              <Phone className="w-3.5 h-3.5 text-[#f43f5e]" />
-              <span>(437) 473-0042</span>
+              <Phone className="w-3.5 h-3.5 text-[#c5a880]" />
+              <span className="font-mono">(437) 473-0042</span>
             </a>
 
-            {/* Book VIP Table CTA */}
+            {/* Reserve VIP Table CTA - Refined Champagne Brass */}
             <button
               type="button"
               onClick={() => onOpenBooking()}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#a855f7] via-[#c026d3] to-[#f43f5e] text-white text-xs sm:text-sm font-semibold tracking-wide shadow-lg shadow-[#a855f7]/30 hover:shadow-[#a855f7]/50 hover:brightness-110 active:scale-95 transition-all cursor-pointer"
+              className="flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-md bg-[#c5a880] hover:bg-[#d4af37] text-[#08090b] text-xs sm:text-sm font-semibold tracking-wider transition-all cursor-pointer shadow-sm"
             >
-              <Sparkles className="w-4 h-4" />
-              <span>{language === "en" ? "Book Table" : "ቦታ ይያዙ"}</span>
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>{language === "en" ? "RESERVE TABLE" : "ቦታ ይያዙ"}</span>
             </button>
 
             {/* Mobile Hamburger Toggle */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg border border-white/10 bg-[#151824] text-[#9ca3af] hover:text-white"
+              className="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-md border border-white/10 bg-[#12141c] text-[#a1a1aa] hover:text-white"
               aria-label="Toggle Navigation Menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -166,33 +160,33 @@ export default function Navbar({
 
       {/* Mobile Dropdown Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0a0c13] border-b border-white/10 px-4 pt-4 pb-6 mt-3 space-y-3 animate-in fade-in slide-in-from-top-4 duration-200">
-          <div className="flex items-center justify-between pb-2 border-b border-white/5">
+        <div className="lg:hidden bg-[#0c0d12] border-b border-white/10 px-4 pt-4 pb-6 mt-3 space-y-4 animate-in fade-in duration-200">
+          <div className="flex items-center justify-between pb-3 border-b border-white/5">
             <div className="flex items-center gap-2 text-xs font-mono">
               <span
                 className={`w-2 h-2 rounded-full ${isOpenNow ? "bg-emerald-400" : "bg-amber-400"}`}
               />
-              <span className="text-[#9ca3af]">
-                {isOpenNow ? "OPEN TONIGHT (UNTIL 2 AM/3 AM)" : "CLOSED TUESDAY / OPENS 7 PM"}
+              <span className="text-[#a1a1aa]">
+                {isOpenNow ? "OPEN TONIGHT (UNTIL 3 AM)" : "CLOSED TUESDAY / OPENS 7 PM"}
               </span>
             </div>
             <button
               type="button"
               onClick={() => setLanguage(language === "en" ? "am" : "en")}
-              className="text-xs text-[#a855f7] font-semibold flex items-center gap-1"
+              className="text-xs text-[#c5a880] font-medium flex items-center gap-1.5"
             >
               <Globe className="w-3.5 h-3.5" />
-              {language === "en" ? "Switch to አማርኛ" : "Switch to English"}
+              <span>{language === "en" ? "አማርኛ" : "English"}</span>
             </button>
           </div>
 
-          <div className="grid grid-cols-2 gap-2 pt-2">
+          <div className="grid grid-cols-2 gap-2 pt-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2.5 rounded-lg bg-[#151824] text-sm text-[#d1d5db] hover:text-white hover:bg-[#1c2030] font-medium"
+                className="px-3.5 py-3 rounded-md bg-[#141620] text-xs uppercase tracking-wider text-[#d4d4d8] hover:text-white hover:bg-[#1b1e2b] font-medium"
               >
                 {link.label}
               </a>
@@ -202,10 +196,10 @@ export default function Navbar({
           <div className="pt-2 flex flex-col gap-2">
             <a
               href="tel:+14374730042"
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-lg border border-white/15 bg-[#151824] text-white text-sm font-semibold"
+              className="w-full min-h-[44px] flex items-center justify-center gap-2 py-3 rounded-md border border-white/15 bg-[#141620] text-white text-xs uppercase tracking-wider font-semibold"
             >
-              <Phone className="w-4 h-4 text-[#f43f5e]" />
-              <span>Call VIP Host: +1 437-473-0042</span>
+              <Phone className="w-3.5 h-3.5 text-[#c5a880]" />
+              <span>Call Concierge: +1 437-473-0042</span>
             </a>
             <button
               type="button"
@@ -213,9 +207,9 @@ export default function Navbar({
                 setMobileMenuOpen(false);
                 onOpenGuestlist();
               }}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-lg border border-[#a855f7]/40 bg-[#a855f7]/10 text-[#d8b4fe] text-sm font-semibold"
+              className="w-full min-h-[44px] flex items-center justify-center gap-2 py-3 rounded-md border border-[#c5a880]/30 bg-[#c5a880]/10 text-[#e6d5b8] text-xs uppercase tracking-wider font-semibold"
             >
-              <Calendar className="w-4 h-4" />
+              <Calendar className="w-3.5 h-3.5 text-[#c5a880]" />
               <span>Join Weekend Guestlist</span>
             </button>
           </div>

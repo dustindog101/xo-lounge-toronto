@@ -44,59 +44,59 @@ interface FooterProps {
 
 export default function Footer({ language }: FooterProps) {
   return (
-    <footer className="bg-[#050608] border-t border-white/10 pt-16 pb-24 md:pb-12 text-[#9ca3af]">
+    <footer className="bg-[#050608] border-t border-white/10 pt-16 pb-24 md:pb-12 text-[#a1a1aa]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/5">
           {/* Brand Col */}
           <div className="space-y-4 md:col-span-1">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg border border-[#a855f7]/50 bg-[#151824] flex items-center justify-center font-serif font-extrabold text-xl text-white">
-                <span className="text-gradient-gold">XO</span>
+              <div className="w-10 h-10 rounded-md border border-[#c5a880]/40 bg-[#12141c] flex items-center justify-center font-serif font-bold text-lg text-[#e6d5b8]">
+                <span>XO</span>
               </div>
-              <span className="font-serif font-bold text-lg text-white tracking-wider">
+              <span className="font-serif font-bold text-lg text-white tracking-[0.2em]">
                 XO LOUNGE
               </span>
             </div>
 
-            <p className="text-xs text-[#9ca3af] leading-relaxed">
-              Toronto’s premier Queen East nightlife destination. Atmospheric neon lighting, live
-              weekend DJs, elevated cocktails, and luxury VIP bottle service.
+            <p className="text-xs text-[#a1a1aa] leading-relaxed">
+              Toronto’s premier Queen East nightlife sanctuary. Custom architectural illumination,
+              curated weekend resident DJs, craft diaspora mixology, and bespoke table service.
             </p>
 
-            <div className="text-xs font-mono text-[#a855f7]">
+            <div className="text-xs font-mono text-[#c5a880]">
               {language === "en" ? "Est. October 2025 • Toronto, ON" : "የተመሰረተበት: ጥቅምት 2025 • ቶሮንቶ"}
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-3">
-            <span className="text-xs font-mono text-white font-bold uppercase tracking-wider block">
+            <span className="text-[10px] font-mono text-[#c5a880] font-bold uppercase tracking-widest block">
               EXPERIENCE
             </span>
             <ul className="space-y-2 text-xs">
               <li>
                 <a href="#experience" className="hover:text-white transition-colors">
-                  The Atmosphere
+                  Atmosphere & Sound
                 </a>
               </li>
               <li>
                 <a href="#floorplan" className="hover:text-white transition-colors">
-                  Interactive Floorplan
+                  Seating Floorplan
                 </a>
               </li>
               <li>
                 <a href="#bottle-service" className="hover:text-white transition-colors">
-                  VIP Bottle Packages
+                  Table Packages & Concierge
                 </a>
               </li>
               <li>
                 <a href="#djs" className="hover:text-white transition-colors">
-                  Weekend DJ Lineup
+                  Weekend DJ Residencies
                 </a>
               </li>
               <li>
                 <a href="#menus" className="hover:text-white transition-colors">
-                  Craft Cocktails & Tapas
+                  Cocktails & Tapas Repertoire
                 </a>
               </li>
             </ul>
@@ -104,33 +104,33 @@ export default function Footer({ language }: FooterProps) {
 
           {/* Private Events */}
           <div className="space-y-3">
-            <span className="text-xs font-mono text-white font-bold uppercase tracking-wider block">
-              CELEBRATIONS
+            <span className="text-[10px] font-mono text-[#c5a880] font-bold uppercase tracking-widest block">
+              SPECIAL OCCASIONS
             </span>
             <ul className="space-y-2 text-xs">
               <li>
                 <a href="#parties" className="hover:text-white transition-colors">
-                  Birthday VIP Packages
+                  Birthday Milestone Hospitality
                 </a>
               </li>
               <li>
                 <a href="#parties" className="hover:text-white transition-colors">
-                  Christmas & Holiday Parties
+                  Holiday & Corporate Receptions
                 </a>
               </li>
               <li>
                 <a href="#parties" className="hover:text-white transition-colors">
-                  Bachelorette & Milestones
+                  Milestone Gatherings & Toasts
                 </a>
               </li>
               <li>
                 <a href="#parties" className="hover:text-white transition-colors">
-                  Full Venue Buyouts (150 Cap)
+                  Exclusive Venue Buyouts (Up to 150)
                 </a>
               </li>
               <li>
                 <a href="#location" className="hover:text-white transition-colors">
-                  Dress Code & 19+ ID Rules
+                  Guest Etiquette & 19+ ID Policy
                 </a>
               </li>
             </ul>
@@ -138,58 +138,58 @@ export default function Footer({ language }: FooterProps) {
 
           {/* Direct Contact & Socials */}
           <div className="space-y-4">
-            <span className="text-xs font-mono text-white font-bold uppercase tracking-wider block">
-              CONNECT & RSVP
+            <span className="text-[10px] font-mono text-[#c5a880] font-bold uppercase tracking-widest block">
+              CONCIERGE & RSVP
             </span>
 
-            <div className="space-y-2 text-xs">
+            <div className="space-y-2.5 text-xs">
               <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-[#f43f5e]" />
+                <MapPin className="w-3.5 h-3.5 text-[#c5a880]" />
                 <span>364 Queen St E, Toronto, M5A 1T1</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-[#a855f7]" />
+                <Phone className="w-3.5 h-3.5 text-[#c5a880]" />
                 <a href="tel:+14374730042" className="hover:text-white font-mono font-semibold">
                   +1 (437) 473-0042
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-[#06b6d4]" />
+                <Mail className="w-3.5 h-3.5 text-[#c5a880]" />
                 <a href="mailto:info@xolounge.ca" className="hover:text-white font-mono">
                   info@xolounge.ca
                 </a>
               </div>
             </div>
 
-            <div className="flex gap-3 pt-2">
+            <div className="flex gap-2.5 pt-2">
               <a
                 href="https://www.instagram.com/xo_lounge_toronto/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg bg-[#151824] hover:bg-[#1c2030] text-white flex items-center justify-center border border-white/10 transition-colors"
+                className="w-9 h-9 rounded-md bg-[#12141c] hover:bg-[#181a24] text-white flex items-center justify-center border border-white/10 transition-colors"
                 aria-label="Instagram"
               >
-                <InstagramIcon className="w-4 h-4 text-[#f43f5e]" />
+                <InstagramIcon className="w-4 h-4 text-[#c5a880]" />
               </a>
               <a
                 href="https://www.facebook.com/xoloungetoronto/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg bg-[#151824] hover:bg-[#1c2030] text-white flex items-center justify-center border border-white/10 transition-colors"
+                className="w-9 h-9 rounded-md bg-[#12141c] hover:bg-[#181a24] text-white flex items-center justify-center border border-white/10 transition-colors"
                 aria-label="Facebook"
               >
-                <FacebookIcon className="w-4 h-4 text-[#3b82f6]" />
+                <FacebookIcon className="w-4 h-4 text-[#c5a880]" />
               </a>
             </div>
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#6b7280] gap-4">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#71717a] gap-4">
           <div>
             © {new Date().getFullYear()} XO Lounge Toronto. All rights reserved. 19+ Legal Drinking
-            Age.
+            Age strictly enforced.
           </div>
-          <div className="font-mono text-[11px] text-[#a855f7]">
+          <div className="font-mono text-[11px] text-[#c5a880]">
             {language === "en" ? "ስለጎበኙን እናመሰግናለን • Welcome Always" : "ስለጎበኙን እናመሰግናለን"}
           </div>
         </div>

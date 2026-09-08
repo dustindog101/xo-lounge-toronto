@@ -12,7 +12,6 @@ interface MenuItem {
   price: string;
   description: string;
   tags?: string[];
-  notes?: string;
 }
 
 export default function CocktailsAndTapas({ language }: MenuProps) {
@@ -23,43 +22,43 @@ export default function CocktailsAndTapas({ language }: MenuProps) {
       name: "Queen East Smoked Old Fashioned",
       price: "$22 CAD",
       description:
-        "Woodford Reserve Bourbon, Angostura & orange bitters, demerara, served in a cloche with real applewood smoke.",
-      tags: ["Smoky", "Bold", "Signature"],
+        "Woodford Reserve Bourbon, Angostura & orange bitters, demerara reduction, presented under applewood smoke.",
+      tags: ["Smoky", "Bourbon", "House Signature"],
     },
     {
-      name: "XO Passionfruit Mojito",
-      price: "$20 CAD",
+      name: "Amharic Gold",
+      price: "$24 CAD",
       description:
-        "White rum, fresh passionfruit pulp, crushed mint leaves, Persian lime, topped with effervescent soda.",
-      tags: ["Refreshing", "Tropical"],
+        "Hennessy VSOP, Ethiopian wild honey & korerima reduction, fresh lemon juice, edible 24k gold leaf finish.",
+      tags: ["Diaspora Exclusive", "Cognac", "Refined"],
     },
     {
       name: "Hibiscus Mezcalita",
       price: "$21 CAD",
       description:
-        "Artisanal Oaxacan Mezcal, steeped wild hibiscus reduction, fresh lime juice, smoked black salt rim.",
+        "Artisanal Oaxacan Mezcal, wild hibiscus calyx infusion, cold-pressed Persian lime, smoked sea salt rim.",
       tags: ["Tart", "Earthy", "Spiced"],
     },
     {
       name: "Black Diamond Espresso Martini",
       price: "$22 CAD",
       description:
-        "Grey Goose Vodka, Kahlúa, freshly pulled espresso, Madagascan vanilla bean syrup, chocolate dust.",
-      tags: ["Velvety", "Caffeinated"],
+        "Grey Goose Vodka, freshly pulled double espresso, coffee liqueur, Madagascar vanilla bean essence.",
+      tags: ["Velvety", "Caffeinated", "Classic"],
     },
     {
-      name: "Amharic Gold",
-      price: "$24 CAD",
+      name: "XO Passionfruit Spritz",
+      price: "$20 CAD",
       description:
-        "Hennessy VSOP, organic Ethiopian spiced honey reduction, fresh lemon, edible 24k gold leaf garnish.",
-      tags: ["Diaspora Exclusive", "Luxury"],
+        "Flor de Caña rum, passionfruit coulis, fresh muddled mint, citrus cordial, effervescent prosecco float.",
+      tags: ["Effervescent", "Tropical", "Aromatic"],
     },
     {
-      name: "Blue Neon Velvet",
-      price: "$19 CAD",
+      name: "Violet Botanical Collins",
+      price: "$20 CAD",
       description:
-        "Empress 1908 Indigo Gin, Japanese yuzu juice, elderflower liqueur, club soda with luminous violet hue.",
-      tags: ["Citrus", "Floral"],
+        "Empress 1908 Indigo Gin, Japanese yuzu, St. Germain elderflower, clarified lemon, sparkling soda.",
+      tags: ["Botanical", "Citrus", "Floral"],
     },
   ];
 
@@ -68,113 +67,123 @@ export default function CocktailsAndTapas({ language }: MenuProps) {
       name: "Don Julio 1942 Añejo Tequila",
       price: "$1,100 CAD",
       description:
-        "Iconic luxury tequila handcrafted in tribute to the year Don Julio González began his tequila-making journey.",
-      tags: ["Ultra Premium", "Sparkler Parade"],
+        "Celebrated small-batch artisanal tequila aged in American white oak barrels for exceptional rich caramel notes.",
+      tags: ["Ultra Prestige", "Bottle Presentation"],
     },
     {
-      name: "Clase Azul Reposado",
+      name: "Clase Azul Reposado Tequila",
       price: "$950 CAD",
       description:
-        "Recognized worldwide for its handcrafted cobalt ceramic decanter. Smooth vanilla and hazelnut finish.",
-      tags: ["Top Shelf", "Sparkler Parade"],
+        "Distinguished by its handcrafted blue-and-white ceramic decanter. Silky, smooth agave profile.",
+      tags: ["Top Shelf", "Bottle Presentation"],
     },
     {
-      name: "Dom Pérignon Vintage Champagne",
+      name: "Dom Pérignon Brut Vintage Champagne",
       price: "$950 CAD",
       description:
-        "Prestigious champagne vintage characterized by intense sensory richness and vibrant effervescence.",
-      tags: ["Chilled", "Celebration"],
+        "The quintessential expression of French prestige champagne. Intense sensory depth and fine bead effervescence.",
+      tags: ["Vintage Champagne", "Chilled Flutes"],
     },
     {
       name: "Moët & Chandon Nectar Impérial Rosé",
-      price: "$425 CAD",
+      price: "$450 CAD",
       description:
-        "A bright coral color and intense fruitiness. The most requested celebration champagne in Toronto nightlife.",
-      tags: ["Bestseller", "Sparkler Presentation"],
+        "A vibrant sensory palate of wild strawberry, raspberry and peach. The gold-standard celebration bottle.",
+      tags: ["Celebration Rosé", "Sparkler Service"],
     },
     {
       name: "Hennessy XO Cognac",
       price: "$850 CAD",
       description:
-        "Deep, powerful, and robust with aromas of candied fruits, wild spices, and cocoa.",
-      tags: ["Cognac", "VIP Classic"],
+        "Deep, complex blend of over one hundred eaux-de-vie offering nuances of candied fruit, cinnamon and cocoa.",
+      tags: ["Prestige Cognac", "Table Service"],
     },
     {
       name: "Casamigos Reposado / Blanco",
       price: "$400 CAD",
       description:
-        "Ultra-smooth small batch blue agave tequila. Served with fresh lime wheels and house-made salted garnishes.",
-      tags: ["Essential", "Mixers Included"],
+        "Small-batch blue agave tequila crafted in Jalisco. Accompanied by house-made garnishes and premium mixers.",
+      tags: ["House Essential", "Mixers Included"],
     },
   ];
 
   const tapas: MenuItem[] = [
     {
-      name: "Crispy Spiced Sambusas (3 Pcs)",
+      name: "Crispy Beef Sambusas (3 Pcs)",
       price: "$16 CAD",
       description:
-        "Golden flaky pastry envelopes stuffed with spiced minced beef, jalapeño, and herbs, served with homemade fiery Awaze honey dip.",
-      tags: ["Diaspora Signature", "Must Try"],
+        "Hand-rolled golden pastry stuffed with prime minced beef, green pepper, garlic, and coriander. Served with spiced awaze dip.",
+      tags: ["Diaspora Signature", "Warm Appetizer"],
+    },
+    {
+      name: "Korerima Spiced Lamb Riblets",
+      price: "$24 CAD",
+      description:
+        "Slow-roasted crisp lamb ribs glazed in Ethiopian black cardamom honey, fresh mint chimichurri, and pomegranate seeds.",
+      tags: ["Chef Special", "Slow Roasted"],
     },
     {
       name: "Honey-Garlic Beef Suqaar Sliders (3 Pcs)",
       price: "$22 CAD",
       description:
-        "Tender seasoned beef suqaar, caramelized sweet onions, smoked gouda cheese on toasted buttery brioche buns.",
-      tags: ["Savory", "Late Night"],
+        "Tender cubed sirloin suqaar, caramelized sweet shallots, melted smoked gouda on toasted buttery brioche.",
+      tags: ["Late Night Savory", "Brioche"],
     },
     {
-      name: "Suya-Spiced Jumbo Wings (8 Pcs)",
+      name: "Suya Spiced Jumbo Wings (8 Pcs)",
       price: "$20 CAD",
       description:
-        "Crispy jumbo chicken wings tossed in an authentic peanut and pepper West African suya rub with cool yogurt dip.",
-      tags: ["Spicy", "Sharing"],
+        "Crispy free-range wings coated in authentic West African roasted peanut and chili suya spice with cooling yogurt dip.",
+      tags: ["Spiced Suya", "Sharing"],
     },
     {
-      name: "Black Truffle & Parmesan Fries",
+      name: "Truffle & Aged Parmesan Fries",
       price: "$15 CAD",
       description:
-        "Crispy shoestring potatoes tossed in white truffle oil, shaved aged parmesan, and cracked pepper with roasted garlic aioli.",
+        "Hand-cut crisp russet potatoes tossed in black truffle oil, freshly grated 24-month Parmigiano-Reggiano, and garlic aioli.",
       tags: ["Vegetarian", "Crispy"],
     },
     {
-      name: "XO Luxury Charcuterie & Fruit Board",
+      name: "XO Artisanal Charcuterie Board",
       price: "$38 CAD",
       description:
-        "Artisan cured meats, aged cheeses, spiced nuts, grapes, dried figs, and warm flatbread for the table.",
+        "Curated selection of cured meats, aged cheeses, spiced marcona almonds, dried figs, cornichons, and grilled flatbread.",
       tags: ["Table Sharing", "VIP Accompaniment"],
     },
   ];
 
   return (
-    <section id="menus" className="py-24 bg-[#0a0c12] border-t border-white/5 relative">
+    <section
+      id="menus"
+      className="py-24 bg-[#08090b] border-t border-white/5 relative scroll-mt-28"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#f43f5e]/30 bg-[#151824] text-xs font-mono text-[#f43f5e]">
-            <GlassWater className="w-3.5 h-3.5" />
-            <span>BEVERAGE & CULINARY EXCELLENCE</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#c5a880]/30 bg-[#12141c] text-xs font-mono text-[#e6d5b8]">
+            <GlassWater className="w-3.5 h-3.5 text-[#c5a880]" />
+            <span className="tracking-widest uppercase">BEVERAGE & CULINARY REPERTOIRE</span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
-            {language === "en" ? "CURATED MENUS" : "የመጠጥ እና የምግብ ሜኑ"}
+            {language === "en" ? "CURATED MENUS & REPERTOIRE" : "የመጠጥ እና የምግብ ሜኑ"}
           </h2>
 
-          <p className="text-sm sm:text-base text-[#9ca3af]">
+          <p className="text-sm sm:text-base text-[#a1a1aa]">
             {language === "en"
-              ? "From smoky craft mixology and top-shelf bottle reserves to late-night diaspora tapas, every offering is tailored for refined indulgence."
+              ? "From smoky craft mixology and top-shelf bottle reserves to late-night diaspora tapas, every offering is curated for refined hospitality."
               : "ልዩ ኮክቴሎች፣ ጥራት ያላቸው መጠጦች እና የሌሊት ጣፋጭ ምግቦች።"}
           </p>
 
-          {/* Navigation Category Tabs */}
-          <div className="flex justify-center gap-2 pt-6">
+          {/* Navigation Category Tabs (>= 44px) */}
+          <div className="flex flex-wrap justify-center gap-2.5 pt-6">
             <button
               type="button"
               onClick={() => setActiveTab("cocktails")}
-              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all cursor-pointer ${
+              className={`min-h-[44px] px-6 py-2.5 rounded-md text-xs uppercase tracking-[0.12em] font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${
                 activeTab === "cocktails"
-                  ? "bg-gradient-to-r from-[#a855f7] to-[#f43f5e] text-white shadow-lg shadow-[#a855f7]/30"
-                  : "bg-[#151824] text-[#9ca3af] hover:text-white border border-white/10"
+                  ? "bg-[#c5a880] text-[#08090b] shadow-md"
+                  : "bg-[#12141c] text-[#a1a1aa] hover:text-white border border-white/10"
               }`}
             >
               <GlassWater className="w-4 h-4" />
@@ -184,10 +193,10 @@ export default function CocktailsAndTapas({ language }: MenuProps) {
             <button
               type="button"
               onClick={() => setActiveTab("bottles")}
-              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all cursor-pointer ${
+              className={`min-h-[44px] px-6 py-2.5 rounded-md text-xs uppercase tracking-[0.12em] font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${
                 activeTab === "bottles"
-                  ? "bg-gradient-to-r from-[#a855f7] to-[#f43f5e] text-white shadow-lg shadow-[#a855f7]/30"
-                  : "bg-[#151824] text-[#9ca3af] hover:text-white border border-white/10"
+                  ? "bg-[#c5a880] text-[#08090b] shadow-md"
+                  : "bg-[#12141c] text-[#a1a1aa] hover:text-white border border-white/10"
               }`}
             >
               <Wine className="w-4 h-4" />
@@ -197,14 +206,14 @@ export default function CocktailsAndTapas({ language }: MenuProps) {
             <button
               type="button"
               onClick={() => setActiveTab("tapas")}
-              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all cursor-pointer ${
+              className={`min-h-[44px] px-6 py-2.5 rounded-md text-xs uppercase tracking-[0.12em] font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${
                 activeTab === "tapas"
-                  ? "bg-gradient-to-r from-[#a855f7] to-[#f43f5e] text-white shadow-lg shadow-[#a855f7]/30"
-                  : "bg-[#151824] text-[#9ca3af] hover:text-white border border-white/10"
+                  ? "bg-[#c5a880] text-[#08090b] shadow-md"
+                  : "bg-[#12141c] text-[#a1a1aa] hover:text-white border border-white/10"
               }`}
             >
               <Utensils className="w-4 h-4" />
-              <span>Diaspora Tapas & Bites</span>
+              <span>Diaspora Tapas</span>
             </button>
           </div>
         </div>
@@ -215,27 +224,27 @@ export default function CocktailsAndTapas({ language }: MenuProps) {
             (item) => (
               <div
                 key={item.name}
-                className="bg-[#0f1118] border border-white/10 hover:border-[#a855f7]/40 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between space-y-4 hover:shadow-xl hover:shadow-black/50"
+                className="bg-[#0f1117] border border-white/10 hover:border-white/20 rounded-xl p-6 transition-all duration-200 flex flex-col justify-between space-y-4 shadow-md"
               >
                 <div className="space-y-3">
-                  <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-start justify-between gap-3 border-b border-white/5 pb-2.5">
                     <h3 className="font-serif text-lg font-bold text-white leading-snug">
                       {item.name}
                     </h3>
-                    <span className="font-mono text-base font-bold text-gradient-gold whitespace-nowrap">
+                    <span className="font-mono text-sm font-semibold text-[#e6d5b8] whitespace-nowrap">
                       {item.price}
                     </span>
                   </div>
 
-                  <p className="text-xs text-[#9ca3af] leading-relaxed">{item.description}</p>
+                  <p className="text-xs text-[#a1a1aa] leading-relaxed">{item.description}</p>
                 </div>
 
                 {item.tags && (
-                  <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/5">
+                  <div className="flex flex-wrap gap-1.5 pt-2">
                     {item.tags.map((t) => (
                       <span
                         key={t}
-                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#151824] text-[#d8b4fe] border border-white/5"
+                        className="text-[10px] font-mono tracking-wider uppercase px-2 py-0.5 rounded-sm bg-[#151821] text-[#c5a880] border border-[#c5a880]/20"
                       >
                         {t}
                       </span>

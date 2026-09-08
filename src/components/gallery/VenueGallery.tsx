@@ -28,22 +28,22 @@ interface GalleryProps {
 
 export default function VenueGallery({ language }: GalleryProps) {
   return (
-    <section className="py-24 bg-[#0a0c12] border-t border-white/5 relative">
+    <section className="py-24 bg-[#08090b] border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#f43f5e]/30 bg-[#151824] text-xs font-mono text-[#f43f5e]">
-            <InstagramIcon className="w-3.5 h-3.5" />
-            <span>@XO_LOUNGE_TORONTO</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#c5a880]/30 bg-[#12141c] text-xs font-mono text-[#e6d5b8]">
+            <InstagramIcon className="w-3.5 h-3.5 text-[#c5a880]" />
+            <span className="tracking-widest uppercase">@XO_LOUNGE_TORONTO</span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
-            {language === "en" ? "ATMOSPHERE & SOCIAL REELS" : "የክበቡ ገጽታ እና ቪዲዮዎች"}
+            {language === "en" ? "ATMOSPHERE & SOCIAL ARCHIVE" : "የክበቡ ገጽታ እና ቪዲዮዎች"}
           </h2>
 
-          <p className="text-sm sm:text-base text-[#9ca3af]">
+          <p className="text-sm sm:text-base text-[#a1a1aa]">
             {language === "en"
-              ? "Follow our latest night highlights, DJ sets, and celebration stories on Instagram."
+              ? "Follow our after-dark moments, resident DJ sets, and celebration stories on Instagram."
               : "የቅርብ ጊዜ የምሽት ክስተቶችን እና የዲጄ ዝግጅቶችን በኢንስታግራም ይከታተሉ።"}
           </p>
 
@@ -52,11 +52,11 @@ export default function VenueGallery({ language }: GalleryProps) {
               href="https://www.instagram.com/xo_lounge_toronto/reels/?hl=en"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#1c2030] hover:bg-[#252b42] border border-white/10 text-white text-xs font-mono font-semibold transition-all hover:border-[#a855f7]"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#12141c] hover:bg-[#181a24] border border-white/10 hover:border-[#c5a880]/40 text-white text-xs font-mono font-medium tracking-wider transition-all min-h-[44px]"
             >
-              <InstagramIcon className="w-4 h-4 text-[#f43f5e]" />
-              <span>Watch Official Instagram Reels</span>
-              <ExternalLink className="w-3.5 h-3.5 text-[#9ca3af]" />
+              <InstagramIcon className="w-4 h-4 text-[#c5a880]" />
+              <span>Explore Official Instagram Reels</span>
+              <ExternalLink className="w-3.5 h-3.5 text-[#71717a]" />
             </a>
           </div>
         </div>
@@ -64,27 +64,27 @@ export default function VenueGallery({ language }: GalleryProps) {
         {/* Gallery Showcase Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {/* Main Large Image Card (8 cols) */}
-          <div className="md:col-span-8 rounded-3xl overflow-hidden border border-[#a855f7]/30 relative group aspect-[16/10] bg-[#121522] shadow-2xl">
+          <div className="md:col-span-8 rounded-xl overflow-hidden border border-white/15 relative group aspect-[16/10] bg-[#12141c] shadow-xl">
             <Image
               src="/images/venue-interior.jpg"
-              alt="XO Lounge Toronto Neon Lighting and VIP Bar"
+              alt="XO Lounge Toronto Main Room Interior"
               fill
               sizes="(max-width: 768px) 100vw, 66vw"
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
+              className="object-cover group-hover:scale-102 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#07080b] via-transparent to-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#08090b] via-transparent to-black/20" />
 
             <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
               <div>
-                <span className="text-[10px] font-mono text-[#fef08a] bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/10 uppercase mb-2 inline-block">
+                <span className="text-[10px] font-mono text-[#c5a880] bg-[#08090b]/80 backdrop-blur-md px-2.5 py-1 rounded-sm border border-white/10 uppercase mb-2 inline-block tracking-widest">
                   MAIN ROOM REALITY
                 </span>
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
-                  The Neon Grid Ceiling & Marble Island
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white tracking-wide">
+                  Architectural Lighting & Marble Island
                 </h3>
-                <p className="text-xs text-[#d1d5db] mt-1 max-w-md">
-                  Overhead multi-spectrum LED tubes create pulsating geometric light waves above the
-                  dance floor and bar.
+                <p className="text-xs text-[#d4d4d8] mt-1 max-w-md">
+                  Overhead geometric light canopy casts rich multi-spectrum tones above the central
+                  dance floor and marble cocktail island.
                 </p>
               </div>
 
@@ -92,9 +92,9 @@ export default function VenueGallery({ language }: GalleryProps) {
                 href="https://www.instagram.com/xo_lounge_toronto/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md hover:bg-white/20 text-white text-xs font-semibold flex items-center gap-2 self-start sm:self-auto border border-white/20 transition-all"
+                className="px-4 py-2 min-h-[40px] rounded-md bg-white/10 backdrop-blur-md hover:bg-white/20 text-white text-xs font-semibold flex items-center gap-2 self-start sm:self-auto border border-white/20 transition-all uppercase tracking-wider"
               >
-                <span>View on IG</span>
+                <span>View on Instagram</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -106,42 +106,45 @@ export default function VenueGallery({ language }: GalleryProps) {
               href="https://www.instagram.com/xo_lounge_toronto/reels/?hl=en"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 rounded-3xl border border-white/10 bg-[#0f1118] p-6 flex flex-col justify-between hover:border-[#f43f5e]/50 hover:bg-[#151824] transition-all group shadow-xl"
+              className="flex-1 rounded-xl border border-white/10 bg-[#0f1117] p-6 flex flex-col justify-between hover:border-[#c5a880]/40 transition-all group shadow-lg"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono text-[#f43f5e] font-bold">
-                    REELS & HIGHLIGHTS
+                  <span className="text-[10px] font-mono tracking-widest text-[#c5a880] uppercase font-bold">
+                    REELS & ARCHIVE
                   </span>
-                  <div className="w-8 h-8 rounded-full bg-[#f43f5e]/20 flex items-center justify-center text-[#f43f5e] group-hover:scale-110 transition-transform">
-                    <Play className="w-4 h-4 fill-current" />
+                  <div className="w-8 h-8 rounded-full bg-[#c5a880]/10 flex items-center justify-center text-[#c5a880]">
+                    <Play className="w-3.5 h-3.5 fill-current" />
                   </div>
                 </div>
 
-                <h4 className="font-serif text-lg font-bold text-white group-hover:text-[#fef08a] transition-colors">
-                  Weekend Bottle Parades & Live DJ Energy
+                <h4 className="font-serif text-lg font-bold text-white group-hover:text-[#e6d5b8] transition-colors">
+                  Weekend Bottle Presentations & Resident DJs
                 </h4>
 
-                <p className="text-xs text-[#9ca3af] leading-relaxed">
-                  Watch guest DJs ignite the dance floor and witness the full sparkler bottle train
-                  in action.
+                <p className="text-xs text-[#a1a1aa] leading-relaxed">
+                  Watch guest artists ignite the room and experience the full table service ceremony
+                  in motion.
                 </p>
               </div>
 
-              <div className="pt-4 flex items-center gap-2 text-xs font-mono text-[#d8b4fe]">
+              <div className="pt-4 flex items-center gap-2 text-xs font-mono text-[#c5a880]">
                 <span>Watch Reel Library</span>
                 <ArrowRightIcon className="w-3.5 h-3.5" />
               </div>
             </a>
 
-            <div className="rounded-3xl border border-white/10 bg-[#0f1118] p-6 space-y-4">
-              <span className="text-xs font-mono text-[#a855f7] font-bold">SOCIAL COMMUNITY</span>
+            <div className="rounded-xl border border-white/10 bg-[#0f1117] p-6 space-y-4">
+              <span className="text-[10px] font-mono tracking-widest text-[#c5a880] uppercase font-bold">
+                COMMUNITY ENGAGEMENT
+              </span>
 
               <h4 className="font-serif text-lg font-bold text-white">Tag @xo_lounge_toronto</h4>
 
-              <p className="text-xs text-[#9ca3af] leading-relaxed">
-                Use tags <span className="text-[#fef08a] font-mono">#xolounge #xo #toronto</span> on
-                your stories and reels for a chance to be featured on our weekly recap.
+              <p className="text-xs text-[#a1a1aa] leading-relaxed">
+                Tag your stories and reels with{" "}
+                <span className="text-[#e6d5b8] font-mono">#xolounge #xotoronto</span> for inclusion
+                in our weekly social highlights.
               </p>
 
               <div className="pt-2 flex gap-2">
@@ -149,7 +152,7 @@ export default function VenueGallery({ language }: GalleryProps) {
                   href="https://www.threads.com/@xo_lounge_toronto"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-[#151824] border border-white/10 text-xs text-[#d1d5db] hover:text-white font-mono flex items-center gap-1.5"
+                  className="px-3.5 py-2 min-h-[40px] rounded-md bg-[#12141c] border border-white/10 text-xs text-[#d4d4d8] hover:text-white font-mono flex items-center gap-1.5"
                 >
                   <span>Threads</span>
                   <ExternalLink className="w-3 h-3" />
@@ -158,7 +161,7 @@ export default function VenueGallery({ language }: GalleryProps) {
                   href="https://www.facebook.com/xoloungetoronto/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-[#151824] border border-white/10 text-xs text-[#d1d5db] hover:text-white font-mono flex items-center gap-1.5"
+                  className="px-3.5 py-2 min-h-[40px] rounded-md bg-[#12141c] border border-white/10 text-xs text-[#d4d4d8] hover:text-white font-mono flex items-center gap-1.5"
                 >
                   <span>Facebook</span>
                   <ExternalLink className="w-3 h-3" />

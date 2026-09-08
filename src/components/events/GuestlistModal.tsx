@@ -31,44 +31,50 @@ export default function GuestlistModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in">
-      <div className="bg-[#0f1118] border border-white/15 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+      <div className="bg-[#0f1117] border border-white/15 rounded-xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-full bg-[#151824] text-[#9ca3af] hover:text-white hover:bg-[#1c2030] transition-colors"
+          className="absolute top-5 right-5 p-2 rounded-md bg-[#141620] text-[#a1a1aa] hover:text-white transition-colors"
+          aria-label="Close modal"
         >
           <X className="w-5 h-5" />
         </button>
 
         {confirmed ? (
           <div className="text-center py-6 space-y-4 animate-in zoom-in-95">
-            <div className="w-16 h-16 mx-auto rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
-              <Check className="w-8 h-8" />
+            <div className="w-14 h-14 mx-auto rounded-full bg-[#c5a880]/20 text-[#c5a880] flex items-center justify-center">
+              <Check className="w-7 h-7" />
             </div>
 
-            <h3 className="font-serif text-2xl font-bold text-white">You're on the Guestlist!</h3>
+            <h3 className="font-serif text-2xl font-bold text-white tracking-wide">
+              Guestlist Registration Confirmed
+            </h3>
 
-            <p className="text-xs sm:text-sm text-[#9ca3af] max-w-sm mx-auto">
-              Confirmed for <strong className="text-white">{fullName}</strong> (+{guests - 1}{" "}
-              guests) for {eventTitle}.
+            <p className="text-xs sm:text-sm text-[#a1a1aa] max-w-sm mx-auto">
+              Registration received for <strong className="text-white">{fullName}</strong> (+
+              {guests - 1} guests) for {eventTitle}.
             </p>
 
-            <div className="p-4 rounded-xl bg-[#151824] border border-white/10 text-xs text-[#d8b4fe] space-y-1 text-left">
+            <div className="p-4 rounded-lg bg-[#12141c] border border-white/10 text-xs text-[#d4d4d8] space-y-1.5 text-left">
               <div>
-                • <strong>Arrival Window:</strong> Free entry before 11:00 PM.
+                • <strong className="text-white">Arrival Courtesy:</strong> Reduced or complimentary
+                admission before 11:00 PM.
               </div>
               <div>
-                • <strong>Location:</strong> 364 Queen St East, Toronto.
+                • <strong className="text-white">Address:</strong> 364 Queen St East, Toronto (near
+                Parliament).
               </div>
               <div>
-                • <strong>Dress Code:</strong> Upscale Nightlife Chic. 19+ physical ID mandatory.
+                • <strong className="text-white">Etiquette:</strong> Upscale Evening Attire. 19+
+                physical ID mandatory at the door.
               </div>
             </div>
 
             <button
               type="button"
               onClick={onClose}
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-[#a855f7] to-[#f43f5e] text-white text-xs font-bold shadow-lg"
+              className="w-full min-h-[44px] py-3 rounded-md bg-[#c5a880] hover:bg-[#d4af37] text-[#08090b] text-xs font-semibold uppercase tracking-[0.15em] shadow-md transition-colors"
             >
               Done & Return
             </button>
@@ -76,23 +82,23 @@ export default function GuestlistModal({
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <span className="text-[10px] font-mono text-[#a855f7] uppercase tracking-wider font-bold block mb-1">
-                FREE ENTRY BEFORE 11:00 PM
+              <span className="text-[10px] font-mono text-[#c5a880] uppercase tracking-widest font-bold block mb-1">
+                COMPLIMENTARY ADMISSION BEFORE 11:00 PM
               </span>
-              <h3 className="font-serif text-2xl font-bold text-white">
+              <h3 className="font-serif text-2xl font-bold text-white tracking-wide">
                 {language === "en" ? "Join Weekend Guestlist" : "የእንግዳ ዝርዝር ውስጥ ይመዝገቡ"}
               </h3>
-              <p className="text-xs text-[#9ca3af] mt-1">
+              <p className="text-xs text-[#a1a1aa] mt-1">
                 {eventTitle
                   ? `Registering for: ${eventTitle}`
-                  : "Sign up for quick priority door entry."}
+                  : "Register for priority door reception."}
               </p>
             </div>
 
             <div>
               <label
                 htmlFor="gl-fullname"
-                className="text-xs font-semibold text-[#9ca3af] block mb-1.5 uppercase"
+                className="text-[11px] font-mono text-[#a1a1aa] block mb-1.5 uppercase tracking-wider"
               >
                 Full Name *
               </label>
@@ -102,8 +108,8 @@ export default function GuestlistModal({
                 required
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                placeholder="e.g. Jordan Miller"
-                className="w-full px-3.5 py-2.5 rounded-xl bg-[#07080b] border border-white/10 text-white text-sm focus:border-[#a855f7] focus:outline-none"
+                placeholder="Marcus Vance"
+                className="w-full min-h-[44px] px-3.5 py-2.5 rounded-md bg-[#12141c] border border-white/10 text-white text-sm focus:border-[#c5a880] focus:outline-none"
               />
             </div>
 
@@ -111,9 +117,9 @@ export default function GuestlistModal({
               <div>
                 <label
                   htmlFor="gl-phone"
-                  className="text-xs font-semibold text-[#9ca3af] block mb-1.5 uppercase"
+                  className="text-[11px] font-mono text-[#a1a1aa] block mb-1.5 uppercase tracking-wider"
                 >
-                  Mobile Phone *
+                  Phone Number *
                 </label>
                 <input
                   id="gl-phone"
@@ -122,28 +128,28 @@ export default function GuestlistModal({
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+1 (437) 000-0000"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#07080b] border border-white/10 text-white text-sm focus:border-[#a855f7] focus:outline-none"
+                  className="w-full min-h-[44px] px-3.5 py-2.5 rounded-md bg-[#12141c] border border-white/10 text-white text-sm focus:border-[#c5a880] focus:outline-none"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="gl-guests"
-                  className="text-xs font-semibold text-[#9ca3af] block mb-1.5 uppercase"
+                  className="text-[11px] font-mono text-[#a1a1aa] block mb-1.5 uppercase tracking-wider"
                 >
-                  Total Guests
+                  Party Size
                 </label>
                 <select
                   id="gl-guests"
                   value={guests}
                   onChange={(e) => setGuests(parseInt(e.target.value, 10))}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#07080b] border border-white/10 text-white text-sm focus:border-[#a855f7] focus:outline-none"
+                  className="w-full min-h-[44px] px-3.5 py-2.5 rounded-md bg-[#12141c] border border-white/10 text-white text-sm focus:border-[#c5a880] focus:outline-none"
                 >
-                  <option value={1}>1 Person (Just me)</option>
-                  <option value={2}>2 People (+1)</option>
-                  <option value={3}>3 People (+2)</option>
-                  <option value={4}>4 People (+3)</option>
-                  <option value={5}>5 People (+4)</option>
+                  <option value={1}>1 Guest (Just me)</option>
+                  <option value={2}>2 Guests (+1)</option>
+                  <option value={3}>3 Guests (+2)</option>
+                  <option value={4}>4 Guests (+3)</option>
+                  <option value={5}>5 Guests (+4)</option>
                 </select>
               </div>
             </div>
@@ -151,9 +157,9 @@ export default function GuestlistModal({
             <div>
               <label
                 htmlFor="gl-date"
-                className="text-xs font-semibold text-[#9ca3af] block mb-1.5 uppercase"
+                className="text-[11px] font-mono text-[#a1a1aa] block mb-1.5 uppercase tracking-wider"
               >
-                Select Date *
+                Date of Visit *
               </label>
               <input
                 id="gl-date"
@@ -161,22 +167,22 @@ export default function GuestlistModal({
                 required
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-[#07080b] border border-white/10 text-white text-sm focus:border-[#a855f7] focus:outline-none"
+                className="w-full min-h-[44px] px-3.5 py-2.5 rounded-md bg-[#12141c] border border-white/10 text-white text-sm focus:border-[#c5a880] focus:outline-none"
               />
             </div>
 
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#a855f7] via-[#c026d3] to-[#f43f5e] text-white font-bold text-sm tracking-wide shadow-lg shadow-[#a855f7]/30 hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full min-h-[48px] py-3.5 px-6 rounded-md bg-[#c5a880] hover:bg-[#d4af37] text-[#08090b] font-semibold text-xs uppercase tracking-[0.15em] shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Sparkles className="w-4 h-4" />
                 <span>Submit Guestlist Pass</span>
               </button>
             </div>
 
-            <div className="text-[11px] text-[#6b7280] text-center">
-              Guestlist subject to venue capacity. Arrive early to guarantee entry.
+            <div className="text-[11px] text-[#71717a] text-center">
+              Guestlist admission is subject to venue capacity. Early arrival is highly recommended.
             </div>
           </form>
         )}

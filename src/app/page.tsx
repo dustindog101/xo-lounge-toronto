@@ -64,7 +64,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-[100dvh] bg-[#07080b] text-[#f9fafb] relative selection:bg-[#a855f7] selection:text-white">
+    <main className="min-h-[100dvh] bg-[#08090b] text-[#f4f4f5] relative selection:bg-[#c5a880] selection:text-[#08090b]">
       {/* Top Sticky Header */}
       <Navbar
         onOpenBooking={handleOpenBooking}
