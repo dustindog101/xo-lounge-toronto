@@ -140,7 +140,7 @@ export default function Home() {
                     <span className="text-[#6b707d]">VIP Inquiries:</span>
                     <a
                       href="tel:+14374730042"
-                      className="text-[#f3e5ab] hover:text-white transition-colors underline decoration-[#d4af37]/40 underline-offset-4"
+                      className="min-h-[44px] inline-flex items-center py-2 text-[#f3e5ab] hover:text-white transition-colors underline decoration-[#d4af37]/40 underline-offset-4"
                     >
                       +1 (437) 473-0042
                     </a>

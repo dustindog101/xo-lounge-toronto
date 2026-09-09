@@ -68,7 +68,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo & Brand */}
-          <Link href="/" className="flex items-center gap-3 mr-6 xl:mr-10 shrink-0 group">
+          <Link
+            href="/"
+            className="flex items-center gap-3 mr-6 xl:mr-10 shrink-0 min-h-[44px] py-1 group"
+          >
             <div className="w-10 h-10 rounded-md border border-[#d4af37]/40 bg-[#0b0d13] flex items-center justify-center font-editorial font-bold text-lg text-[#f3e5ab] group-hover:border-[#d4af37] transition-colors">
               <span>XO</span>
             </div>
