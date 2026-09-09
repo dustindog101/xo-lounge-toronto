@@ -3,42 +3,37 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>XO Lounge Toronto — Habesha Kitchen & Late-Night Lounge, Queen St E</title>
-  <meta name="description" content="XO Lounge on Queen Street East, Toronto. Habesha sharing platters, buna coffee ceremony, shisha, cocktails, Afrobeat / R&B / Ethio-jazz DJs Thu–Sun till 2AM. Reserve a table or plan a private night." />
-  <meta name="theme-color" content="#140E0B" />
-  <meta property="og:title" content="XO Lounge Toronto — Night tastes like home" />
-  <meta property="og:description" content="Habesha kitchen + late-night lounge on Queen St E. Injera platters, buna ceremony, shisha, DJs till 2AM." />
-  <meta property="og:type" content="website" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='4' fill='%23140E0B'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-weight='900' font-size='30' fill='%23F3E9D2' text-anchor='middle'%3EX%3C/text%3E%3Ccircle cx='46' cy='20' r='5' fill='%23E85D2A'/%3E%3C/svg%3E" />
+  <title>XO Lounge — Habesha Lounge & Nightclub, Toronto</title>
+  <meta name="description" content="XO Lounge, Queen Street East Toronto. Habesha food, cocktails, shisha and DJs Thu–Sun till 2AM. Book a table." />
+  <meta name="theme-color" content="#0A0807" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0807'/%3E%3Ctext x='32' y='44' font-family='Arial Black,sans-serif' font-weight='900' font-size='32' fill='%23F5EFE3' text-anchor='middle'%3EXO%3C/text%3E%3Crect x='14' y='48' width='36' height='3' fill='%23D9A441'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
-  <script type="importmap">
-    { "imports": {
-      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
-    } }
-  </script>
+  <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }</script>
 </head>
 <body>
 
+<div class="topbar">
+  <span>Queen St E, Toronto</span><span class="dot"></span>
+  <span id="topbarHours">Thu – Sun · till 2AM</span><span class="dot"></span>
+  <span>19+ after 10PM</span>
+</div>
+
 <header class="nav" id="nav">
   <div class="nav-inner">
-    <a class="brand" href="#top" aria-label="XO Lounge home">
-      <span class="brand-mark">X<em>O</em></span>
-      <span class="brand-sub">LOUNGE · TORONTO</span>
-    </a>
+    <a class="brand" href="#top" aria-label="XO Lounge home">XO<span>.</span></a>
     <nav class="nav-links" id="navLinks" aria-label="Primary">
-      <a href="#story">Story</a>
-      <a href="#experience">Experience</a>
-      <a href="#menu">Menu</a>
       <a href="#nights">Nights</a>
-      <a href="#private">Private</a>
-      <a href="#visit">Visit</a>
+      <a href="#menu">Food & Drink</a>
+      <a href="#tables">Tables</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
     </nav>
     <div class="nav-cta">
-      <span class="live" id="liveBadge"><span class="live-dot"></span><span id="liveText">Checking hours…</span></span>
-      <a class="btn btn-solid btn-sm" href="#private">Reserve a table</a>
+      <span class="live" id="liveBadge"><span class="live-dot"></span><span id="liveText">Checking hours</span></span>
+      <a class="btn btn-gold btn-sm" href="#reserve">Book a table</a>
       <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
     </div>
   </div>
@@ -47,333 +42,206 @@
 <main id="top">
 
   <!-- HERO -->
-  <section class="hero" aria-label="XO Lounge introduction">
+  <section class="hero" aria-label="XO Lounge">
+    <div class="hero-bg" aria-hidden="true"></div>
     <canvas id="ember-field" aria-hidden="true"></canvas>
-    <div class="hero-scrim" aria-hidden="true"></div>
-    <div class="vertical" aria-hidden="true">ሌሊት · TORONTO · EST. QUEEN EAST</div>
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="kicker">Habesha lounge & nightclub — Toronto</p>
+      <h1>XO<br/>LOUNGE</h1>
+      <p class="hero-sub">Habesha kitchen. Full bar. Shisha. Resident DJs Thu–Sun till 2AM.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#reserve">Book a table</a>
+        <a class="btn btn-line" href="#nights">View nights</a>
+      </div>
+      <div class="hero-foot">
+        <div><span>Location</span><strong>Queen St E, Toronto</strong></div>
+        <div><span>Hours</span><strong>Sun–Wed 5PM–12AM · Thu–Sat 5PM–2AM</strong></div>
+        <div><span>Music</span><strong>Afrobeat · R&amp;B · Ethio-jazz</strong></div>
+      </div>
+    </div>
+  </section>
 
-    <div class="hero-grid">
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="wrap intro-grid">
       <div>
-        <p class="eyebrow">Queen St E — Habesha kitchen / Late-night lounge</p>
-        <h1>
-          <span class="line"><span>Night tastes</span></span>
-          <span class="line"><span>like <em>home.</em></span></span>
-        </h1>
-        <p class="hero-sub">
-          Injera platters built for sharing, buna poured the slow way, and
-          <strong>Afrobeat, R&amp;B and Ethio-jazz till 2AM</strong>. Low light, loud welcome.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-solid" href="#private">Reserve a table</a>
-          <a class="btn btn-ghost" href="#nights">See this week's nights →</a>
-        </div>
-        <dl class="hero-meta">
-          <div><dt>Tonight</dt><dd id="tonightMeta">Thu–Sun · 5PM–2AM<small>DJs from 10PM</small></dd></div>
-          <div><dt>Find us</dt><dd>Queen St E, Toronto<small>2 min from streetcar</small></dd></div>
-          <div><dt>Table for?</dt><dd>2 – 40+<small>Private room on request</small></dd></div>
-        </dl>
+        <h2>Dinner first.<br/>Dance floor after.</h2>
       </div>
-
-      <figure class="hero-figure" data-reveal>
-        <span class="stamp" aria-hidden="true">Habesha<br/>×<br/>Late night</span>
-        <div class="frame">
-          <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1000&auto=format&fit=crop"
-               alt="Low-lit bar interior with bottles glowing behind the counter" fetchpriority="high" decoding="async" />
-        </div>
-        <figcaption><span>01 — The room at midnight</span><span>35mm · no flash</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- MARQUEE: the one and only -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track" id="marqueeTrack">
-      <span>INJERA <b>✦</b> BUNA CEREMONY <b>✦</b> AFROBEAT <b>✦</b> SHISHA <b>✦</b> R&amp;B <b>✦</b> ETHIO-JAZZ <b>✦</b> ምግብ <b>✦</b> COCKTAILS <b>✦</b>&nbsp;</span>
-    </div>
-  </div>
-
-  <!-- STORY -->
-  <section class="story" id="story">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="sec-index">[ 01 ] — Story</div>
-        <div>
-          <h2>Two lounges in one: <em>Habesha at heart,</em> Toronto after dark.</h2>
-          <p>Early evening it eats like family. Late night it moves like Queen Street. Same room, same warmth — the light just gets lower.</p>
-        </div>
-      </div>
-      <div class="story-grid">
-        <div>
-          <p class="lede">We cook the food we grew up sharing — teff injera, slow wots, tibs off a screaming-hot mitad — then we turn the music up and pour the second round of buna a little stronger.</p>
-          <p>XO started as a dare: what if a Habesha kitchen and a proper late-night lounge stopped pretending to be two different places? Weeknights smell like berbere and fresh roast. Weekends, DJ Abel hands off to live krar and keys, and the back room becomes somebody's birthday, engagement, or just-thursday.</p>
-          <p><strong>No white-tablecloth stiffness. No velvet-rope coldness.</strong> Come hungry at 7, still here at 1 — that's the whole business plan.</p>
-        </div>
-        <div class="stats" role="list" aria-label="XO Lounge in numbers">
-          <div class="stat" role="listitem"><b>2<i>AM</i></b><span>Thu – Sun close</span></div>
-          <div class="stat" role="listitem"><b>14</b><span>Wots + tibs on the menu</span></div>
-          <div class="stat" role="listitem"><b>40<i>+</i></b><span>Seats + private room</span></div>
-          <div class="stat" role="listitem"><b>3</b><span>Rounds of buna, always</span></div>
-        </div>
+      <div>
+        <p>XO is a Habesha lounge on Queen East. Early evening: teff injera platters, cocktails and buna. After 10PM the lights drop and the DJs take over.</p>
+        <p class="muted">One room, two moods. Walk in for food, stay for the night.</p>
       </div>
     </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="experience" id="experience">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="sec-index">[ 02 ] — Experience</div>
-        <div>
-          <h2>Four reasons the night <em>runs long.</em></h2>
-          <p>Not features. The actual evening, in order.</p>
-        </div>
-      </div>
-
-      <dl class="x-list">
-        <a class="x-row" href="#menu" data-reveal>
-          <dt class="x-num">[ 01 ]</dt>
-          <div><h3>Sharing platters, <em>eaten with hands</em></h3>
-            <p>One big injera, six wots, zero side plates. Beyaynetu for two or a full gebeta for the table. Teff injera, always gluten-free.</p>
-            <span class="x-tag">From $24 / person · veg + meat</span></div>
-          <dd style="margin:0"><img class="x-thumb" loading="lazy" decoding="async" alt="Shared dinner table with many dishes"
-            src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=600&auto=format&fit=crop" /></dd>
-        </a>
-        <a class="x-row" href="#nights" data-reveal>
-          <dt class="x-num">[ 02 ]</dt>
-          <div><h3>Buna ceremony, <em>three rounds</em></h3>
-            <p>Green beans roasted tableside, incense lit, popcorn passed. Abol, tona, baraka — the third cup blesses the night.</p>
-            <span class="x-tag">Nightly 7PM + Sun slow sessions</span></div>
-          <dd style="margin:0"><img class="x-thumb" loading="lazy" decoding="async" alt="Freshly roasted coffee and jebena pot"
-            src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=600&auto=format&fit=crop" /></dd>
-        </a>
-        <a class="x-row" href="#menu" data-reveal>
-          <dt class="x-num">[ 03 ]</dt>
-          <div><h3>Shisha + <em>low-proof cocktails</em></h3>
-            <p>Double-apple and mint done right, tej-honey old fashioned, hibiscus spritz. Built to sip through a whole set, not one song.</p>
-            <span class="x-tag">Shisha from $28 · cocktails $14–18</span></div>
-          <dd style="margin:0"><img class="x-thumb" loading="lazy" decoding="async" alt="Bartender finishing cocktails at a dark bar"
-            src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=600&auto=format&fit=crop" /></dd>
-        </a>
-        <a class="x-row" href="#nights" data-reveal>
-          <dt class="x-num">[ 04 ]</dt>
-          <div><h3>Sound: <em>Afrobeat → R&amp;B → Ethio-jazz</em></h3>
-            <p>Residents Thu–Sun from 10PM, live krar and keys on Fridays. Loud enough to dance, quiet enough to talk at the table.</p>
-            <span class="x-tag">Thu–Sun · no cover before 10PM</span></div>
-          <dd style="margin:0"><img class="x-thumb" loading="lazy" decoding="async" alt="DJ decks glowing in a dark club"
-            src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=600&auto=format&fit=crop" /></dd>
-        </a>
-      </dl>
-    </div>
-  </section>
-
-  <!-- MENU -->
-  <section class="menu-sec" id="menu">
-    <div class="wrap-narrow">
-      <div class="sec-head">
-        <div class="sec-index">[ 03 ] — Menu</div>
-        <div>
-          <h2>Priced for sharing, <em>written to crave.</em></h2>
-          <p>Real dishes, real CAD prices. Teff injera on everything — tell us about heat, we calibrate.</p>
-        </div>
-      </div>
-
-      <div class="tabs" role="tablist" aria-label="Menu categories">
-        <button class="tab" role="tab" aria-selected="true" data-tab="platters" id="tab-platters">Platters</button>
-        <button class="tab" role="tab" aria-selected="false" data-tab="bar" id="tab-bar">Bar</button>
-        <button class="tab" role="tab" aria-selected="false" data-tab="late" id="tab-late">Late night</button>
-      </div>
-
-      <div class="menu-panels">
-        <div class="menu-panel active" data-panel="platters" role="tabpanel" aria-labelledby="tab-platters">
-          <div class="dish"><h4>XO Gebeta — for two <small>HOUSE SIGNATURE</small></h4><span class="price">$58</span>
-            <p>Doro wot, siga tibs, miser, gomen, shiro, salad + extra injera. The table goes quiet.</p></div>
-          <div class="dish"><h4>Beyaynetu — veg combo</h4><span class="price">$24</span>
-            <p>Miser, kik alicha, gomen, tikil gomen, shiro, azifa. Vegan without trying.</p></div>
-          <div class="dish"><h4>Siga Tibs — sizzling</h4><span class="price">$26</span>
-            <p>Flame-seared beef, rosemary, jalapeño, awaze on the side. Served still talking.</p></div>
-          <div class="dish"><h4>Doro Wot + egg</h4><span class="price">$25</span>
-            <p>The 4-hour one. Berbere-dark, egg stained red, injera built to scoop.</p></div>
-          <div class="dish"><h4>Kitfo — leh-lab</h4><span class="price">$27</span>
-            <p>Warm-minced kitfo, mitmita, ayib, gomen. For the brave + the regulars.</p></div>
-          <div class="dish"><h4>Shiro + extra injera</h4><span class="price">$18</span>
-            <p>Chickpea silk, niter kibbeh shine. The sleeper hit of the menu.</p></div>
-        </div>
-        <div class="menu-panel" data-panel="bar" role="tabpanel" aria-labelledby="tab-bar">
-          <div class="dish"><h4>Tej Old Fashioned</h4><span class="price">$17</span>
-            <p>Honey-wine, bourbon, bitters, orange coin. Slow like the ceremony.</p></div>
-          <div class="dish"><h4>Hibiscus Spritz — zero/low</h4><span class="price">$14</span>
-            <p>Karkade, lime, soda or gin. Tart, cold, second-glass energy.</p></div>
-          <div class="dish"><h4>Buna Martini</h4><span class="price">$18</span>
-            <p>Jebena espresso, vodka, tej syrup. Dessert + ignition.</p></div>
-          <div class="dish"><h4>Shisha — double apple / mint</h4><span class="price">$28</span>
-            <p>Fresh pack, clean hose, coals managed all night. No headache promise.</p></div>
-          <div class="dish"><h4>Draft + mitmita michelada</h4><span class="price">$9</span>
-            <p>Yes, really. Lime, mitmita rim, cold lager. Trust the kitchen.</p></div>
-          <div class="dish"><h4>Buna — full ceremony pot</h4><span class="price">$12</span>
-            <p>Three rounds for the table, popcorn included. Takes 25 unhurried minutes.</p></div>
-        </div>
-        <div class="menu-panel" data-panel="late" role="tabpanel" aria-labelledby="tab-late">
-          <div class="dish"><h4>After-12 Sambusa (3)</h4><span class="price">$11</span>
-            <p>Lentil + beef mix, awaze dip. The reason people miss their streetcar.</p></div>
-          <div class="dish"><h4>Tibs Sliders (2)</h4><span class="price">$14</span>
-            <p>Leftover-tibs logic: chopped tibs, ayib, soft roll. Gone by 1AM.</p></div>
-          <div class="dish"><h4>Firfir — midnight bowl</h4><span class="price">$15</span>
-            <p>Torn injera tossed in doro sauce, egg on top. Soaks up the evening.</p></div>
-          <div class="dish"><h4>Spriss — avocado/mango</h4><span class="price">$10</span>
-            <p>Layered juice, Addis-style. The designated-driver hero.</p></div>
-        </div>
-      </div>
-      <p class="menu-note">Full menu at the table runs longer. Prices in CAD, tax extra. Tell your server about allergies — the kitchen takes it personally.</p>
+    <div class="wrap trio">
+      <div><strong>Kitchen</strong><span>Injera platters, tibs, veg combos. Served to share.</span></div>
+      <div><strong>Bar & Shisha</strong><span>Cocktails, tej, beer. Shisha with full coal service.</span></div>
+      <div><strong>Sound</strong><span>Resident DJs Thu–Sun. Live krar + keys Fridays.</span></div>
     </div>
   </section>
 
   <!-- NIGHTS -->
   <section class="nights" id="nights">
-    <div class="wrap-narrow">
+    <div class="wrap">
       <div class="sec-head">
-        <div class="sec-index">[ 04 ] — Nights</div>
-        <div>
-          <h2>This week at <em>XO.</em></h2>
-          <p>Same kitchen every night. Different reason to stay late.</p>
+        <div><p class="kicker">Weekly</p><h2>The nights</h2></div>
+        <a class="btn btn-line btn-sm" href="#reserve">Reserve for the weekend</a>
+      </div>
+      <div class="night-list">
+        <div class="night">
+          <div class="night-day">THU<small>7PM – 1AM · Free</small></div>
+          <div class="night-what"><strong>Low-key + live strings</strong><span>Krar and keys over dinner. Conversations still possible.</span></div>
+          <div class="night-arrow" aria-hidden="true">→</div>
+        </div>
+        <div class="night">
+          <div class="night-day">FRI<small>7PM – 2AM · Free before 10</small></div>
+          <div class="night-what"><strong>XO Live: band into DJ</strong><span>Live set, then DJ handoff at 11. Busiest dinner service.</span></div>
+          <div class="night-arrow" aria-hidden="true">→</div>
+        </div>
+        <div class="night">
+          <div class="night-day">SAT<small>6PM – 2AM · $10 after 10</small></div>
+          <div class="night-what"><strong>R&amp;B / Afrobeat / Habesha</strong><span>Peak night. Book a table if you're 4+.</span></div>
+          <div class="night-arrow" aria-hidden="true">→</div>
+        </div>
+        <div class="night">
+          <div class="night-day">SUN<small>5PM – 12AM · Free</small></div>
+          <div class="night-what"><strong>Slow session</strong><span>Vinyl Ethio-jazz, buna pots, early close.</span></div>
+          <div class="night-arrow" aria-hidden="true">→</div>
         </div>
       </div>
-      <table class="program">
-        <thead><tr><th>Day</th><th>What happens</th><th>Time</th><th>Cover</th></tr></thead>
-        <tbody>
-          <tr><td class="day">Thu</td><td class="what"><strong>Live strings + low Afrobeat</strong><span>Krar + keys, dinner-volume. Bring parents, impress dates.</span></td><td class="time">7PM – 1AM</td><td class="time">Free</td></tr>
-          <tr><td class="day">Fri</td><td class="what"><strong>XO Live — band + DJ handoff</strong><span>Full room by 11. Gebeta till midnight, dancefloor after.</span></td><td class="time">7PM – 2AM</td><td class="time">Free b4 10</td></tr>
-          <tr><td class="day">Sat</td><td class="what"><strong>R&amp;B / Habesha all night</strong><span>The big one. Book ahead or hover by the bar — your call.</span></td><td class="time">6PM – 2AM</td><td class="time">$10 aft 10</td></tr>
-          <tr><td class="day">Sun</td><td class="what"><strong>Slow buna sessions</strong><span>Incense, vinyl Ethio-jazz, board games. Home by 11, happy.</span></td><td class="time">5PM – 12AM</td><td class="time">Free</td></tr>
-        </tbody>
-      </table>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu-sec" id="menu">
+    <div class="wrap menu-grid">
+      <div>
+        <p class="kicker">Food & drink</p>
+        <h2>Short menu.<br/>Done right.</h2>
+        <p class="muted">Prices in CAD. Teff injera on all platters. Ask about heat and allergies.</p>
+        <div class="tabs" role="tablist" aria-label="Menu">
+          <button class="tab active" data-tab="food" role="tab" aria-selected="true">Food</button>
+          <button class="tab" data-tab="bar" role="tab" aria-selected="false">Bar & Shisha</button>
+        </div>
+      </div>
+      <div>
+        <div class="menu-panel active" data-panel="food">
+          <div class="dish"><div><strong>XO Gebeta for Two</strong><span>Doro wot, siga tibs, miser, gomen, shiro, salad</span></div><b>$58</b></div>
+          <div class="dish"><div><strong>Beyaynetu (Veg)</strong><span>Miser, kik, gomen, tikil, shiro, azifa</span></div><b>$24</b></div>
+          <div class="dish"><div><strong>Siga Tibs</strong><span>Seared beef, rosemary, jalapeño, awaze</span></div><b>$26</b></div>
+          <div class="dish"><div><strong>Doro Wot</strong><span>Slow berbere stew, egg</span></div><b>$25</b></div>
+          <div class="dish"><div><strong>Kitfo</strong><span>Minced kitfo, mitmita, ayib</span></div><b>$27</b></div>
+          <div class="dish"><div><strong>Sambusa (3)</strong><span>Lentil + beef, awaze dip</span></div><b>$11</b></div>
+        </div>
+        <div class="menu-panel" data-panel="bar">
+          <div class="dish"><div><strong>Tej Old Fashioned</strong><span>Honey wine, bourbon, bitters</span></div><b>$17</b></div>
+          <div class="dish"><div><strong>Hibiscus Spritz</strong><span>Karkade, lime, soda or gin</span></div><b>$14</b></div>
+          <div class="dish"><div><strong>Buna Martini</strong><span>Espresso, vodka, tej syrup</span></div><b>$18</b></div>
+          <div class="dish"><div><strong>Shisha</strong><span>Double apple, mint, grape. Full service</span></div><b>$28</b></div>
+          <div class="dish"><div><strong>Beer / Draft</strong><span>Ask what's on</span></div><b>$8</b></div>
+          <div class="dish"><div><strong>Buna Pot (for table)</strong><span>Roasted jebena, popcorn</span></div><b>$12</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLES -->
+  <section class="tables" id="tables">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="kicker">Bottle & tables</p><h2>Book a table</h2></div>
+        <p class="muted">All tables include seating all night + dedicated server. No cover for table guests.</p>
+      </div>
+      <div class="tier-grid">
+        <div class="tier">
+          <span>Standard</span>
+          <b>$150 <small>min. spend</small></b>
+          <ul><li>Table for up to 4</li><li>1 bottle or cocktail tab</li><li>Shisha on request</li></ul>
+          <a class="btn btn-line" href="#reserve">Request</a>
+        </div>
+        <div class="tier hot">
+          <span>Premium — most booked</span>
+          <b>$350 <small>min. spend</small></b>
+          <ul><li>Center table for up to 8</li><li>2 bottles + mixers</li><li>Priority entry + coat check</li></ul>
+          <a class="btn btn-gold" href="#reserve">Request</a>
+        </div>
+        <div class="tier">
+          <span>Private room</span>
+          <b>Custom</b>
+          <ul><li>Up to 40 seated / 70 standing</li><li>Set menu from $38/person</li><li>DJ + mic + projector</li></ul>
+          <a class="btn btn-line" href="#reserve">Enquire</a>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- GALLERY -->
-  <section class="gallery" aria-label="Atmosphere">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="sec-index">[ 05 ] — Room</div>
-        <div>
-          <h2>Low light, <em>high gloss.</em></h2>
-          <p>Shot on film-ish phones, no staging. This is what 11:40PM looks like.</p>
-        </div>
-      </div>
-      <div class="g-grid">
-        <figure class="g-item" data-reveal><img loading="lazy" decoding="async" alt="Candle-lit dining room with people sharing food" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=900&auto=format&fit=crop" /><figcaption><span>The long table</span><span>11:12 PM</span></figcaption></figure>
-        <figure class="g-item" data-reveal><img loading="lazy" decoding="async" alt="Cocktail being poured over ice in low light" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=900&auto=format&fit=crop" /><figcaption><span>Tej hour</span><span>12:04 AM</span></figcaption></figure>
-        <figure class="g-item" data-reveal><img loading="lazy" decoding="async" alt="DJ booth with crowd dancing behind" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=900&auto=format&fit=crop" /><figcaption><span>Handoff at midnight</span><span>12:38 AM</span></figcaption></figure>
-      </div>
+  <section class="gallery" id="gallery" aria-label="Inside XO">
+    <div class="wrap sec-head"><div><p class="kicker">Inside</p><h2>The room</h2></div></div>
+    <div class="g-grid">
+      <img loading="lazy" decoding="async" alt="Dark bar with back-lit bottles" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1400&auto=format&fit=crop" />
+      <img loading="lazy" decoding="async" alt="Cocktails being poured" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=1000&auto=format&fit=crop" />
+      <img loading="lazy" decoding="async" alt="DJ decks in a dark club" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1000&auto=format&fit=crop" />
     </div>
   </section>
 
-  <!-- PRIVATE -->
-  <section class="private" id="private">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="sec-index">[ 06 ] — Private</div>
-        <div>
-          <h2>Birthdays, engagements, <em>whole-room takeovers.</em></h2>
-          <p>Back room holds 40 seated, 70 standing. Tell us the occasion — we handle injera math, cake hiding, and the DJ brief.</p>
+  <!-- RESERVE -->
+  <section class="reserve" id="reserve">
+    <div class="wrap reserve-grid">
+      <div>
+        <p class="kicker">Reservations</p>
+        <h2>Get a table.</h2>
+        <p class="muted">Parties of 5+ should book. Weekends sell out 2–3 weeks ahead. No deposit under 8 guests. We confirm by text.</p>
+        <div class="contact-rows">
+          <div><span>Address</span><strong>Queen St E, Toronto, ON</strong></div>
+          <div><span>Instagram</span><strong>@xo_lounge_toronto</strong></div>
+          <div><span>Hours</span><strong>Sun–Wed 5–12 · Thu–Sat 5–2</strong></div>
         </div>
       </div>
-      <div class="private-grid">
-        <div>
-          <ul class="check">
-            <li>Dedicated server + shisha attendant, no flagging anyone down.</li>
-            <li>Family-style set menu from $38/person — one bill, no math at midnight.</li>
-            <li>Buna ceremony for the table on request, with the incense and the story.</li>
-            <li>DJ + mic for speeches, projector for the embarrassing slideshow.</li>
-          </ul>
-          <p class="mono"><span class="n">—</span> Replies within one business day. Weekends book 2–3 weeks out.</p>
+      <form class="form" id="bookForm" novalidate>
+        <div class="field"><label for="fName">Name</label><input id="fName" name="name" type="text" placeholder="Full name" autocomplete="name" required /></div>
+        <div class="field"><label for="fPhone">Phone</label><input id="fPhone" name="phone" type="tel" placeholder="(416) 555-0134" autocomplete="tel" required /></div>
+        <div class="frow">
+          <div class="field"><label for="fDate">Date</label><input id="fDate" name="date" type="date" required /></div>
+          <div class="field"><label for="fSize">Guests</label>
+            <select id="fSize" name="size" required>
+              <option value="">Select</option><option>2</option><option>3–4</option><option>5–8</option><option>9–20</option><option>20+ / buyout</option>
+            </select></div>
         </div>
-        <form class="form" id="bookForm" novalidate>
-          <h3>Reserve a table</h3>
-          <p>No deposit for parties under 8. We confirm by text.</p>
-          <div class="field-row">
-            <div class="field"><label for="fName">Name</label><input id="fName" name="name" type="text" placeholder="Hanna G." autocomplete="name" required /><p class="hint" data-hint="name"></p></div>
-            <div class="field"><label for="fPhone">Phone</label><input id="fPhone" name="phone" type="tel" placeholder="(416) 555-0134" autocomplete="tel" required /><p class="hint" data-hint="phone"></p></div>
-          </div>
-          <div class="field-row">
-            <div class="field"><label for="fDate">Date</label><input id="fDate" name="date" type="date" required /><p class="hint" data-hint="date"></p></div>
-            <div class="field"><label for="fSize">Party size</label>
-              <select id="fSize" name="size" required>
-                <option value="">Select…</option><option>2</option><option>3 – 4</option><option>5 – 8</option><option>9 – 20 (semi-private)</option><option>20+ (full buyout)</option>
-              </select><p class="hint" data-hint="size"></p></div>
-          </div>
-          <div class="field"><label for="fNote">Occasion / notes</label><textarea id="fNote" name="notes" rows="3" placeholder="Birthday for 10, one vegan, cake in the fridge please"></textarea></div>
-          <button class="btn btn-solid" type="submit" id="bookBtn" style="width:100%">Request this table →</button>
-          <p class="hint" data-hint="form" style="margin-top:10px"></p>
-          <div class="form-ok" id="formOk" role="status">
-            <h4>Got it — check your texts.</h4>
-            <p id="formOkText">We ping you within a day to lock it in. Hungry till then.</p>
-          </div>
-        </form>
-      </div>
+        <p class="err" id="formErr" role="alert"></p>
+        <button class="btn btn-gold btn-big" type="submit" id="bookBtn">Request table</button>
+        <div class="ok" id="formOk" role="status">
+          <strong>Request received.</strong>
+          <p id="formOkText">We'll text you shortly to confirm.</p>
+        </div>
+      </form>
     </div>
   </section>
 
-  <!-- VISIT -->
-  <section class="visit" id="visit">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="sec-index">[ 07 ] — Visit</div>
-        <div><h2>Find the <em>ember glow.</em></h2></div>
+  <!-- CONTACT / FOOTER -->
+  <footer id="contact">
+    <div class="wrap foot-grid">
+      <div class="fbrand">XO<span>.</span></div>
+      <div>
+        <h5>Visit</h5>
+        <p>Queen Street East<br/>Toronto, ON<br/><a href="https://www.google.com/maps/search/XO+Lounge+Toronto+Queen+St+E" target="_blank" rel="noopener">Get directions</a></p>
       </div>
-      <div class="visit-grid">
-        <div class="visit-cell">
-          <p class="mono"><span class="n">—</span> Address</p>
-          <p class="addr"><strong>XO Lounge</strong><br/>Queen Street East<br/>Toronto, ON<br/>
-            <a href="https://www.google.com/maps/search/XO+Lounge+Toronto+Queen+St+E" target="_blank" rel="noopener">Get directions →</a></p>
-          <p class="mono" style="margin-top:28px"><span class="n">—</span> Contact</p>
-          <p class="addr"><a href="https://www.instagram.com/" target="_blank" rel="noopener">@xo_lounge_toronto</a><br/><span style="color:var(--bone-dim)">Walk-ins welcome · Reservations for 5+</span></p>
-        </div>
-        <div class="visit-cell">
-          <p class="mono"><span class="n">—</span> Hours (kitchen / lounge)</p>
-          <dl class="hours">
-            <dt>Tue – Wed</dt><dd>5PM – 12AM</dd>
-            <dt>Thu – Sat</dt><dd>5PM – 2AM</dd>
-            <dt>Sunday</dt><dd>5PM – 12AM</dd>
-            <dt>Monday</dt><dd>Dark (private only)</dd>
-          </dl>
-          <p style="color:var(--bone-faint);font-size:14px;margin:0">Kitchen closes 1 hour before doors. Shisha service ends 45 min before close. 19+ after 10PM — ID at the door.</p>
-        </div>
+      <div>
+        <h5>Hours</h5>
+        <p>Sun–Wed · 5PM–12AM<br/>Thu–Sat · 5PM–2AM<br/>Mon · private only</p>
+      </div>
+      <div>
+        <h5>Follow</h5>
+        <p><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><br/>19+ after 10PM · ID required</p>
       </div>
     </div>
-  </section>
+    <div class="wrap foot-base"><span>© <span id="year">2026</span> XO Lounge, Toronto</span><span>Habesha lounge & nightclub</span></div>
+  </footer>
 
 </main>
 
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <h5>XO Lounge — Toronto</h5>
-        <p style="color:var(--bone-faint);max-width:38ch;margin:0">Habesha kitchen and late-night lounge on Queen St E. Come hungry at 7, still here at 1.</p>
-      </div>
-      <div>
-        <h5>Go</h5>
-        <a href="#story">Story</a><a href="#menu">Menu</a><a href="#nights">Nights</a><a href="#private">Reserve</a>
-      </div>
-      <div>
-        <h5>Elsewhere</h5>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.google.com/maps/search/XO+Lounge+Toronto" target="_blank" rel="noopener">Maps</a>
-        <a href="#visit">Hours + contact</a>
-      </div>
-    </div>
-    <p class="giant" aria-hidden="true">XO</p>
-    <div class="foot-base">
-      <span>© <span id="year">2026</span> XO Lounge · Toronto</span>
-      <span>Midnight Habesha Editorial · Ember / Bone / Espresso</span>
-      <span>Made warm, not default</span>
-    </div>
-  </div>
-</footer>
-
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script type="module" src="./main.js"></script>
 </body>
 </html>

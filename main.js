@@ -1,260 +1,131 @@
-/* XO Lounge — main.js
-   Signature: warm ember particle drift (Three.js) + restrained GSAP reveals.
-   Degrades gracefully: no WebGL / reduced motion -> static, still beautiful. */
-
+/* XO Lounge v2 — clean interactions + subtle ember dust */
 const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* ---------- Smooth scroll (Lenis, gentle) ---------- */
-let lenis = null;
-if (!prefersReduced && window.Lenis) {
-  lenis = new Lenis({ duration: 1.15, smoothWheel: true });
-  const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
-  requestAnimationFrame(raf);
-  if (window.ScrollTrigger) lenis.on("scroll", () => ScrollTrigger.update());
-}
-
-/* ---------- Nav state + mobile ---------- */
-const nav = document.getElementById("nav");
-const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 24);
-window.addEventListener("scroll", onScroll, { passive: true });
-onScroll();
-
-const burger = document.getElementById("burger");
 const navLinks = document.getElementById("navLinks");
+const burger = document.getElementById("burger");
 burger.addEventListener("click", () => {
   const open = navLinks.classList.toggle("mobile-open");
   burger.setAttribute("aria-expanded", String(open));
   burger.textContent = open ? "✕" : "☰";
 });
-navLinks.querySelectorAll("a").forEach((a) =>
-  a.addEventListener("click", () => {
-    navLinks.classList.remove("mobile-open");
-    burger.setAttribute("aria-expanded", "false");
-    burger.textContent = "☰";
-  })
-);
+navLinks.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => {
+  navLinks.classList.remove("mobile-open");
+  burger.textContent = "☰";
+}));
 
-/* ---------- Live open-hours (Toronto time) ---------- */
-(function liveHours() {
+/* Live hours — Toronto */
+(function () {
   const badge = document.getElementById("liveBadge");
   const text = document.getElementById("liveText");
+  const top = document.getElementById("topbarHours");
   try {
     const now = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Toronto" }));
-    const day = now.getDay(); // 0 Sun
+    const day = now.getDay();
     const h = now.getHours() + now.getMinutes() / 60;
-    // Hours: Tue-Wed 17-24, Thu-Sat 17-26 (2AM), Sun 17-24, Mon closed
     let open = false;
     if (day === 1) open = false;
     else if (day === 4 || day === 5 || day === 6) open = h >= 17 || h < 2;
     else open = h >= 17 && h < 24;
     badge.classList.toggle("open", open);
     text.textContent = open ? "Open tonight" : day === 1 ? "Closed Mondays" : "Opens 5PM";
-  } catch {
-    text.textContent = "Thu–Sun till 2AM";
-  }
+    if (top && open) top.textContent = "Open tonight · till 2AM";
+  } catch { text.textContent = "Thu–Sun till 2AM"; }
   document.getElementById("year").textContent = String(new Date().getFullYear());
 })();
 
-/* ---------- Menu tabs ---------- */
-document.querySelectorAll(".tab").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".tab").forEach((b) => b.setAttribute("aria-selected", "false"));
-    btn.setAttribute("aria-selected", "true");
-    const key = btn.dataset.tab;
-    document.querySelectorAll(".menu-panel").forEach((p) =>
-      p.classList.toggle("active", p.dataset.panel === key)
-    );
-    if (window.gsap && !prefersReduced) {
-      gsap.fromTo(`.menu-panel[data-panel="${key}"] .dish`,
-        { y: 14, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, stagger: { each: 0.05, from: "start" }, ease: "power3.out", overwrite: true });
-    }
-  });
-});
+/* Menu tabs */
+document.querySelectorAll(".tab").forEach((btn) => btn.addEventListener("click", () => {
+  document.querySelectorAll(".tab").forEach((b) => { b.classList.remove("active"); b.setAttribute("aria-selected", "false"); });
+  btn.classList.add("active");
+  btn.setAttribute("aria-selected", "true");
+  document.querySelectorAll(".menu-panel").forEach((p) => p.classList.toggle("active", p.dataset.panel === btn.dataset.tab));
+}));
 
-/* ---------- Reservation form (front-end validation + honest states) ---------- */
-(function booking() {
+/* Booking */
+(function () {
   const form = document.getElementById("bookForm");
+  const err = document.getElementById("formErr");
   const ok = document.getElementById("formOk");
   const btn = document.getElementById("bookBtn");
-  const setHint = (k, msg) => {
-    const el = form.querySelector(`[data-hint="${k}"]`);
-    if (el) el.textContent = msg || "";
-  };
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    ["name", "phone", "date", "size", "form"].forEach((k) => setHint(k, ""));
-    const name = form.name.value.trim();
-    const phone = form.phone.value.trim();
-    const date = form.date.value;
-    const size = form.size.value;
-    let bad = false;
-    if (name.length < 2) { setHint("name", "Give us a name for the table."); bad = true; }
-    if (!/^[+()\-\s\d]{7,}$/.test(phone)) { setHint("phone", "A reachable phone — we confirm by text."); bad = true; }
-    if (!date) { setHint("date", "Pick a night."); bad = true; }
-    if (!size) { setHint("size", "How many mouths?"); bad = true; }
-    if (bad) { setHint("form", "Two quick fixes above and you're booked."); return; }
-    btn.disabled = true;
-    btn.textContent = "Sending…";
-    setTimeout(() => {
-      const nice = new Date(date + "T12:00:00").toLocaleDateString("en-CA", { weekday: "long", month: "long", day: "numeric" });
-      document.getElementById("formOkText").textContent =
-        `${name.split(" ")[0]}, ${size} on ${nice} — noted. We text ${phone} within a day to lock it in.`;
-      ok.style.display = "block";
-      btn.textContent = "Request sent ✓";
-      form.querySelectorAll("input,select,textarea").forEach((el) => (el.disabled = true));
-      ok.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth", block: "nearest" });
-    }, 700);
-  });
-  // min = today (Toronto)
   try {
     const t = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Toronto" }));
     document.getElementById("fDate").min = t.toISOString().slice(0, 10);
-  } catch { /* ignore */ }
+  } catch {}
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    err.textContent = "";
+    const name = form.name.value.trim();
+    const phone = form.phone.value.trim();
+    if (name.length < 2) { err.textContent = "Please add your name."; return; }
+    if (!/^[+()\-\s\d]{7,}$/.test(phone)) { err.textContent = "Please add a valid phone — we confirm by text."; return; }
+    if (!form.date.value) { err.textContent = "Please pick a date."; return; }
+    if (!form.size.value) { err.textContent = "Please select party size."; return; }
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+    setTimeout(() => {
+      const nice = new Date(form.date.value + "T12:00:00").toLocaleDateString("en-CA", { weekday: "long", month: "long", day: "numeric" });
+      document.getElementById("formOkText").textContent = `${name.split(" ")[0]}, ${form.size.value} on ${nice} — noted. We text ${phone} to confirm.`;
+      ok.style.display = "block";
+      btn.textContent = "Request sent";
+    }, 600);
+  });
 })();
 
-/* ---------- Marquee: duplicate once for a seamless loop ---------- */
-(function marquee() {
-  const track = document.getElementById("marqueeTrack");
-  track.innerHTML += track.innerHTML;
-})();
-
-/* ---------- Scroll reveals: varied, motivated, never uniform ---------- */
+/* Subtle entrance */
 if (window.gsap && window.ScrollTrigger && !prefersReduced) {
   gsap.registerPlugin(ScrollTrigger);
-
-  // Hero entrance: one orchestrated sequence (the delight moment)
-  gsap.timeline({ defaults: { ease: "expo.out" } })
-    .from(".hero h1 .line > span", { yPercent: 110, duration: 1.1, stagger: 0.12 })
-    .from(".eyebrow", { x: -24, opacity: 0, duration: 0.8 }, "-=0.8")
-    .from(".hero-sub", { y: 22, opacity: 0, duration: 0.9 }, "-=0.7")
-    .from(".hero-actions .btn", { y: 16, opacity: 0, duration: 0.7, stagger: 0.09 }, "-=0.6")
-    .from(".hero-meta > div", { y: 14, opacity: 0, duration: 0.6, stagger: 0.07 }, "-=0.5")
-    .from(".hero-figure", { y: 40, opacity: 0, duration: 1.0, ease: "power3.out" }, "-=0.9");
-
-  // Section heads: slide + rule draw
-  gsap.utils.toArray(".sec-head").forEach((el, i) => {
-    gsap.from(el, {
-      y: i % 2 ? 36 : 28, opacity: 0, duration: 0.9,
-      ease: i % 2 ? "power3.out" : "expo.out",
-      scrollTrigger: { trigger: el, start: "top 85%" }
-    });
-  });
-
-  // Experience rows: alternating drift (not identical fade-ups)
-  gsap.utils.toArray(".x-row").forEach((row, i) => {
-    gsap.from(row, {
-      x: i % 2 ? 28 : -28, opacity: 0, duration: 0.8, ease: "power3.out",
-      scrollTrigger: { trigger: row, start: "top 88%" }
-    });
-  });
-
-  // Gallery parallax: each image drifts at its own rate
-  gsap.utils.toArray(".g-item img").forEach((img, i) => {
-    gsap.fromTo(img, { yPercent: -6 + i * 2 }, {
-      yPercent: 6 - i * 2, ease: "sine.out",
-      scrollTrigger: { trigger: img, start: "top bottom", end: "bottom top", scrub: 1 }
-    });
-  });
-
-  // Giant footer outline: slow rise
-  gsap.from(".giant", {
-    yPercent: 24, opacity: 0, duration: 1.1, ease: "expo.out",
-    scrollTrigger: { trigger: "footer", start: "top 90%" }
+  gsap.timeline({ defaults: { ease: "power3.out" } })
+    .from(".hero h1", { y: 60, opacity: 0, duration: 1 })
+    .from(".hero-sub", { y: 24, opacity: 0, duration: .8 }, "-=.6")
+    .from(".hero-actions .btn", { y: 16, opacity: 0, duration: .6, stagger: .08 }, "-=.5")
+    .from(".hero-foot > div", { y: 14, opacity: 0, duration: .5, stagger: .07 }, "-=.4");
+  gsap.utils.toArray(".night, .tier, .dish").forEach((el) => {
+    gsap.from(el, { y: 22, opacity: 0, duration: .7, ease: "power2.out",
+      scrollTrigger: { trigger: el, start: "top 92%" } });
   });
 }
 
-/* ---------- Ember field: Three.js signature (tasteful, capped, guarded) ---------- */
+/* Ember dust — very subtle, low opacity */
 (async function embers() {
   const canvas = document.getElementById("ember-field");
-  if (prefersReduced) { canvas.style.display = "none"; return; }
+  if (prefersReduced || !canvas) { if (canvas) canvas.style.display = "none"; return; }
   let THREE;
-  try {
-    THREE = await import("three");
-  } catch {
-    canvas.style.display = "none";
-    return;
-  }
-
+  try { THREE = await import("three"); } catch { canvas.style.display = "none"; return; }
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false, powerPreference: "low-power" });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.5));
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100);
+  const camera = new THREE.PerspectiveCamera(60, 1, .1, 100);
   camera.position.z = 8;
-
-  const COUNT = window.innerWidth < 768 ? 320 : 700;
+  const COUNT = innerWidth < 768 ? 140 : 260;
   const pos = new Float32Array(COUNT * 3);
-  const speed = new Float32Array(COUNT);
-  const phase = new Float32Array(COUNT);
+  const spd = new Float32Array(COUNT);
   for (let i = 0; i < COUNT; i++) {
-    pos[i * 3] = (Math.random() - 0.5) * 22;
-    pos[i * 3 + 1] = (Math.random() - 0.5) * 13;
-    pos[i * 3 + 2] = (Math.random() - 0.5) * 6;
-    speed[i] = 0.12 + Math.random() * 0.5;
-    phase[i] = Math.random() * Math.PI * 2;
+    pos[i*3] = (Math.random()-.5)*20; pos[i*3+1] = (Math.random()-.5)*12; pos[i*3+2] = (Math.random()-.5)*5;
+    spd[i] = .1 + Math.random()*.35;
   }
   const geo = new THREE.BufferGeometry();
   geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-
-  // Warm ember sprite drawn once on a tiny canvas — no image assets needed
-  const sprite = (() => {
-    const c = document.createElement("canvas");
-    c.width = c.height = 64;
-    const g = c.getContext("2d");
-    const grad = g.createRadialGradient(32, 32, 0, 32, 32, 32);
-    grad.addColorStop(0, "rgba(255,196,130,1)");
-    grad.addColorStop(0.35, "rgba(232,93,42,.85)");
-    grad.addColorStop(1, "rgba(232,93,42,0)");
-    g.fillStyle = grad;
-    g.fillRect(0, 0, 64, 64);
-    const tex = new THREE.CanvasTexture(c);
-    tex.colorSpace = THREE.SRGBColorSpace;
-    return tex;
-  })();
-
-  const mat = new THREE.PointsMaterial({
-    size: 0.16, map: sprite, transparent: true, opacity: 0.75,
-    depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true,
-    color: 0xffb37a
-  });
-  const points = new THREE.Points(geo, mat);
-  scene.add(points);
-
-  let mx = 0, my = 0, tx = 0, ty = 0;
-  window.addEventListener("pointermove", (e) => {
-    tx = (e.clientX / window.innerWidth - 0.5) * 2;
-    ty = (e.clientY / window.innerHeight - 0.5) * 2;
-  }, { passive: true });
-
+  const c = document.createElement("canvas"); c.width = c.height = 64;
+  const g = c.getContext("2d");
+  const grad = g.createRadialGradient(32,32,0,32,32,32);
+  grad.addColorStop(0,"rgba(255,200,140,1)"); grad.addColorStop(.4,"rgba(217,164,65,.7)"); grad.addColorStop(1,"rgba(217,164,65,0)");
+  g.fillStyle = grad; g.fillRect(0,0,64,64);
+  const tex = new THREE.CanvasTexture(c);
+  const mat = new THREE.PointsMaterial({ size:.14, map:tex, transparent:true, opacity:.6, depthWrite:false, blending:THREE.AdditiveBlending });
+  scene.add(new THREE.Points(geo, mat));
   const resize = () => {
-    const w = canvas.clientWidth || window.innerWidth;
-    const h = canvas.clientHeight || window.innerHeight;
-    renderer.setSize(w, h, false);
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
+    const w = canvas.clientWidth || innerWidth, h = canvas.clientHeight || innerHeight;
+    renderer.setSize(w,h,false); camera.aspect = w/h; camera.updateProjectionMatrix();
   };
-  resize();
-  window.addEventListener("resize", resize);
-
-  let running = true;
-  document.addEventListener("visibilitychange", () => { running = !document.hidden; });
-  const clock = new THREE.Clock();
-
-  (function tick() {
+  resize(); addEventListener("resize", resize);
+  let run = true;
+  document.addEventListener("visibilitychange", () => run = !document.hidden);
+  (function tick(){
     requestAnimationFrame(tick);
-    if (!running) return;
-    const t = clock.getElapsedTime();
-    const arr = geo.attributes.position.array;
-    for (let i = 0; i < COUNT; i++) {
-      arr[i * 3 + 1] += speed[i] * 0.008;                    // slow rise
-      arr[i * 3] += Math.sin(t * 0.4 + phase[i]) * 0.0035;   // breathing drift
-      if (arr[i * 3 + 1] > 7) { arr[i * 3 + 1] = -7; arr[i * 3] = (Math.random() - 0.5) * 22; }
-    }
+    if (!run) return;
+    const a = geo.attributes.position.array;
+    for (let i=0;i<COUNT;i++){ a[i*3+1]+=spd[i]*.006; if(a[i*3+1]>6.5){a[i*3+1]=-6.5;a[i*3]=(Math.random()-.5)*20;} }
     geo.attributes.position.needsUpdate = true;
-    mx += (tx - mx) * 0.03;
-    my += (ty - my) * 0.03;
-    points.rotation.y = mx * 0.12;
-    points.rotation.x = -my * 0.08;
-    renderer.render(scene, camera);
+    renderer.render(scene,camera);
   })();
 })();
