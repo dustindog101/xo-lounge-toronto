@@ -1,45 +1,93 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: var(--font-cinzel), "Times New Roman", Georgia, serif;
+  --font-serif: var(--font-italiana), "Bodoni MT", Didot, serif;
+  --font-display: var(--font-syne), sans-serif;
   --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-mono), monospace;
 }
 
 :root {
-  --bg: #07080a;
-  --surface: #0e1017;
-  --surface-elevated: #141722;
-  --surface-card: #181c28;
+  --bg: #040507;
+  --surface: #0b0d13;
+  --surface-elevated: #11141d;
+  --surface-card: #151924;
   --border: rgba(255, 255, 255, 0.08);
-  --border-gold: rgba(197, 168, 128, 0.22);
+  --border-gold: rgba(212, 175, 55, 0.25);
 
-  --gold: #c5a880;
-  --gold-light: #e6d5b8;
-  --gold-dark: #8c7350;
-  --champagne: #dfcfb7;
+  --gold: #d4af37;
+  --gold-champagne: #c5a880;
+  --gold-light: #f3e5ab;
+  --amber-glow: rgba(212, 175, 55, 0.12);
 
-  --text: #f4f4f5;
-  --text-muted: #a1a1aa;
-  --text-dim: #71717a;
+  --text-primary: #f8f8f9;
+  --text-secondary: #9ea2ac;
+  --text-tertiary: #6b707d;
 }
 
 body {
   background-color: var(--bg);
-  color: var(--text);
-  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   min-height: 100dvh;
 }
 
-/* Luxury Editorial Accents */
-.text-champagne {
-  color: var(--gold-light);
+/* Luxury Font Utility Classes */
+.font-editorial {
+  font-family: var(--font-italiana), Didot, serif;
 }
 
+.font-sculpted {
+  font-family: var(--font-syne), sans-serif;
+}
+
+/* Orchestrated Staggered Reveal Animations */
+@keyframes luxuryEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-reveal-1 {
+  animation: luxuryEntrance 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.animate-reveal-2 {
+  animation: luxuryEntrance 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.28s;
+  opacity: 0;
+}
+
+.animate-reveal-3 {
+  animation: luxuryEntrance 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.45s;
+  opacity: 0;
+}
+
+.animate-reveal-4 {
+  animation: luxuryEntrance 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.62s;
+  opacity: 0;
+}
+
+/* Luxury Accents */
 .text-gold {
   color: var(--gold);
+}
+
+.text-champagne {
+  color: var(--gold-champagne);
 }
 
 .border-gold-subtle {
@@ -49,17 +97,23 @@ body {
 /* Printed Menu Dot Leader */
 .menu-dots {
   flex-grow: 1;
-  border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+  border-bottom: 1px dotted rgba(212, 175, 55, 0.25);
   height: 1em;
-  margin: 0 0.5rem;
+  margin: 0 0.75rem;
+}
+
+/* Film Grain Overlay */
+.film-grain {
+  background-image: radial-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
 }
 
 /* Subtle Warm Vignette */
 .ambient-luxury-bg {
   background-image:
-    radial-gradient(ellipse at 50% 0%, rgba(197, 168, 128, 0.08) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 50%, rgba(21, 24, 33, 0.6) 0%, transparent 50%),
-    radial-gradient(ellipse at 20% 80%, rgba(15, 17, 23, 0.8) 0%, transparent 50%);
+    radial-gradient(ellipse at 50% 0%, rgba(212, 175, 55, 0.1) 0%, transparent 65%),
+    radial-gradient(ellipse at 85% 40%, rgba(17, 20, 29, 0.7) 0%, transparent 50%),
+    radial-gradient(ellipse at 15% 80%, rgba(11, 13, 19, 0.9) 0%, transparent 50%);
 }
 
 /* Custom Scrollbars */
@@ -67,12 +121,12 @@ body {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #07080a;
+  background: #040507;
 }
 ::-webkit-scrollbar-thumb {
-  background: #202432;
+  background: #1e222d;
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #31374d;
+  background: #2e3546;
 }

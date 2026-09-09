@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
-import { Cinzel, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import { Italiana, JetBrains_Mono, Plus_Jakarta_Sans, Syne } from "next/font/google";
 import Footer from "@/components/navigation/Footer";
 import MobileDock from "@/components/navigation/MobileDock";
 import Navbar from "@/components/navigation/Navbar";
 import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
 
-const cinzel = Cinzel({
-  variable: "--font-cinzel",
+const italiana = Italiana({
+  variable: "--font-italiana",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["400"],
+});
+
+const syne = Syne({
+  variable: "--font-syne",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -106,7 +112,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cinzel.variable} ${plusJakarta.variable} ${jetbrainsMono.variable} scroll-smooth antialiased`}
+      className={`${italiana.variable} ${syne.variable} ${plusJakarta.variable} ${jetbrainsMono.variable} scroll-smooth antialiased`}
     >
       <head>
         <script
