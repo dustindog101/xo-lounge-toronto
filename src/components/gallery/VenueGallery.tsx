@@ -28,20 +28,20 @@ interface GalleryProps {
 
 export default function VenueGallery({ language }: GalleryProps) {
   return (
-    <section className="py-24 bg-[#08090b] border-t border-white/5 relative">
+    <section className="py-24 bg-[#040507] border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#c5a880]/30 bg-[#12141c] text-xs font-mono text-[#e6d5b8]">
-            <InstagramIcon className="w-3.5 h-3.5 text-[#c5a880]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#d4af37]/30 bg-[#0b0d13] text-xs font-mono text-[#f3e5ab]">
+            <InstagramIcon className="w-3.5 h-3.5 text-[#d4af37]" />
             <span className="tracking-widest uppercase">@XO_LOUNGE_TORONTO</span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
-            {language === "en" ? "ATMOSPHERE & SOCIAL ARCHIVE" : "የክበቡ ገጽታ እና ቪዲዮዎች"}
+          <h2 className="font-editorial text-3xl sm:text-5xl font-normal text-white tracking-tight">
+            {language === "en" ? "Atmosphere & Social Archive" : "የክበቡ ገጽታ እና ቪዲዮዎች"}
           </h2>
 
-          <p className="text-sm sm:text-base text-[#a1a1aa]">
+          <p className="text-sm sm:text-base text-[#9ea2ac]">
             {language === "en"
               ? "Follow our after-dark moments, resident DJ sets, and celebration stories on Instagram."
               : "የቅርብ ጊዜ የምሽት ክስተቶችን እና የዲጄ ዝግጅቶችን በኢንስታግራም ይከታተሉ።"}
@@ -52,11 +52,11 @@ export default function VenueGallery({ language }: GalleryProps) {
               href="https://www.instagram.com/xo_lounge_toronto/reels/?hl=en"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#12141c] hover:bg-[#181a24] border border-white/10 hover:border-[#c5a880]/40 text-white text-xs font-mono font-medium tracking-wider transition-all min-h-[44px]"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#0b0d13] hover:bg-[#141722] border border-white/10 hover:border-[#d4af37]/40 text-white text-xs font-mono font-medium tracking-wider transition-all min-h-[44px]"
             >
-              <InstagramIcon className="w-4 h-4 text-[#c5a880]" />
+              <InstagramIcon className="w-4 h-4 text-[#d4af37]" />
               <span>Explore Official Instagram Reels</span>
-              <ExternalLink className="w-3.5 h-3.5 text-[#71717a]" />
+              <ExternalLink className="w-3.5 h-3.5 text-[#6b707d]" />
             </a>
           </div>
         </div>
@@ -64,7 +64,7 @@ export default function VenueGallery({ language }: GalleryProps) {
         {/* Gallery Showcase Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {/* Main Large Image Card (8 cols) */}
-          <div className="md:col-span-8 rounded-xl overflow-hidden border border-white/15 relative group aspect-[16/10] bg-[#12141c] shadow-xl">
+          <div className="md:col-span-8 rounded-xl overflow-hidden border border-white/15 relative group aspect-[16/10] bg-[#0b0d13] shadow-xl">
             <Image
               src="/images/venue-interior.jpg"
               alt="XO Lounge Toronto Main Room Interior"
@@ -72,14 +72,14 @@ export default function VenueGallery({ language }: GalleryProps) {
               sizes="(max-width: 768px) 100vw, 66vw"
               className="object-cover group-hover:scale-102 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#08090b] via-transparent to-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#040507] via-transparent to-black/20" />
 
             <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
               <div>
-                <span className="text-[10px] font-mono text-[#c5a880] bg-[#08090b]/80 backdrop-blur-md px-2.5 py-1 rounded-sm border border-white/10 uppercase mb-2 inline-block tracking-widest">
+                <span className="text-[10px] font-sculpted text-[#d4af37] bg-[#040507]/80 backdrop-blur-md px-2.5 py-1 rounded-sm border border-white/10 uppercase mb-2 inline-block tracking-widest font-bold">
                   MAIN ROOM REALITY
                 </span>
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white tracking-wide">
+                <h3 className="font-editorial text-2xl sm:text-3xl font-normal text-white tracking-wide">
                   Architectural Lighting & Marble Island
                 </h3>
                 <p className="text-xs text-[#d4d4d8] mt-1 max-w-md">
@@ -106,42 +106,44 @@ export default function VenueGallery({ language }: GalleryProps) {
               href="https://www.instagram.com/xo_lounge_toronto/reels/?hl=en"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 rounded-xl border border-white/10 bg-[#0f1117] p-6 flex flex-col justify-between hover:border-[#c5a880]/40 transition-all group shadow-lg"
+              className="flex-1 rounded-xl border border-white/10 bg-[#0b0d13] p-6 flex flex-col justify-between hover:border-[#d4af37]/40 transition-all group shadow-lg"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono tracking-widest text-[#c5a880] uppercase font-bold">
+                  <span className="text-[10px] font-sculpted tracking-widest text-[#d4af37] uppercase font-bold">
                     REELS & ARCHIVE
                   </span>
-                  <div className="w-8 h-8 rounded-full bg-[#c5a880]/10 flex items-center justify-center text-[#c5a880]">
+                  <div className="w-8 h-8 rounded-full bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37]">
                     <Play className="w-3.5 h-3.5 fill-current" />
                   </div>
                 </div>
 
-                <h4 className="font-serif text-lg font-bold text-white group-hover:text-[#e6d5b8] transition-colors">
+                <h4 className="font-editorial text-2xl font-normal text-white group-hover:text-[#f3e5ab] transition-colors">
                   Weekend Bottle Presentations & Resident DJs
                 </h4>
 
-                <p className="text-xs text-[#a1a1aa] leading-relaxed">
+                <p className="text-xs text-[#9ea2ac] leading-relaxed">
                   Watch guest artists ignite the room and experience the full table service ceremony
                   in motion.
                 </p>
               </div>
 
-              <div className="pt-4 flex items-center gap-2 text-xs font-mono text-[#c5a880]">
+              <div className="pt-4 flex items-center gap-2 text-xs font-mono text-[#d4af37]">
                 <span>Watch Reel Library</span>
                 <ArrowRightIcon className="w-3.5 h-3.5" />
               </div>
             </a>
 
-            <div className="rounded-xl border border-white/10 bg-[#0f1117] p-6 space-y-4">
-              <span className="text-[10px] font-mono tracking-widest text-[#c5a880] uppercase font-bold">
+            <div className="rounded-xl border border-white/10 bg-[#0b0d13] p-6 space-y-4">
+              <span className="text-[10px] font-sculpted tracking-widest text-[#d4af37] uppercase font-bold">
                 COMMUNITY ENGAGEMENT
               </span>
 
-              <h4 className="font-serif text-lg font-bold text-white">Tag @xo_lounge_toronto</h4>
+              <h4 className="font-editorial text-2xl font-normal text-white">
+                Tag @xo_lounge_toronto
+              </h4>
 
-              <p className="text-xs text-[#a1a1aa] leading-relaxed">
+              <p className="text-xs text-[#9ea2ac] leading-relaxed">
                 Tag your stories and reels with{" "}
                 <span className="text-[#e6d5b8] font-mono">#xolounge #xotoronto</span> for inclusion
                 in our weekly social highlights.

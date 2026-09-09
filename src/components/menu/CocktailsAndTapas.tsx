@@ -173,19 +173,19 @@ export default function CocktailsAndTapas({ language }: MenuProps) {
     activeTab === "all" ? MENU_DATA : MENU_DATA.filter((item) => item.category === activeTab);
 
   return (
-    <section id="menus" className="py-24 bg-[#07080a] border-t border-white/5 relative">
+    <section id="menus" className="py-24 bg-[#040507] border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-14 space-y-4">
-          <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase block">
+          <span className="font-sculpted text-xs tracking-[0.25em] text-[#d4af37] uppercase block font-semibold">
             CULINARY & LIBATION REPERTOIRE
           </span>
 
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
+          <h2 className="font-editorial text-3xl sm:text-5xl font-normal text-white tracking-tight">
             {language === "en" ? "Curated Spirits, Cocktails & Tapas" : "የመጠጥ እና የምግብ ሜኑ"}
           </h2>
 
-          <p className="text-sm sm:text-base text-[#a1a1aa] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#9ea2ac] leading-relaxed">
             {language === "en"
               ? "From tableside smoked bourbon and Ethiopian honey infusions to prestige champagne parades and late-night diaspora small plates, every offering is crafted for elevated hospitality."
               : "ልዩ ኮክቴሎች፣ ጥራት ያላቸው መጠጦች እና የሌሊት ጣፋጭ ምግቦች።"}
@@ -203,10 +203,10 @@ export default function CocktailsAndTapas({ language }: MenuProps) {
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveTab(tab.id as typeof activeTab)}
-                className={`min-h-[44px] px-5 py-2 text-xs font-mono tracking-[0.15em] uppercase transition-colors cursor-pointer ${
+                className={`min-h-[44px] px-5 py-2 text-xs font-sculpted tracking-[0.15em] uppercase transition-colors cursor-pointer ${
                   activeTab === tab.id
-                    ? "text-[#07080a] bg-[#c5a880] font-semibold"
-                    : "text-[#a1a1aa] hover:text-white bg-[#0e1017] border border-white/10"
+                    ? "text-[#040507] bg-[#d4af37] font-bold shadow-md shadow-[#d4af37]/20"
+                    : "text-[#9ea2ac] hover:text-white bg-[#0b0d13] border border-white/10"
                 }`}
               >
                 {tab.label}
@@ -223,22 +223,22 @@ export default function CocktailsAndTapas({ language }: MenuProps) {
               className="border-b border-white/10 pb-6 flex flex-col justify-between space-y-2 group"
             >
               <div className="flex items-baseline justify-between w-full">
-                <h3 className="font-serif text-lg font-bold text-white tracking-wide group-hover:text-[#e6d5b8] transition-colors">
+                <h3 className="font-editorial text-xl font-normal text-white tracking-wide group-hover:text-[#f3e5ab] transition-colors">
                   {item.name}
                 </h3>
                 <div className="menu-dots" />
-                <span className="font-mono text-sm font-semibold text-[#c5a880] whitespace-nowrap ml-2">
+                <span className="font-mono text-sm font-semibold text-[#d4af37] whitespace-nowrap ml-2">
                   {item.price}
                 </span>
               </div>
 
-              <p className="font-serif italic text-xs sm:text-sm text-[#a1a1aa] leading-relaxed">
+              <p className="font-serif italic text-xs sm:text-sm text-[#9ea2ac] leading-relaxed">
                 {item.description}
               </p>
 
               {item.provenance && (
                 <div className="pt-1">
-                  <span className="font-mono text-[10px] tracking-wider text-[#71717a] uppercase">
+                  <span className="font-mono text-[10px] tracking-wider text-[#6b707d] uppercase">
                     {item.provenance}
                   </span>
                 </div>
@@ -248,8 +248,8 @@ export default function CocktailsAndTapas({ language }: MenuProps) {
         </div>
 
         {/* Botanical Provenance Dossier Box */}
-        <div className="mt-20 border border-white/10 bg-[#0e1017] p-8 sm:p-10 space-y-4">
-          <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase block">
+        <div className="mt-20 border border-white/10 bg-[#0b0d13] p-8 sm:p-10 space-y-4">
+          <span className="font-sculpted text-xs tracking-[0.25em] text-[#d4af37] uppercase block font-semibold">
             DIASPORA BOTANICAL LEGEND
           </span>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-2 text-xs text-[#a1a1aa] leading-relaxed">

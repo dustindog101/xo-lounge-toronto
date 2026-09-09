@@ -120,7 +120,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-[100dvh] bg-[#08090b] text-[#f4f4f5] selection:bg-[#c5a880] selection:text-[#08090b] flex flex-col justify-between">
+      <body className="min-h-[100dvh] bg-[#040507] text-[#f4f4f5] selection:bg-[#d4af37] selection:text-[#040507] flex flex-col justify-between">
         <LanguageProvider>
           <Navbar />
           <div className="flex-1">{children}</div>

@@ -135,15 +135,15 @@ export default function BottleServiceCalculator({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-14 space-y-4">
-          <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase block">
+          <span className="font-sculpted text-xs tracking-[0.25em] text-[#d4af37] uppercase block font-semibold">
             CONCIERGE TABLE SERVICE & CURATION
           </span>
 
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
-            {language === "en" ? "VIP TABLE SERVICE & PACKAGES" : "የጠረጴዛ እና የቦቲል ሰርቪስ"}
+          <h2 className="font-editorial text-3xl sm:text-5xl font-normal text-white tracking-tight">
+            {language === "en" ? "VIP Table Service & Packages" : "የጠረጴዛ እና የቦቲል ሰርቪስ"}
           </h2>
 
-          <p className="text-sm sm:text-base text-[#a1a1aa]">
+          <p className="text-sm sm:text-base text-[#9ea2ac]">
             {language === "en"
               ? "Elevate your weekend at XO Lounge. Every VIP table includes dedicated concierge host service, expedited line-bypass admissions, unlimited craft mixers, and bespoke bottle presentations."
               : "የእርስዎን ቅዳሜና እሁድ በኤክስኦ ላውንጅ ያሳልፉ። እያንዳንዱ የቪአይፒ ፓኬጅ ልዩ አስተናጋጅ፣ የመስመር መዝለል እና የክብር አቀባበል ያካትታል።"}
@@ -151,12 +151,12 @@ export default function BottleServiceCalculator({
         </div>
 
         {/* Hospitality Ledger Selector (Editorial, No SaaS Cards) */}
-        <div className="border border-white/10 bg-[#0e1017] p-6 sm:p-8 mb-16 space-y-6">
+        <div className="border border-white/10 bg-[#0b0d13] p-6 sm:p-8 mb-16 space-y-6">
           <div className="flex items-center justify-between border-b border-white/10 pb-4">
-            <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase">
+            <span className="font-sculpted text-xs tracking-[0.25em] text-[#d4af37] uppercase font-semibold">
               SELECT HOSPITALITY TIER
             </span>
-            <span className="font-mono text-xs text-[#71717a] uppercase">
+            <span className="font-mono text-xs text-[#6b707d] uppercase">
               ALL PACKAGES INCLUDE LINE-BYPASS & DEDICATED HOST
             </span>
           </div>
@@ -171,41 +171,41 @@ export default function BottleServiceCalculator({
                   onClick={() => setSelectedPackage(pkg)}
                   className={`p-5 sm:p-6 text-left border transition-all cursor-pointer flex flex-col justify-between space-y-4 ${
                     isSelected
-                      ? "bg-[#141722] border-[#c5a880] shadow-lg shadow-black/40"
-                      : "bg-[#0b0c10] border-white/10 hover:border-white/20 hover:bg-[#10121a]"
+                      ? "bg-[#141722] border-[#d4af37] shadow-lg shadow-[#d4af37]/10"
+                      : "bg-[#08090e] border-white/10 hover:border-white/20 hover:bg-[#10121a]"
                   }`}
                 >
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="font-mono text-[10px] tracking-widest text-[#71717a] uppercase">
+                      <span className="font-mono text-[10px] tracking-widest text-[#6b707d] uppercase">
                         {pkg.tag}
                       </span>
-                      <span className="font-mono text-xs text-[#c5a880] flex items-center gap-1">
+                      <span className="font-mono text-xs text-[#d4af37] flex items-center gap-1">
                         <Users className="w-3 h-3" />
                         Up to {pkg.maxGuests}
                       </span>
                     </div>
 
-                    <h3 className="font-serif text-xl font-bold text-white tracking-wide">
+                    <h3 className="font-editorial text-2xl font-normal text-white tracking-wide">
                       {pkg.name}
                     </h3>
 
-                    <div className="font-mono text-2xl font-bold text-[#e6d5b8] pt-1">
+                    <div className="font-mono text-2xl font-bold text-[#f3e5ab] pt-1">
                       ${pkg.price}{" "}
-                      <span className="text-xs text-[#71717a] font-normal">CAD + grat</span>
+                      <span className="text-xs text-[#6b707d] font-normal">CAD + grat</span>
                     </div>
 
-                    <p className="text-xs text-[#a1a1aa] leading-relaxed pt-1">
+                    <p className="text-xs text-[#9ea2ac] leading-relaxed pt-1">
                       {pkg.bottlesIncluded}
                     </p>
                   </div>
 
                   <div className="pt-2 border-t border-white/5 flex items-center justify-between text-xs font-mono">
-                    <span className={isSelected ? "text-[#c5a880] font-bold" : "text-[#71717a]"}>
+                    <span className={isSelected ? "text-[#d4af37] font-bold" : "text-[#6b707d]"}>
                       {isSelected ? "● ACTIVE SELECTION" : "SELECT TIER"}
                     </span>
                     <ChevronRight
-                      className={`w-3.5 h-3.5 ${isSelected ? "text-[#c5a880]" : "text-[#71717a]"}`}
+                      className={`w-3.5 h-3.5 ${isSelected ? "text-[#d4af37]" : "text-[#6b707d]"}`}
                     />
                   </div>
                 </button>
@@ -214,13 +214,13 @@ export default function BottleServiceCalculator({
           </div>
 
           {/* Selected Tier Privileges Inclusions Strip */}
-          <div className="p-4 rounded-sm bg-[#12141c] border border-white/5 text-xs text-[#a1a1aa] flex flex-wrap items-center gap-x-6 gap-y-2">
-            <span className="font-mono text-[11px] text-[#c5a880] uppercase tracking-wider font-semibold">
+          <div className="p-4 rounded-sm bg-[#040507] border border-white/5 text-xs text-[#9ea2ac] flex flex-wrap items-center gap-x-6 gap-y-2">
+            <span className="font-sculpted text-[11px] text-[#d4af37] uppercase tracking-wider font-semibold">
               {selectedPackage.name} Privileges:
             </span>
             {selectedPackage.features.map((feat) => (
               <span key={feat} className="flex items-center gap-1.5 text-[#d4d4d8]">
-                <Check className="w-3 h-3 text-[#c5a880]" />
+                <Check className="w-3 h-3 text-[#d4af37]" />
                 {feat}
               </span>
             ))}
@@ -233,24 +233,24 @@ export default function BottleServiceCalculator({
             {/* Form Fields (7 cols) */}
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <span className="text-[10px] font-mono text-[#c5a880] font-semibold tracking-widest uppercase block mb-1">
+                <span className="text-[10px] font-sculpted text-[#d4af37] font-semibold tracking-widest uppercase block mb-1">
                   DIRECT CONCIERGE INQUIRY
                 </span>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-wide">
+                <h3 className="font-editorial text-3xl font-normal text-white tracking-wide">
                   Table Reservation Request
                 </h3>
-                <p className="text-xs sm:text-sm text-[#a1a1aa] mt-1">
+                <p className="text-xs sm:text-sm text-[#9ea2ac] mt-1">
                   Direct inquiry to the XO Lounge hospitality concierge team. We confirm table
                   allocations promptly within 2 hours.
                 </p>
               </div>
 
               {submitted ? (
-                <div className="p-8 rounded-xl bg-[#12181d] border border-[#c5a880]/40 text-center space-y-4 animate-in fade-in">
-                  <div className="w-12 h-12 mx-auto rounded-full bg-[#c5a880]/20 flex items-center justify-center text-[#c5a880]">
+                <div className="p-8 rounded-xl bg-[#0b0d13] border border-[#d4af37]/40 text-center space-y-4 animate-in fade-in">
+                  <div className="w-12 h-12 mx-auto rounded-full bg-[#d4af37]/20 flex items-center justify-center text-[#d4af37]">
                     <Check className="w-6 h-6" />
                   </div>
-                  <h4 className="font-serif text-xl font-bold text-white">
+                  <h4 className="font-editorial text-2xl font-normal text-white">
                     Reservation Request Received
                   </h4>
                   <p className="text-sm text-[#d4d4d8] max-w-md mx-auto">
@@ -262,7 +262,7 @@ export default function BottleServiceCalculator({
                     <button
                       type="button"
                       onClick={() => setSubmitted(false)}
-                      className="px-6 py-2.5 rounded-md bg-[#c5a880] text-[#08090b] text-xs font-semibold uppercase tracking-wider"
+                      className="px-6 py-2.5 rounded-md bg-[#d4af37] text-[#040507] text-xs font-sculpted font-bold uppercase tracking-wider"
                     >
                       Make Another Request
                     </button>
@@ -274,7 +274,7 @@ export default function BottleServiceCalculator({
                     <div>
                       <label
                         htmlFor="vip-fullname"
-                        className="text-[11px] font-mono text-[#a1a1aa] block mb-1.5 uppercase tracking-wider"
+                        className="text-[11px] font-mono text-[#9ea2ac] block mb-1.5 uppercase tracking-wider"
                       >
                         Full Name *
                       </label>
@@ -285,14 +285,14 @@ export default function BottleServiceCalculator({
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
                         placeholder="Marcus Vance"
-                        className="w-full min-h-[44px] px-3.5 py-2.5 rounded-md bg-[#12141c] border border-white/10 text-white text-sm focus:border-[#c5a880] focus:outline-none"
+                        className="w-full min-h-[44px] px-3.5 py-2.5 rounded-md bg-[#08090e] border border-white/10 text-white text-sm focus:border-[#d4af37] focus:outline-none"
                       />
                     </div>
 
                     <div>
                       <label
                         htmlFor="vip-phone"
-                        className="text-[11px] font-mono text-[#a1a1aa] block mb-1.5 uppercase tracking-wider"
+                        className="text-[11px] font-mono text-[#9ea2ac] block mb-1.5 uppercase tracking-wider"
                       >
                         Phone Number *
                       </label>
@@ -303,7 +303,7 @@ export default function BottleServiceCalculator({
                         value={phoneNumber}
                         onChange={(e) => setPhoneNumber(e.target.value)}
                         placeholder="+1 (437) 473-0042"
-                        className="w-full min-h-[44px] px-3.5 py-2.5 rounded-md bg-[#12141c] border border-white/10 text-white text-sm focus:border-[#c5a880] focus:outline-none"
+                        className="w-full min-h-[44px] px-3.5 py-2.5 rounded-md bg-[#08090e] border border-white/10 text-white text-sm focus:border-[#d4af37] focus:outline-none"
                       />
                     </div>
                   </div>
@@ -312,7 +312,7 @@ export default function BottleServiceCalculator({
                     <div>
                       <label
                         htmlFor="vip-occasion"
-                        className="text-[11px] font-mono text-[#a1a1aa] block mb-1.5 uppercase tracking-wider"
+                        className="text-[11px] font-mono text-[#9ea2ac] block mb-1.5 uppercase tracking-wider"
                       >
                         Occasion Type
                       </label>
@@ -320,7 +320,7 @@ export default function BottleServiceCalculator({
                         id="vip-occasion"
                         value={occasion}
                         onChange={(e) => setOccasion(e.target.value)}
-                        className="w-full min-h-[44px] px-3.5 py-2.5 rounded-md bg-[#12141c] border border-white/10 text-white text-sm focus:border-[#c5a880] focus:outline-none"
+                        className="w-full min-h-[44px] px-3.5 py-2.5 rounded-md bg-[#08090e] border border-white/10 text-white text-sm focus:border-[#d4af37] focus:outline-none"
                       >
                         <option value="birthday">Birthday Milestone Celebration</option>
                         <option value="weekend">Weekend Table Hospitality</option>
@@ -333,7 +333,7 @@ export default function BottleServiceCalculator({
                     <div>
                       <label
                         htmlFor="vip-date"
-                        className="text-[11px] font-mono text-[#a1a1aa] block mb-1.5 uppercase tracking-wider"
+                        className="text-[11px] font-mono text-[#9ea2ac] block mb-1.5 uppercase tracking-wider"
                       >
                         Target Date
                       </label>
@@ -343,7 +343,7 @@ export default function BottleServiceCalculator({
                         required
                         value={partyDate}
                         onChange={(e) => setPartyDate(e.target.value)}
-                        className="w-full min-h-[44px] px-3.5 py-2.5 rounded-md bg-[#12141c] border border-white/10 text-white text-sm focus:border-[#c5a880] focus:outline-none"
+                        className="w-full min-h-[44px] px-3.5 py-2.5 rounded-md bg-[#08090e] border border-white/10 text-white text-sm focus:border-[#d4af37] focus:outline-none"
                       />
                     </div>
                   </div>
@@ -352,7 +352,7 @@ export default function BottleServiceCalculator({
                     <div>
                       <label
                         htmlFor="vip-party-size"
-                        className="text-[11px] font-mono text-[#a1a1aa] block mb-1.5 uppercase tracking-wider"
+                        className="text-[11px] font-mono text-[#9ea2ac] block mb-1.5 uppercase tracking-wider"
                       >
                         Party Size ({guestCount} Guests)
                       </label>
@@ -363,15 +363,15 @@ export default function BottleServiceCalculator({
                         max="20"
                         value={guestCount}
                         onChange={(e) => setGuestCount(parseInt(e.target.value, 10))}
-                        className="w-full min-h-[44px] accent-[#c5a880] cursor-pointer"
+                        className="w-full min-h-[44px] accent-[#d4af37] cursor-pointer"
                       />
                     </div>
 
                     <div>
-                      <span className="text-[11px] font-mono text-[#a1a1aa] block mb-1.5 uppercase tracking-wider">
+                      <span className="text-[11px] font-mono text-[#9ea2ac] block mb-1.5 uppercase tracking-wider">
                         Package Tier
                       </span>
-                      <div className="px-3.5 py-2 rounded-md bg-[#141620] text-xs font-mono text-[#e6d5b8] border border-white/10 min-h-[44px] flex items-center">
+                      <div className="px-3.5 py-2 rounded-md bg-[#08090e] text-xs font-mono text-[#f3e5ab] border border-white/10 min-h-[44px] flex items-center">
                         {selectedPackage.name} (${selectedPackage.price} CAD)
                       </div>
                     </div>
@@ -380,7 +380,7 @@ export default function BottleServiceCalculator({
                   <div>
                     <label
                       htmlFor="vip-requests"
-                      className="text-[11px] font-mono text-[#a1a1aa] block mb-1.5 uppercase tracking-wider"
+                      className="text-[11px] font-mono text-[#9ea2ac] block mb-1.5 uppercase tracking-wider"
                     >
                       Special Requests / Spirits Preferences
                     </label>
@@ -390,23 +390,23 @@ export default function BottleServiceCalculator({
                       value={specialRequests}
                       onChange={(e) => setSpecialRequests(e.target.value)}
                       placeholder="e.g. Clase Azul Reposado request, guest of honor name for announcement, champagne chilling preferences..."
-                      className="w-full px-3.5 py-2.5 rounded-md bg-[#12141c] border border-white/10 text-white text-sm focus:border-[#c5a880] focus:outline-none"
+                      className="w-full px-3.5 py-2.5 rounded-md bg-[#08090e] border border-white/10 text-white text-sm focus:border-[#d4af37] focus:outline-none"
                     />
                   </div>
 
                   <div className="pt-3 flex flex-col sm:flex-row gap-3">
                     <button
                       type="submit"
-                      className="flex-1 min-h-[46px] py-3 px-6 rounded-md bg-[#c5a880] hover:bg-[#d4af37] text-[#08090b] font-semibold text-xs uppercase tracking-[0.15em] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                      className="flex-1 min-h-[48px] py-3.5 px-6 rounded-md bg-[#d4af37] hover:bg-[#e6c34e] text-[#040507] font-sculpted font-bold text-xs uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-black/80"
                     >
-                      <Sparkles className="w-4 h-4" />
+                      <Sparkles className="w-4 h-4 text-[#040507]" />
                       <span>SUBMIT TABLE REQUEST</span>
                     </button>
 
                     <button
                       type="button"
                       onClick={handleWhatsAppBooking}
-                      className="min-h-[46px] py-3 px-6 rounded-md border border-emerald-500/30 bg-emerald-950/20 hover:bg-emerald-950/40 text-emerald-300 font-medium text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                      className="min-h-[48px] py-3.5 px-6 rounded-md border border-emerald-500/30 bg-emerald-950/20 hover:bg-emerald-950/40 text-emerald-300 font-sculpted font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer"
                     >
                       <MessageCircle className="w-4 h-4 text-emerald-400" />
                       <span>Instant WhatsApp</span>
@@ -417,37 +417,37 @@ export default function BottleServiceCalculator({
             </div>
 
             {/* Live Pricing Summary & VIP Host Contact (5 cols) */}
-            <div className="lg:col-span-5 bg-[#12141c] border border-white/10 rounded-xl p-6 sm:p-8 flex flex-col justify-between space-y-6">
+            <div className="lg:col-span-5 bg-[#0b0d13] border border-white/10 rounded-xl p-6 sm:p-8 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
-                <span className="text-[10px] font-mono text-[#c5a880] uppercase tracking-widest font-bold block">
+                <span className="text-[10px] font-sculpted text-[#d4af37] uppercase tracking-widest font-bold block">
                   ESTIMATED COMMITMENT SUMMARY
                 </span>
 
                 <div className="space-y-3 pb-4 border-b border-white/10 text-xs">
                   <div className="flex justify-between">
-                    <span className="text-[#a1a1aa]">Preferred Table:</span>
+                    <span className="text-[#9ea2ac]">Preferred Table:</span>
                     <span className="font-semibold text-white">{initialBooth}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#a1a1aa]">Table Min. Spend:</span>
-                    <span className="font-mono text-[#e6d5b8]">${initialMinSpend} CAD</span>
+                    <span className="text-[#9ea2ac]">Table Min. Spend:</span>
+                    <span className="font-mono text-[#f3e5ab]">${initialMinSpend} CAD</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#a1a1aa]">Package Selection:</span>
+                    <span className="text-[#9ea2ac]">Package Selection:</span>
                     <span className="font-semibold text-white">
                       {selectedPackage.name} (${selectedPackage.price} CAD)
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#a1a1aa]">Party Capacity:</span>
+                    <span className="text-[#9ea2ac]">Party Capacity:</span>
                     <span className="font-semibold text-white">{guestCount} Guests</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#a1a1aa]">Occasion:</span>
-                    <span className="font-semibold text-[#e6d5b8] capitalize">{occasion}</span>
+                    <span className="text-[#9ea2ac]">Occasion:</span>
+                    <span className="font-semibold text-[#f3e5ab] capitalize">{occasion}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#a1a1aa]">Bottle Presentation:</span>
+                    <span className="text-[#9ea2ac]">Bottle Presentation:</span>
                     <span className="text-emerald-400 flex items-center gap-1 font-mono">
                       ✓ Included
                     </span>
@@ -456,12 +456,12 @@ export default function BottleServiceCalculator({
 
                 <div className="space-y-1">
                   <div className="flex items-baseline justify-between">
-                    <span className="text-xs text-[#a1a1aa]">Total Bottle Credit:</span>
-                    <span className="text-3xl font-mono font-bold text-[#e6d5b8]">
+                    <span className="text-xs text-[#9ea2ac]">Total Bottle Credit:</span>
+                    <span className="text-3xl font-mono font-bold text-[#f3e5ab]">
                       ${calculateTotal()} CAD
                     </span>
                   </div>
-                  <div className="text-[11px] text-[#71717a] leading-tight">
+                  <div className="text-[11px] text-[#6b707d] leading-tight">
                     *100% applied toward bottle and beverage orders. No venue cover charges for
                     table guests.
                   </div>
@@ -469,17 +469,17 @@ export default function BottleServiceCalculator({
               </div>
 
               {/* Direct Venue RSVP Contact Box */}
-              <div className="p-4 rounded-lg bg-[#0b0d12] border border-white/10 space-y-2.5">
-                <div className="text-xs text-[#a1a1aa] flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-[#c5a880]" />
+              <div className="p-4 rounded-lg bg-[#040507] border border-white/10 space-y-2.5">
+                <div className="text-xs text-[#9ea2ac] flex items-center gap-2">
+                  <Phone className="w-3.5 h-3.5 text-[#d4af37]" />
                   <span>Direct phone line to our VIP Concierge:</span>
                 </div>
                 <a
                   href="tel:+14374730042"
-                  className="w-full min-h-[44px] py-2.5 px-4 rounded-md bg-[#161922] hover:bg-[#1d212e] text-white text-xs font-mono font-bold flex items-center justify-center gap-2 border border-white/10 transition-colors"
+                  className="w-full min-h-[44px] py-2.5 px-4 rounded-md bg-[#0b0d13] hover:bg-[#141722] text-white text-xs font-mono font-bold flex items-center justify-center gap-2 border border-white/10 transition-colors"
                 >
                   <span>CALL +1 (437) 473-0042</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#c5a880]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#d4af37]" />
                 </a>
               </div>
             </div>

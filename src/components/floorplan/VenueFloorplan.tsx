@@ -121,15 +121,15 @@ export default function VenueFloorplan({ onSelectBooth, language }: VenueFloorpl
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-14 space-y-4">
-          <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase block">
+          <span className="font-sculpted text-xs tracking-[0.25em] text-[#d4af37] uppercase block font-semibold">
             ARCHITECTURAL SEATING SCHEMATIC
           </span>
 
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
-            {language === "en" ? "VIP BOOTHS & SEATING PLAN" : "የቦታ ካርታ እና የቪአይፒ መቀመጫዎች"}
+          <h2 className="font-editorial text-3xl sm:text-5xl font-normal text-white tracking-tight">
+            {language === "en" ? "VIP Booths & Seating Plan" : "የቦታ ካርታ እና የቪአይፒ መቀመጫዎች"}
           </h2>
 
-          <p className="text-sm sm:text-base text-[#a1a1aa]">
+          <p className="text-sm sm:text-base text-[#9ea2ac]">
             {language === "en"
               ? "Select your preferred seating area on our venue schematic to inspect guest capacity, minimum spend parameters, and reserve directly with our concierge."
               : "የሚፈልጉትን የቪአይፒ ጠረጴዛ ይምረጡ፤ የሰው ብዛት፣ ዝቅተኛ ወጪ እና ጥቅማጥቅሞችን ይመልከቱ።"}
@@ -138,48 +138,49 @@ export default function VenueFloorplan({ onSelectBooth, language }: VenueFloorpl
 
         {/* 2-Column Layout: Interactive Floor Map + Detail Card */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Architectural Floor Map (7 cols) */}
-          <div className="lg:col-span-7 bg-[#0f1117] border border-white/10 rounded-xl p-6 sm:p-8 shadow-xl relative">
-            <div className="flex items-center justify-between pb-4 mb-6 border-b border-white/10">
-              <span className="text-[11px] font-mono tracking-widest text-[#71717a] uppercase">
-                364 QUEEN ST E • VENUE INTERIOR
-              </span>
-              <span className="text-[11px] font-mono text-[#c5a880] flex items-center gap-1.5 tracking-wider">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880]" />
+          {/* Schematic Diagram (7 cols) */}
+          <div className="lg:col-span-7 bg-[#0b0d13] border border-white/10 rounded-xl p-5 sm:p-7 shadow-2xl relative">
+            <div className="flex items-center justify-between text-[11px] font-mono text-[#6b707d] uppercase tracking-widest pb-4 border-b border-white/10 mb-6">
+              <span>364 QUEEN ST E • VENUE INTERIOR</span>
+              <span className="flex items-center gap-1.5 text-[#d4af37]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37] animate-pulse" />
                 SELECT ANY BOOTH TO INSPECT
               </span>
             </div>
 
+            {/* Layout Grid */}
             <div className="space-y-4">
-              {/* DJ STAGE & LED WALL */}
-              <div className="bg-[#151821] border border-white/15 text-white p-3.5 rounded-lg text-center">
-                <span className="font-serif font-semibold text-xs tracking-[0.2em] text-[#e6d5b8] block uppercase">
+              {/* DJ STAGE & ACOUSTIC WALL */}
+              <div className="bg-[#12141c] border border-white/15 rounded-lg py-3 px-4 text-center">
+                <span className="font-editorial text-sm tracking-[0.2em] text-[#f3e5ab] uppercase block">
                   DJ STAGE & ACOUSTIC WALL
                 </span>
-                <span className="text-[10px] text-[#71717a] font-mono tracking-wider block mt-0.5">
+                <span className="text-[10px] text-[#6b707d] font-mono tracking-wider block mt-0.5">
                   WEEKEND HEADLINERS • AFROBEATS • R&B • AMAPIANO
                 </span>
               </div>
 
-              {/* STAGE VIP BOOTHS A & B */}
+              {/* STAGE VIP BOOTHS (A & B) */}
               <div className="grid grid-cols-2 gap-3">
                 <button
                   type="button"
                   onClick={() => setSelectedBooth(BOOTHS[0])}
-                  className={`p-4 rounded-lg text-left border transition-all cursor-pointer min-h-[44px] ${
+                  className={`p-3.5 sm:p-4 rounded-lg text-left border transition-all cursor-pointer min-h-[44px] ${
                     selectedBooth.id === "stage-vip-a"
-                      ? "bg-[#1d2130] border-[#c5a880] shadow-md"
-                      : "bg-[#12141c] border-white/10 hover:border-white/20 hover:bg-[#161924]"
+                      ? "bg-[#161a26] border-[#d4af37] shadow-lg shadow-[#d4af37]/10"
+                      : "bg-[#0f1118] border-white/10 hover:border-white/20 hover:bg-[#141722]"
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="font-serif font-bold text-xs sm:text-sm text-white">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5 sm:gap-2 mb-1">
+                    <span className="font-editorial font-bold text-xs sm:text-sm text-white whitespace-nowrap">
                       VIP BOOTH A
                     </span>
-                    <span className="text-[10px] font-mono text-[#c5a880]">10 GUESTS</span>
+                    <span className="text-[10px] font-mono text-[#d4af37] whitespace-nowrap">
+                      10 GUESTS
+                    </span>
                   </div>
-                  <div className="text-[11px] text-[#71717a]">Stage Left Center</div>
-                  <div className="text-xs font-mono font-bold text-[#e6d5b8] mt-2">
+                  <div className="text-[11px] text-[#6b707d]">Stage Left Center</div>
+                  <div className="text-xs font-mono font-bold text-[#f3e5ab] mt-2">
                     Min. $750 CAD
                   </div>
                 </button>
@@ -187,31 +188,33 @@ export default function VenueFloorplan({ onSelectBooth, language }: VenueFloorpl
                 <button
                   type="button"
                   onClick={() => setSelectedBooth(BOOTHS[1])}
-                  className={`p-4 rounded-lg text-left border transition-all cursor-pointer min-h-[44px] ${
+                  className={`p-3.5 sm:p-4 rounded-lg text-left border transition-all cursor-pointer min-h-[44px] ${
                     selectedBooth.id === "stage-vip-b"
-                      ? "bg-[#1d2130] border-[#c5a880] shadow-md"
-                      : "bg-[#12141c] border-white/10 hover:border-white/20 hover:bg-[#161924]"
+                      ? "bg-[#161a26] border-[#d4af37] shadow-lg shadow-[#d4af37]/10"
+                      : "bg-[#0f1118] border-white/10 hover:border-white/20 hover:bg-[#141722]"
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="font-serif font-bold text-xs sm:text-sm text-white">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5 sm:gap-2 mb-1">
+                    <span className="font-editorial font-bold text-xs sm:text-sm text-white whitespace-nowrap">
                       VIP BOOTH B
                     </span>
-                    <span className="text-[10px] font-mono text-[#c5a880]">10 GUESTS</span>
+                    <span className="text-[10px] font-mono text-[#d4af37] whitespace-nowrap">
+                      10 GUESTS
+                    </span>
                   </div>
-                  <div className="text-[11px] text-[#71717a]">Stage Right Center</div>
-                  <div className="text-xs font-mono font-bold text-[#e6d5b8] mt-2">
+                  <div className="text-[11px] text-[#6b707d]">Stage Right Center</div>
+                  <div className="text-xs font-mono font-bold text-[#f3e5ab] mt-2">
                     Min. $750 CAD
                   </div>
                 </button>
               </div>
 
               {/* DANCE FLOOR (CENTRAL ZONE) */}
-              <div className="bg-[#12141c] border border-white/10 rounded-lg py-7 px-4 text-center space-y-1">
-                <span className="font-serif font-medium text-xs tracking-[0.2em] text-[#d4d4d8] uppercase block">
+              <div className="bg-[#0f1118] border border-white/10 rounded-lg py-7 px-4 text-center space-y-1">
+                <span className="font-editorial text-sm tracking-[0.2em] text-[#e4e4e7] uppercase block">
                   CENTRAL LOUNGE DANCE FLOOR
                 </span>
-                <span className="text-[10px] text-[#71717a] font-mono tracking-wider block">
+                <span className="text-[10px] text-[#6b707d] font-mono tracking-wider block">
                   ARCHITECTURAL LIGHTING CANOPY
                 </span>
               </div>
@@ -223,13 +226,13 @@ export default function VenueFloorplan({ onSelectBooth, language }: VenueFloorpl
                   onClick={() => setSelectedBooth(BOOTHS[2])}
                   className={`p-3 rounded-lg text-left border transition-all cursor-pointer min-h-[44px] ${
                     selectedBooth.id === "main-booth-1"
-                      ? "bg-[#1d2130] border-[#c5a880] shadow-md"
-                      : "bg-[#12141c] border-white/10 hover:border-white/20 hover:bg-[#161924]"
+                      ? "bg-[#161a26] border-[#d4af37] shadow-lg shadow-[#d4af37]/10"
+                      : "bg-[#0f1118] border-white/10 hover:border-white/20 hover:bg-[#141722]"
                   }`}
                 >
-                  <div className="font-serif font-bold text-xs text-white">BOOTH 1</div>
-                  <div className="text-[10px] text-[#71717a]">Main Salon</div>
-                  <div className="text-[11px] font-mono font-bold text-[#e6d5b8] mt-1.5">
+                  <div className="font-editorial font-bold text-xs text-white">BOOTH 1</div>
+                  <div className="text-[10px] text-[#6b707d]">Main Salon</div>
+                  <div className="text-[11px] font-mono font-bold text-[#f3e5ab] mt-1.5">
                     Min. $500
                   </div>
                 </button>
@@ -239,13 +242,13 @@ export default function VenueFloorplan({ onSelectBooth, language }: VenueFloorpl
                   onClick={() => setSelectedBooth(BOOTHS[3])}
                   className={`p-3 rounded-lg text-left border transition-all cursor-pointer min-h-[44px] ${
                     selectedBooth.id === "main-booth-2"
-                      ? "bg-[#1d2130] border-[#c5a880] shadow-md"
-                      : "bg-[#12141c] border-white/10 hover:border-white/20 hover:bg-[#161924]"
+                      ? "bg-[#161a26] border-[#d4af37] shadow-lg shadow-[#d4af37]/10"
+                      : "bg-[#0f1118] border-white/10 hover:border-white/20 hover:bg-[#141722]"
                   }`}
                 >
-                  <div className="font-serif font-bold text-xs text-white">BOOTH 2</div>
-                  <div className="text-[10px] text-[#71717a]">Main Salon</div>
-                  <div className="text-[11px] font-mono font-bold text-[#e6d5b8] mt-1.5">
+                  <div className="font-editorial font-bold text-xs text-white">BOOTH 2</div>
+                  <div className="text-[10px] text-[#6b707d]">Main Salon</div>
+                  <div className="text-[11px] font-mono font-bold text-[#f3e5ab] mt-1.5">
                     Min. $500
                   </div>
                 </button>
@@ -255,13 +258,13 @@ export default function VenueFloorplan({ onSelectBooth, language }: VenueFloorpl
                   onClick={() => setSelectedBooth(BOOTHS[4])}
                   className={`p-3 rounded-lg text-left border transition-all cursor-pointer min-h-[44px] ${
                     selectedBooth.id === "main-booth-3"
-                      ? "bg-[#1d2130] border-[#c5a880] shadow-md"
-                      : "bg-[#12141c] border-white/10 hover:border-white/20 hover:bg-[#161924]"
+                      ? "bg-[#161a26] border-[#d4af37] shadow-lg shadow-[#d4af37]/10"
+                      : "bg-[#0f1118] border-white/10 hover:border-white/20 hover:bg-[#141722]"
                   }`}
                 >
-                  <div className="font-serif font-bold text-xs text-white">BOOTH 3</div>
-                  <div className="text-[10px] text-[#71717a]">Main Salon</div>
-                  <div className="text-[11px] font-mono font-bold text-[#e6d5b8] mt-1.5">
+                  <div className="font-editorial font-bold text-xs text-white">BOOTH 3</div>
+                  <div className="text-[10px] text-[#6b707d]">Main Salon</div>
+                  <div className="text-[11px] font-mono font-bold text-[#f3e5ab] mt-1.5">
                     Min. $400
                   </div>
                 </button>
@@ -274,26 +277,26 @@ export default function VenueFloorplan({ onSelectBooth, language }: VenueFloorpl
                   onClick={() => setSelectedBooth(BOOTHS[5])}
                   className={`sm:col-span-5 p-3.5 rounded-lg text-left border transition-all cursor-pointer min-h-[44px] ${
                     selectedBooth.id === "corner-vip"
-                      ? "bg-[#1d2130] border-[#c5a880] shadow-md"
-                      : "bg-[#12141c] border-white/10 hover:border-white/20 hover:bg-[#161924]"
+                      ? "bg-[#161a26] border-[#d4af37] shadow-lg shadow-[#d4af37]/10"
+                      : "bg-[#0f1118] border-white/10 hover:border-white/20 hover:bg-[#141722]"
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-serif font-bold text-xs text-white">CORNER VIP</span>
-                    <span className="text-[10px] font-mono text-[#c5a880]">8 GUESTS</span>
+                    <span className="font-editorial font-bold text-xs text-white">CORNER VIP</span>
+                    <span className="text-[10px] font-mono text-[#d4af37]">8 GUESTS</span>
                   </div>
-                  <div className="text-[10px] text-[#71717a]">Elevated Nook</div>
-                  <div className="text-xs font-mono font-bold text-[#e6d5b8] mt-1.5">
+                  <div className="text-[10px] text-[#6b707d]">Elevated Nook</div>
+                  <div className="text-xs font-mono font-bold text-[#f3e5ab] mt-1.5">
                     Min. $600 CAD
                   </div>
                 </button>
 
                 {/* MARBLE ISLAND BAR */}
-                <div className="sm:col-span-7 bg-[#151821] border border-white/15 rounded-lg p-3.5 text-center flex flex-col justify-center">
-                  <span className="font-serif font-semibold text-xs tracking-wider text-white block">
+                <div className="sm:col-span-7 bg-[#0f1118] border border-white/15 rounded-lg p-3.5 text-center flex flex-col justify-center">
+                  <span className="font-editorial font-normal text-xs tracking-wider text-white block">
                     MARBLE ISLAND COCKTAIL BAR
                   </span>
-                  <span className="text-[10px] text-[#71717a] font-mono mt-0.5">
+                  <span className="text-[10px] text-[#6b707d] font-mono mt-0.5">
                     25 UPHOLSTERED BAR STOOLS • WALK-INS ALWAYS WELCOME
                   </span>
                 </div>
@@ -302,34 +305,34 @@ export default function VenueFloorplan({ onSelectBooth, language }: VenueFloorpl
           </div>
 
           {/* Selected Booth Detail & Fast Action Card (5 cols) */}
-          <div className="lg:col-span-5 bg-[#0f1117] border border-white/15 rounded-xl p-6 sm:p-8 shadow-xl space-y-6">
+          <div className="lg:col-span-5 bg-[#0b0d13] border border-white/15 rounded-xl p-6 sm:p-8 shadow-xl space-y-6">
             <div className="space-y-2.5">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono font-bold tracking-widest px-2.5 py-1 rounded-sm border border-[#c5a880]/30 bg-[#12141c] text-[#e6d5b8] uppercase">
+                <span className="text-[10px] font-sculpted font-bold tracking-widest px-2.5 py-1 rounded-sm border border-[#d4af37]/40 bg-[#040507] text-[#f3e5ab] uppercase">
                   {selectedBooth.category}
                 </span>
-                <span className="text-xs font-mono text-[#a1a1aa] flex items-center gap-1.5">
-                  <Users className="w-3.5 h-3.5 text-[#c5a880]" />
+                <span className="text-xs font-mono text-[#9ea2ac] flex items-center gap-1.5">
+                  <Users className="w-3.5 h-3.5 text-[#d4af37]" />
                   Capacity: {selectedBooth.capacity} Guests
                 </span>
               </div>
 
-              <h3 className="font-serif text-2xl font-bold text-white tracking-wide">
+              <h3 className="font-editorial text-3xl font-normal text-white tracking-wide">
                 {selectedBooth.name}
               </h3>
 
-              <p className="text-xs text-[#a1a1aa] leading-relaxed">{selectedBooth.description}</p>
+              <p className="text-xs text-[#9ea2ac] leading-relaxed">{selectedBooth.description}</p>
             </div>
 
             {/* Minimum Spend Card */}
-            <div className="bg-[#12141c] border border-white/10 rounded-lg p-4 space-y-2">
+            <div className="bg-[#040507] border border-white/10 rounded-lg p-4 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs text-[#a1a1aa]">Table Minimum Spend:</span>
-                <span className="text-xl font-mono font-bold text-[#e6d5b8]">
+                <span className="text-xs text-[#9ea2ac]">Table Minimum Spend:</span>
+                <span className="text-xl font-mono font-bold text-[#f3e5ab]">
                   ${selectedBooth.minSpend} CAD
                 </span>
               </div>
-              <div className="text-[11px] text-[#71717a] leading-tight">
+              <div className="text-[11px] text-[#6b707d] leading-tight">
                 Applicable towards premium spirits, champagne, and tapas. Taxes and gratuity added
                 at settlement.
               </div>
@@ -337,13 +340,13 @@ export default function VenueFloorplan({ onSelectBooth, language }: VenueFloorpl
 
             {/* Features list */}
             <div className="space-y-2.5">
-              <span className="text-xs font-semibold text-white uppercase tracking-wider block">
+              <span className="text-xs font-sculpted font-semibold text-white uppercase tracking-wider block">
                 Hospitality Inclusions:
               </span>
               <ul className="space-y-2">
                 {selectedBooth.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2.5 text-xs text-[#d4d4d8]">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#c5a880] flex-shrink-0 mt-0.5" />
+                  <li key={feature} className="flex items-start gap-2.5 text-xs text-[#9ea2ac]">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#d4af37] flex-shrink-0 mt-0.5" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -356,9 +359,9 @@ export default function VenueFloorplan({ onSelectBooth, language }: VenueFloorpl
               onClick={() =>
                 onSelectBooth(selectedBooth.name, selectedBooth.minSpend, selectedBooth.capacity)
               }
-              className="w-full min-h-[48px] py-3.5 px-6 rounded-md bg-[#c5a880] hover:bg-[#d4af37] text-[#08090b] font-semibold text-xs uppercase tracking-[0.15em] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+              className="w-full min-h-[48px] py-3.5 px-6 rounded-md bg-[#d4af37] hover:bg-[#e6c34e] text-[#040507] font-sculpted font-bold text-xs uppercase tracking-[0.18em] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-black/80"
             >
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-4 h-4 text-[#040507]" />
               <span>CONFIGURE RESERVATION</span>
               <ChevronRight className="w-4 h-4" />
             </button>

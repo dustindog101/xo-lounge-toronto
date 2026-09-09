@@ -50,27 +50,27 @@ export default function Footer() {
           {/* Brand Col */}
           <div className="space-y-4 md:col-span-1">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-md border border-[#c5a880]/40 bg-[#12141c] flex items-center justify-center font-serif font-bold text-lg text-[#e6d5b8]">
+              <div className="w-10 h-10 rounded-md border border-[#d4af37]/40 bg-[#0b0d13] flex items-center justify-center font-editorial font-bold text-lg text-[#f3e5ab]">
                 <span>XO</span>
               </div>
-              <span className="font-serif font-bold text-lg text-white tracking-[0.2em]">
+              <span className="font-editorial font-bold text-lg text-white tracking-[0.2em]">
                 XO LOUNGE
               </span>
             </Link>
 
-            <p className="text-xs text-[#a1a1aa] leading-relaxed">
+            <p className="text-xs text-[#9ea2ac] leading-relaxed">
               Toronto’s premier Queen East nightlife sanctuary. Custom architectural illumination,
               curated weekend resident DJs, craft diaspora mixology, and bespoke table service.
             </p>
 
-            <div className="text-xs font-mono text-[#c5a880]">
+            <div className="text-xs font-mono text-[#d4af37]">
               {language === "en" ? "Est. October 2025 • Toronto, ON" : "የተመሰረተበት: ጥቅምት 2025 • ቶሮንቶ"}
             </div>
           </div>
 
           {/* Experience Multi-Page Links */}
           <div className="space-y-3">
-            <span className="text-[10px] font-mono text-[#c5a880] font-bold uppercase tracking-widest block">
+            <span className="text-[10px] font-sculpted text-[#d4af37] font-bold uppercase tracking-widest block">
               EXPERIENCE
             </span>
             <ul className="space-y-2 text-xs">
@@ -99,7 +99,7 @@ export default function Footer() {
 
           {/* Celebrations & Buyouts Links */}
           <div className="space-y-3">
-            <span className="text-[10px] font-mono text-[#c5a880] font-bold uppercase tracking-widest block">
+            <span className="text-[10px] font-sculpted text-[#d4af37] font-bold uppercase tracking-widest block">
               SPECIAL OCCASIONS
             </span>
             <ul className="space-y-2 text-xs">
@@ -128,23 +128,23 @@ export default function Footer() {
 
           {/* Direct Contact & Socials */}
           <div className="space-y-4">
-            <span className="text-[10px] font-mono text-[#c5a880] font-bold uppercase tracking-widest block">
+            <span className="text-[10px] font-sculpted text-[#d4af37] font-bold uppercase tracking-widest block">
               CONCIERGE & RSVP
             </span>
 
             <div className="space-y-2.5 text-xs">
               <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-[#c5a880]" />
+                <MapPin className="w-3.5 h-3.5 text-[#d4af37]" />
                 <span>364 Queen St E, Toronto, M5A 1T1</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-[#c5a880]" />
+                <Phone className="w-3.5 h-3.5 text-[#d4af37]" />
                 <a href="tel:+14374730042" className="hover:text-white font-mono font-semibold">
                   +1 (437) 473-0042
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-[#c5a880]" />
+                <Mail className="w-3.5 h-3.5 text-[#d4af37]" />
                 <a href="mailto:info@xolounge.ca" className="hover:text-white font-mono">
                   info@xolounge.ca
                 </a>
@@ -156,30 +156,30 @@ export default function Footer() {
                 href="https://www.instagram.com/xo_lounge_toronto/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-md bg-[#12141c] hover:bg-[#181a24] text-white flex items-center justify-center border border-white/10 transition-colors"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-md bg-[#0b0d13] hover:bg-[#141722] text-white flex items-center justify-center border border-white/10 transition-colors"
                 aria-label="Instagram"
               >
-                <InstagramIcon className="w-4 h-4 text-[#c5a880]" />
+                <InstagramIcon className="w-4 h-4 text-[#d4af37]" />
               </a>
               <a
                 href="https://www.facebook.com/xoloungetoronto/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-md bg-[#12141c] hover:bg-[#181a24] text-white flex items-center justify-center border border-white/10 transition-colors"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-md bg-[#0b0d13] hover:bg-[#141722] text-white flex items-center justify-center border border-white/10 transition-colors"
                 aria-label="Facebook"
               >
-                <FacebookIcon className="w-4 h-4 text-[#c5a880]" />
+                <FacebookIcon className="w-4 h-4 text-[#d4af37]" />
               </a>
             </div>
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#71717a] gap-4">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#6b707d] gap-4">
           <div>
             © {new Date().getFullYear()} XO Lounge Toronto. All rights reserved. 19+ Legal Drinking
             Age strictly enforced.
           </div>
-          <div className="font-mono text-[11px] text-[#c5a880]">
+          <div className="font-mono text-[11px] text-[#d4af37]">
             {language === "en" ? "ስለጎበኙን እናመሰግናለን • Welcome Always" : "ስለጎበኙን እናመሰግናለን"}
           </div>
         </div>

@@ -20,20 +20,20 @@ export default function VenueInfo({ language }: InfoProps) {
   return (
     <section
       id="location"
-      className="py-24 bg-[#08090b] border-t border-white/5 relative scroll-mt-28"
+      className="py-24 bg-[#040507] border-t border-white/5 relative scroll-mt-28"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-14 space-y-4">
-          <span className="font-mono text-xs tracking-[0.25em] text-[#c5a880] uppercase block">
+          <span className="font-sculpted text-xs tracking-[0.25em] text-[#d4af37] uppercase block font-semibold">
             LOCATION & GUEST CONCIERGE
           </span>
 
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
-            {language === "en" ? "LOCATION & OPERATING HOURS" : "አድራሻ እና የስራ ሰዓት"}
+          <h2 className="font-editorial text-3xl sm:text-5xl font-normal text-white tracking-tight">
+            {language === "en" ? "Location & Operating Hours" : "አድራሻ እና የስራ ሰዓት"}
           </h2>
 
-          <p className="text-sm sm:text-base text-[#a1a1aa]">
+          <p className="text-sm sm:text-base text-[#9ea2ac]">
             {language === "en"
               ? "Conveniently situated at 364 Queen St East near Parliament Street in Toronto's historic Corktown neighborhood."
               : "በቶሮንቶ ኮርክታውን አካባቢ፣ 364 ንግሥት ጎዳና ምስራቅ ላይ ይገኛል።"}
@@ -43,38 +43,40 @@ export default function VenueInfo({ language }: InfoProps) {
         {/* 3 Column Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Col 1: Contact & Location */}
-          <div className="bg-[#0e1017] border border-white/10 p-8 space-y-6 flex flex-col justify-between shadow-xl">
+          <div className="bg-[#0b0d13] border border-white/10 p-8 space-y-6 flex flex-col justify-between shadow-xl">
             <div className="space-y-6">
-              <span className="font-mono text-xs text-[#c5a880] font-bold uppercase tracking-[0.2em] block">
+              <span className="font-sculpted text-xs text-[#d4af37] font-bold uppercase tracking-[0.2em] block">
                 VENUE ADDRESS & ACCESS
               </span>
 
               <div className="space-y-4">
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 bg-[#141722] text-[#c5a880] border border-white/5 mt-0.5">
+                  <div className="p-2.5 bg-[#12141c] text-[#d4af37] border border-white/5 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="font-serif font-bold text-white text-base">XO Lounge Toronto</h4>
+                    <h4 className="font-editorial font-bold text-white text-base">
+                      XO Lounge Toronto
+                    </h4>
                     <p className="text-sm text-[#d4d4d8] mt-0.5">364 Queen St East</p>
-                    <p className="text-xs text-[#a1a1aa]">Toronto, ON, Canada, M5A 1T1</p>
-                    <span className="text-[11px] font-mono text-[#c5a880] block mt-1">
+                    <p className="text-xs text-[#9ea2ac]">Toronto, ON, Canada, M5A 1T1</p>
+                    <span className="text-[11px] font-mono text-[#d4af37] block mt-1">
                       Cross street: Parliament St
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 bg-[#141722] text-[#c5a880] border border-white/5 mt-0.5">
+                  <div className="p-2.5 bg-[#12141c] text-[#d4af37] border border-white/5 mt-0.5">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[11px] text-[#71717a] block font-mono uppercase tracking-wider">
+                    <span className="text-[11px] text-[#6b707d] block font-mono uppercase tracking-wider">
                       Concierge & RSVP:
                     </span>
                     <a
                       href="tel:+14374730042"
-                      className="text-sm font-mono font-bold text-[#e6d5b8] hover:text-white transition-colors"
+                      className="text-sm font-mono font-bold text-[#f3e5ab] hover:text-white transition-colors"
                     >
                       +1 (437) 473-0042
                     </a>
@@ -82,11 +84,11 @@ export default function VenueInfo({ language }: InfoProps) {
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 bg-[#141722] text-[#c5a880] border border-white/5 mt-0.5">
+                  <div className="p-2.5 bg-[#12141c] text-[#d4af37] border border-white/5 mt-0.5">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[11px] text-[#71717a] block font-mono uppercase tracking-wider">
+                    <span className="text-[11px] text-[#6b707d] block font-mono uppercase tracking-wider">
                       Email Concierge:
                     </span>
                     <a
@@ -100,14 +102,14 @@ export default function VenueInfo({ language }: InfoProps) {
               </div>
 
               {/* Transit & Parking Details */}
-              <div className="p-4 bg-[#12141c] border border-white/5 space-y-2.5 text-xs text-[#a1a1aa]">
+              <div className="p-4 bg-[#040507] border border-white/5 space-y-2.5 text-xs text-[#9ea2ac]">
                 <div className="flex items-center gap-2 text-white font-medium">
-                  <Bus className="w-3.5 h-3.5 text-[#c5a880]" />
+                  <Bus className="w-3.5 h-3.5 text-[#d4af37]" />
                   <span>TTC 501 Queen Streetcar</span>
                 </div>
                 <p>Steps from the Queen & Parliament stop. 24-hour transit access.</p>
                 <div className="flex items-center gap-2 text-white font-medium pt-1">
-                  <Car className="w-3.5 h-3.5 text-[#c5a880]" />
+                  <Car className="w-3.5 h-3.5 text-[#d4af37]" />
                   <span>Street & Municipal Parking</span>
                 </div>
                 <p>Street parking on Queen St E and adjacent Corktown side streets after 6 PM.</p>
@@ -118,7 +120,7 @@ export default function VenueInfo({ language }: InfoProps) {
               href="https://maps.google.com/?q=364+Queen+St+E,+Toronto,+ON+M5A+1T1"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full min-h-[44px] py-3 px-4 rounded-sm bg-[#c5a880] hover:bg-[#d4af37] text-[#07080a] text-xs font-semibold uppercase tracking-[0.18em] flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
+              className="w-full min-h-[48px] py-3 px-4 rounded-sm bg-[#d4af37] hover:bg-[#e6c34e] text-[#040507] text-xs font-sculpted font-bold uppercase tracking-[0.18em] flex items-center justify-center gap-2 shadow-md shadow-black/80 transition-all cursor-pointer"
             >
               <Navigation className="w-3.5 h-3.5" />
               <span>Get Directions in Google Maps</span>
@@ -126,8 +128,8 @@ export default function VenueInfo({ language }: InfoProps) {
           </div>
 
           {/* Col 2: Operating Hours Schedule */}
-          <div className="bg-[#0e1017] border border-white/10 p-8 space-y-6 shadow-xl">
-            <span className="text-[10px] font-mono text-[#c5a880] font-bold uppercase tracking-widest block">
+          <div className="bg-[#0b0d13] border border-white/10 p-8 space-y-6 shadow-xl">
+            <span className="text-[10px] font-sculpted text-[#d4af37] font-bold uppercase tracking-widest block">
               WEEKLY OPERATING HOURS
             </span>
 
